@@ -127,7 +127,7 @@ Version: 1.0.0
   --main-container: 1464px;
   --container-gutters: 24px;
   --section-space: 120px;
-  --section-space-mobile: 80px;
+  --section-space-mobile: 50px;
   --section-title-space: 60px;
   --ripple-ani-duration: 5s;
   --th-body-background: #ffffff;
@@ -8438,7 +8438,7 @@ ol.wp-block-rss {
   color: var(--white-color);
   line-height: 1;
   border-bottom: 0;
-  padding: 0 0 18px 0;
+  padding: 10px 0 18px 0;
   margin: -0.1em 0 40px 0;
 }
 
@@ -13116,6 +13116,10 @@ ul.comment-list .th-comment-item:first-child:not(.children .th-comment-item)>.th
   .hero-style1 .sub-title {
     font-size: 18px;
   }
+
+  .hero-style1 {
+    padding: 160px 0;
+  }
 }
 
 /* Hero 2 --------------------------------------*/
@@ -17612,6 +17616,10 @@ span.select2-selection.select2-selection--single:focus {
     display: none;
   }
 
+  .tab-pane {
+    padding: 12px !important;
+  }
+
   .about-tab-wrap .about-tab {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -20768,199 +20776,206 @@ span.select2-selection.select2-selection--single:focus {
 
 /*------------------- 4.00. Faq -------------------*/
 /* Faq 1 ---------------------------------- */
-  space {
-        padding: 60px 0;
-      }
-     
-      .overflow-hidden {
-        overflow: hidden;
-      }
-     
-      .title-area {
-        margin-bottom: 40px;
-      }
-     
-      .sub-title {
-        color: #43a409;
-        font-weight: 600;
-        font-size: 14px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 10px;
-        display: block;
-      }
-     
-      .sec-title {
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: #1a1a1a;
-        margin-bottom: 0;
-      }
-     
-      /* FAQ Sidebar Styles */
-      .faq-sidebar {
-        background: #fff;
-        padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        margin-bottom: 30px;
-      }
-     
-      .sidebar-title {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: #1a1a1a;
-        margin-bottom: 20px;
-        padding-bottom: 10px;
-        border-bottom: 2px solid #43a409;
-      }
-     
-      .faq-menu {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-     
-      .faq-menu li {
-        margin-bottom: 10px;
-      }
-     
-      .faq-menu-item {
-        display: block;
-        padding: 15px 20px;
-        color: #666;
-        text-decoration: none;
-        background: #f8f9fa;
-        border-radius: 8px;
-        transition: all 0.3s ease;
-        font-weight: 500;
-        border-left: 4px solid transparent;
-      }
-     
-      .faq-menu-item:hover {
-        background: #e9ecef;
-        color: #333;
-        transform: translateX(5px);
-      }
-     
-      .faq-menu-item.active {
-        background: #43a409;
-        color: #fff;
-        border-left-color: #43a409;
-        transform: translateX(5px);
-      }
-     
-      /* FAQ Categories */
-      .faq-category {
-        display: none;
-        background: #fff;
-        padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-      }
-     
-      .faq-category.active {
-        display: block;
-        animation: fadeIn 0.5s ease-in-out;
-      }
-     
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-     
-      .category-title {
-        font-size: 1.75rem;
-        font-weight: 700;
-        color: #1a1a1a;
-        margin-bottom: 30px;
-        padding-bottom: 15px;
-        border-bottom: 2px solid #43a409;
-      }
-     
-      /* Accordion Styles */
-      .accordion-card {
-        margin-bottom: 20px;
-        border: 1px solid #e9ecef;
-        border-radius: 8px;
-        overflow: hidden;
-      }
-     
-      .accordion-header {
-        margin-bottom: 0;
-      }
-     
-      .accordion-button {
-        background: #fff;
-        color: #333;
-        font-weight: 600;
-        font-size: 1.1rem;
-        padding: 20px 25px;
-        border: none;
-        box-shadow: none;
-        position: relative;
-      }
-     
-      .accordion-button:not(.collapsed) {
-        background: #43a409;
-        color: #fff;
-      }
-     
-      .accordion-button:focus {
-        border-color: #43a409;
-        box-shadow: 0 0 0 0.25rem rgba(67, 164, 9, 0.25);
-      }
-     
-      .accordion-body {
-        padding: 25px;
-        background: #f8f9fa;
-      }
-     
-      .faq-text {
-        color: #666;
-        line-height: 1.6;
-        margin: 0;
-        font-size: 1rem;
-      }
-     
-      /* Image box */
-      .img-box1 {
-        position: relative;
-        text-align: center;
-        margin-bottom: 40px;
-      }
-     
-      .img2 img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 10px;
-      }
-     
-      .shadow-text {
-        position: absolute;
-        bottom: -20px;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 4rem;
-        font-weight: 900;
-        color: rgba(0,0,0,0.05);
-        z-index: -1;
-      }
-     
-      /* Responsive */
-      @media (max-width: 768px) {
-        .sec-title {
-          font-size: 2rem;
-        }
-       
-        .faq-sidebar {
-          margin-bottom: 30px;
-        }
-       
-        .shadow-text {
-          font-size: 2rem;
-        }
-      }
+space {
+  padding: 60px 0;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.title-area {
+  margin-bottom: 40px;
+}
+
+.sub-title {
+  color: #43a409;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.sec-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0;
+}
+
+/* FAQ Sidebar Styles */
+.faq-sidebar {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.sidebar-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #43a409;
+}
+
+.faq-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.faq-menu li {
+  margin-bottom: 10px;
+}
+
+.faq-menu-item {
+  display: block;
+  padding: 15px 20px;
+  color: #666;
+  text-decoration: none;
+  background: #f8f9fa;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  border-left: 4px solid transparent;
+}
+
+.faq-menu-item:hover {
+  background: #e9ecef;
+  color: #333;
+  transform: translateX(5px);
+}
+
+.faq-menu-item.active {
+  background: #43a409;
+  color: #fff;
+  border-left-color: #43a409;
+  transform: translateX(5px);
+}
+
+/* FAQ Categories */
+.faq-category {
+  display: none;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.faq-category.active {
+  display: block;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.category-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #43a409;
+}
+
+/* Accordion Styles */
+.accordion-card {
+  margin-bottom: 20px;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.accordion-header {
+  margin-bottom: 0;
+}
+
+.accordion-button {
+  background: #fff;
+  color: #333;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 20px 25px;
+  border: none;
+  box-shadow: none;
+  position: relative;
+}
+
+.accordion-button:not(.collapsed) {
+  background: #43a409;
+  color: #fff;
+}
+
+.accordion-button:focus {
+  border-color: #43a409;
+  box-shadow: 0 0 0 0.25rem rgba(67, 164, 9, 0.25);
+}
+
+.accordion-body {
+  padding: 25px;
+  background: #f8f9fa;
+}
+
+.faq-text {
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Image box */
+.img-box1 {
+  position: relative;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.img2 img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.shadow-text {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 4rem;
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.05);
+  z-index: -1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sec-title {
+    font-size: 2rem;
+  }
+
+  .faq-sidebar {
+    margin-bottom: 30px;
+  }
+
+  .shadow-text {
+    font-size: 2rem;
+  }
+}
 
 /*------------------- 4.00. Service -------------------*/
 /* Service Card ---------------------------------- */
@@ -26266,7 +26281,7 @@ span.select2-selection.select2-selection--single:focus {
 
 .tab-pane {
   border: 1px solid #f0f0f0;
-  padding: 20px;
+  padding: 25px;
   border-radius: 12px;
 }
 
@@ -26370,7 +26385,7 @@ span.select2-selection.select2-selection--single:focus {
 
 /* tarining calender pages css */
 .border-left-blue {
-  border-left: 4px solid #3282FB;
+  border-left: 4px solid var(--theme-color);
 }
 
 .event-description {
