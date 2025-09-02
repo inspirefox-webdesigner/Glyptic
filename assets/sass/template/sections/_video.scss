@@ -1,0 +1,28 @@
+.video-box-center {
+    position: relative;
+    .play-btn {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+/* Video Area 1 -------------------------------*/
+.video-thumb1-1 {
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    @include xs {
+        height: 300px;
+        .play-btn {
+            i {
+                --icon-font-size: 18px;
+            }
+        }
+    }
+}

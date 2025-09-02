@@ -1,0 +1,125 @@
+/* Blog Card ---------------------------------- */
+.blog-title {
+    font-size: 30px;
+}
+.blog-card {
+    .blog-img {
+        margin-bottom: 26px;
+        border-radius: 30px;
+        overflow: hidden;
+        img {
+            width: 100%;
+            transition: 0.4s;
+        }
+    }
+    .blog-meta {
+        margin-bottom: 18px;
+    }
+    .box-title {
+        margin-bottom: 13px;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.42em;
+        a {
+            color: $title-color;
+            background-image: linear-gradient(to left, $theme-color, $theme-color);
+            background-repeat: no-repeat;
+            background-position: bottom left;
+            background-size: 0 2px;
+            transition: 0.5s ease-in-out;
+            text-transform: capitalize;
+            &:hover {
+                color: $theme-color;
+                background-size: 100% 2px;
+            }
+        }
+        @include ml {
+            font-size: 24px;
+        }
+        @include xs {
+            font-size: 22px;
+        }
+    }
+    &:hover {
+        .blog-img {
+            img {
+                transform: scale(1.05);
+            }
+        }
+    }
+}
+
+/* Blog Card 2---------------------------------- */
+.blog-wrap2 {
+    max-width: 1720px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50px;
+}
+.blog-card.style2 {
+    .blog-meta {
+        span, 
+        a {
+            color: $light-color;
+            &:hover {
+                color: $theme-color;
+            }
+        }
+    }
+    .box-title {
+        margin-bottom: 23px;
+        a {
+            color: $white-color;
+            background-image: linear-gradient(to left, $theme-color, $theme-color);
+            background-repeat: no-repeat;
+            background-position: bottom left;
+            background-size: 0 2px;
+            transition: 0.5s ease-in-out;
+            &:hover {
+                color: $theme-color;
+                background-size: 100% 2px;
+            }
+        }
+    }
+}
+
+/* Blog Card 3---------------------------------- */
+.blog-slider3 {
+    --pos-x: -140px;
+}
+.blog-card3 {
+    .blog-img {
+        margin-bottom: 35px;
+        img {
+            width: 100%;
+        }
+    }
+    .blog-meta {
+        i {
+            &:before {
+                color: transparent;
+                background: linear-gradient(to left, $theme-color3, $theme-color);
+                -webkit-background-clip: text;
+            }
+        }
+    }
+    .box-title {
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 1.2777em;
+        margin-top: 8px;
+        margin-bottom: 29px;
+        @include xl {
+            font-size: 30px;
+        }
+        @include lg {
+            font-size: 24px;
+        }
+        @include md {
+            font-size: 30px;
+        }
+        @include sm {
+            font-size: 24px;
+        }
+    }
+}

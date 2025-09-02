@@ -1,0 +1,640 @@
+/* Why Choose Us Area ---------------------------------- */
+.why-img-box1 {
+    display: inline-block;
+    border-radius: 30px;
+    overflow: hidden;
+    max-width: 645px;
+}
+.why-card-wrap {
+    margin-left: -198px;
+    position: relative;
+    .circle-tag {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        @include sm {
+            position: relative;
+            margin-bottom: 50px;
+        }
+    }
+    @include ml {
+        margin-left: 0;
+    }
+}
+.why-card {
+    display: flex;
+    gap: 24px;
+    max-width: 379px;
+    @include vxs {
+        display: block;
+    }
+    &:not(:last-child) {
+        margin-bottom: 50px;
+    }
+    &:nth-last-child(2) {
+        margin-left: 380px;
+        @include xxl {
+            margin-left: 340px;
+        }
+        @include md {
+            margin-left: 300px;
+        }
+        @include sm {
+            margin-left: 0;
+        }
+    }
+    &:nth-last-child(1) {
+        margin-left: 380px;
+        @include xxl {
+            margin-left: 340px;
+        }
+        @include md {
+            margin-left: 300px;
+        }
+        @include sm {
+            margin-left: 0;
+        }
+    }
+    .box-number {
+        font-size: 36px;
+        font-weight: 700;
+        font-family: $title-font;
+        color: $black-color3;
+        @include xs {
+            font-size: 30px;
+        }
+        @include vxs {
+            margin-bottom: 24px;
+        }
+    }
+    .box-title {
+        font-size: 24px;
+        font-weight: 700;
+        color: $white-color;
+        margin-bottom: 8px;
+    }
+    .box-text {
+        max-width: 298px;
+    }
+}
+.why-counter-wrap-1 {
+    @include ml {
+        margin-top: -300px;
+    }
+    @include xl {
+        margin-top: -246px;
+    }
+    @include lg {
+        margin-top: 0;
+        margin-bottom: -150px;
+    }
+    @include md {
+        margin-bottom: -122px;
+    }
+    @include sm {
+        margin-bottom: 50px;
+    }
+    .why-counter-card {
+        text-align: end;
+        @include sm {
+            text-align: start;
+        }
+        .box-number {
+            margin-bottom: 0;
+            .counter-number {
+                font-size: 400px;
+                line-height: 0.74;
+                @include xxl {
+                    font-size: 300px;
+                }
+                @include ml {
+                    font-size: 250px;
+                }
+                @include xl {
+                    font-size: 200px;
+                }
+                @include lg {
+                    font-size: 140px;
+                }
+                @include md {
+                    font-size: 100px;
+                }
+                @include xs {
+                    font-size: 80px;
+                }
+            }
+            .counter-marker {
+                font-size: 200px;
+                -webkit-text-stroke: 1px $white-color;
+                color: transparent;
+                line-height: 0.8;
+                @include xxl {
+                    font-size: 170px;
+                }
+                @include ml {
+                    font-size: 140px;
+                }
+                @include xl {
+                    font-size: 120px;
+                }
+                @include lg {
+                    font-size: 100px;
+                }
+                @include md {
+                    font-size: 60px;
+                }
+                @include xs {
+                    font-size: 48px;
+                }
+            }
+        }
+        .counter-text {
+            font-size: 54px;
+            font-weight: 700;
+            max-width: 290px;
+            text-align: start;
+            margin-left: auto;
+            line-height: 1.185em;
+            margin-bottom: 0;
+            margin-top: 10px;
+            @include xxl {
+                font-size: 46px;
+                max-width: 250px;
+            }
+            @include ml {
+                font-size: 40px;
+                max-width: 215px;
+            }
+            @include xl {
+                font-size: 32px;
+                max-width: 172px;
+            }
+            @include lg {
+                font-size: 24px;
+                max-width: none;
+                display: inline-block;
+            }
+            @include xs {
+                margin-top: 20px;
+            }
+        }
+    }
+}
+.circle-tag {
+    display: inline-flex;
+    position: relative;
+    border: 38px solid rgba($color: #ffffff, $alpha: 0.3);
+    width: 244px;
+    height: 244px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    .icon-btn {
+        position: relative;
+        z-index: 6;
+        background: transparent;
+        width: auto;
+        height: auto;
+        font-size: 47px;
+    }
+}
+.circle-title-anime {
+    display: inline-block;
+    height: 223px;
+    width: 223px;
+    border-radius: 50%;
+    z-index: 1;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: $title-font;
+    color: $white-color;
+    line-height: normal;
+    text-align: center;
+    animation: spin 20s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -111.5px;
+    margin-top: -111.5px;
+    span {
+        --rotate-letter: 9.4deg;
+        height: 116px;
+        position: absolute;
+        width: 20px;
+        left: 45.5%;
+        top: -5px;
+        transform-origin: bottom;
+        transform: rotate(var(--rotate-letter));
+        &.char2 {
+            transform: rotate(calc(var(--rotate-letter) * 2));
+        }
+        &.char3 {
+            transform: rotate(calc(var(--rotate-letter) * 3));
+        }
+        &.char4 {
+            transform: rotate(calc(var(--rotate-letter) * 4));
+        }
+        &.char5 {
+            transform: rotate(calc(var(--rotate-letter) * 5));
+        }
+        &.char6 {
+            transform: rotate(calc(var(--rotate-letter) * 6));
+        }
+        &.char7 {
+            transform: rotate(calc(var(--rotate-letter) * 7));
+        }
+        &.char8 {
+            transform: rotate(calc(var(--rotate-letter) * 8));
+        }
+        &.char9 {
+            transform: rotate(calc(var(--rotate-letter) * 9));
+        }
+        &.char10 {
+            transform: rotate(calc(var(--rotate-letter) * 10));
+        }
+        &.char11 {
+            transform: rotate(calc(var(--rotate-letter) * 11));
+        }
+        &.char12 {
+            transform: rotate(calc(var(--rotate-letter) * 12));
+        }
+        &.char13 {
+            transform: rotate(calc(var(--rotate-letter) * 13));
+        }
+        &.char14 {
+            transform: rotate(calc(var(--rotate-letter) * 14));
+        }
+        &.char15 {
+            transform: rotate(calc(var(--rotate-letter) * 15));
+        }
+        &.char16 {
+            transform: rotate(calc(var(--rotate-letter) * 16));
+        }
+        &.char17 {
+            transform: rotate(calc(var(--rotate-letter) * 17));
+        }
+        &.char18 {
+            transform: rotate(calc(var(--rotate-letter) * 18));
+        }
+        &.char19 {
+            transform: rotate(calc(var(--rotate-letter) * 19));
+        }
+        &.char20 {
+            transform: rotate(calc(var(--rotate-letter) * 20));
+        }
+        &.char21 {
+            transform: rotate(calc(var(--rotate-letter) * 21));
+        }
+        &.char22 {
+            transform: rotate(calc(var(--rotate-letter) * 22));
+        }   
+        &.char23 {
+            transform: rotate(calc(var(--rotate-letter) * 23));
+        }            
+        &.char24 {
+            transform: rotate(calc(var(--rotate-letter) * 24));
+        }  
+        &.char25 {
+            transform: rotate(calc(var(--rotate-letter) * 25));
+        }    
+        &.char26 {
+            transform: rotate(calc(var(--rotate-letter) * 26));
+        }   
+        &.char27 {
+            transform: rotate(calc(var(--rotate-letter) * 27));
+        }   
+        &.char28 {
+            transform: rotate(calc(var(--rotate-letter) * 28));
+        }   
+        &.char29 {
+            transform: rotate(calc(var(--rotate-letter) * 29));
+        }   
+        &.char30 {
+            transform: rotate(calc(var(--rotate-letter) * 30));
+        }   
+        &.char31 {
+            transform: rotate(calc(var(--rotate-letter) * 31));
+        }
+        &.char32 {
+            transform: rotate(calc(var(--rotate-letter) * 32));
+        } 
+        &.char33 {
+            transform: rotate(calc(var(--rotate-letter) * 33));
+        } 
+        &.char34 {
+            transform: rotate(calc(var(--rotate-letter) * 34));
+        }   
+        &.char35 {
+            transform: rotate(calc(var(--rotate-letter) * 35));
+        } 
+        &.char36 {
+            transform: rotate(calc(var(--rotate-letter) * 36));
+        } 
+        &.char37 {
+            transform: rotate(calc(var(--rotate-letter) * 37));
+        } 
+        &.char38 {
+            transform: rotate(calc(var(--rotate-letter) * 38));
+        } 
+        &.char39 {
+            transform: rotate(calc(var(--rotate-letter) * 39));
+        } 
+        &.char40 {
+            transform: rotate(calc(var(--rotate-letter) * 40));
+        } 
+    }
+}
+
+/* Why Choose Us Area 2---------------------------------- */
+.why-wrap2 {
+    max-width: 1720px;
+    border-radius: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 126px;
+    @include ml {
+        margin-bottom: 0;
+    }
+}
+.why-card-wrap2 {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px 40px;
+    margin-right: -226px;
+    padding-bottom: 140px;
+    .circle-tag {
+        position: absolute;
+        bottom: -62px;
+        right: 0;
+    }
+    .why-card {
+        margin: 0;
+        position: relative;
+        padding-left: 40px;
+        &:before {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: $white-color;
+            left: 0;
+            top: 4px;
+        }
+    }
+    @include ml {
+        margin-right: 0;
+        padding-bottom: 100px;
+    }
+    @include sm {
+        grid-template-columns: repeat(1, 1fr);
+        padding-bottom: 80px;
+        .circle-tag {
+            position: relative;
+            bottom: 0;
+            right: auto;
+        }
+        .why-card {
+            max-width: none;
+            .box-text {
+                max-width: none;
+            }
+        }
+    }
+}
+.why-counter-wrap-2 {
+    display: flex;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.26);
+    backdrop-filter: blur(13.1px);
+    border-radius: 32px;
+    padding: 40px 60px 60px 40px;
+    margin-right: -526px;
+    gap: 43px;
+    position: relative;
+    z-index: 1;
+    transform: translate(0, 126px);
+    margin-top: -126px;
+    flex-wrap: wrap;
+    
+    .why-counter-content {
+        max-width: 352px;
+    }
+    .box-icon {
+        flex: none;
+    }
+    .box-title {
+        font-size: 24px;
+        font-weight: 700;
+        padding-top: 20px;
+        margin-bottom: 20px;
+    }
+    .why-counter-card {
+        margin-left: auto;
+        align-self: center;
+        .box-number {
+            font-size: 174px;
+            font-weight: 400;
+            margin-bottom: -0.3em;
+            margin-top: -0.24em;
+            @include lg {
+                font-size: 150px;
+            }
+            @include md {
+                font-size: 120px;
+            }
+            @include sm {
+                font-size: 100px;
+            }
+            @include vxs {
+                font-size: 80px;
+            }
+        }
+        .counter-marker {
+            font-size: 84px;
+            font-weight: 300;
+        }
+        .counter-text {
+            margin-bottom: -0.3em;
+            font-size: 25px;
+            font-weight: 500;
+            padding-top: 30px;
+        }
+        @include lg {
+            margin-right: auto;
+        }
+    }
+    @include ml {
+        margin-right: 0;
+        margin-top: 0;
+        transform: none;
+    }
+    @include sm {
+        padding: 40px;
+        gap: 35px;
+        .box-title {
+            padding-top: 0;
+        }
+        .why-counter-card {
+            margin-left: 0;
+        }
+        .why-counter-content {
+            max-width: none;
+        }
+    }
+    @include vxs {
+        padding: 30px;
+        gap: 30px;
+    }
+}
+
+.why-img-box2 {
+    position: relative;
+    display: inline-block;
+    margin-top: -100px;
+    .img2 {
+        position: absolute;
+        left: -200px;
+        top: 20px;
+    }
+    &:after {
+        content: '';
+        position: absolute;
+        width: 488px;
+        height: 488px;
+        background: $theme-color;
+        opacity: 0.8;
+        filter: blur(200px);
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        z-index: -1;
+    }
+    @include ml {
+        margin-top: 60px;
+        margin-bottom: 30px;
+    }
+    @include md {
+        display: block;
+        .img2 {
+            left: 0;
+        }
+    }
+}
+
+/* Why Choose Us Area 3---------------------------------- */
+.why-box3-1 {
+    width: 41.6666666667%;
+    position: relative;
+    padding-bottom: 90px;
+    .img1 {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    .img2 {
+        display: inline-block;
+        position: absolute;
+        right: -260px;
+        bottom: 0;
+        overflow: hidden;
+        border-radius: 20px 0 20px 20px;
+        img {
+            width: 100%;
+        }
+    }
+    @include hd {
+        .img1 {
+            max-width: 836px;
+            margin-left: auto;
+            border-radius: 20px 0 20px 20px;
+        }
+    }
+    @include ml {
+        .img2 {
+            right: -70px;
+        }
+    }
+    @include lg {
+        width: 100%;
+        padding-bottom: 0;
+        .img2 {
+            right: 0;
+        }
+    }
+    @include sm {
+        .img1 {
+            height: auto;
+        }
+        .img2 {
+            position: relative;
+            bottom: auto;
+            right: auto;
+            display: block;
+            margin: 60px 30px 60px;
+        }
+    }
+    @include xs {
+        .img2 {
+            margin: 60px 15px 60px;
+        }
+    }
+}
+.why-wrap3 {
+    display: flex;
+    flex-wrap: wrap;
+    .why-wrap-content {
+        width: 58.3333333333%;
+        padding: 120px 246px 120px 120px;
+        @include xxl {
+            padding: 120px 20px 120px 120px;
+        }
+        @include lg {
+            width: 100%;
+            padding: 120px 45px;
+        }
+        @include md {
+            padding: 80px 38px;
+        }
+        @include xs {
+            padding: 80px 15px;
+        }
+    }
+    .why-content {
+        max-width: 718px;
+        @include lg {
+            max-width: none;
+        }
+    }
+    .why-feature-wrap3 {
+        margin-left: 210px;
+        display: grid;         
+        grid-template-columns: repeat(2, 1fr);
+        gap: 60px;
+        @include xxl {
+            margin-left: 200px;
+        }
+        @include ml {
+            margin-left: 0;
+        }
+        @include xs {
+            grid-template-columns: repeat(1, 1fr);
+            gap: 30px;
+        }
+    }
+}
+.why-feature-card {
+    .box-title {
+        font-size: 22px;
+        font-weight: 500;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+    }
+}

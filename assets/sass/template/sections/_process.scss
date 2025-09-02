@@ -1,0 +1,228 @@
+/* Process Card ---------------------------------- */
+.process-card-wrap {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    @include lg {
+        gap: 40px 0;
+    }
+    &:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background: $border-color;
+        top: 344px;
+        left: 0;
+        right: 0;
+        @include lg {
+            display: none;
+        }
+    }
+    .process-card {
+        width: 25%;
+        @include lg {
+            width: 50%;
+        }
+        @include xs {
+            width: 100%;
+        }
+        &:nth-child(odd) {
+            flex-direction: column-reverse;
+            margin-top: 126px;
+            @include ml {
+                margin-top: 108px;
+            }
+            @include lg {
+                margin-top: 0;
+                flex-direction: column;
+            }
+        }
+        &:nth-child(even) {
+            align-content: start;
+            .box-thumb-wrap {
+                flex-direction: column-reverse;
+                align-self: start;
+            }
+            .box-number:after {
+                top: auto;
+                bottom: -30px;
+            }
+        }
+    }
+}
+.process-card {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 12px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 84px;
+    @include lg {
+        gap: 30px;
+    }
+    .box-thumb-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: start;
+        gap: 8px;
+        @include lg {
+            flex-direction: column-reverse;
+        }
+    }
+    .box-number {
+        font-size: 84px;
+        font-weight: 700;
+        font-family: $title-font;
+        color: $border-color;
+        margin-top: -0.28em;
+        margin-bottom: -0.28em;
+        width: 100%;
+        position: relative;
+        @include lg {
+            font-size: 70px;
+        }
+        @include md {
+            font-size: 60px;
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: linear-gradient(to left, $theme-color3, $theme-color);
+            top: -30px;
+            left: 50%;
+            transform: translate(-50%, 0);
+            @include lg {
+                display: none;
+            }
+        }
+    }
+    .box-thumb {
+        display: inline-block;
+        transform: rotate(15deg);
+        margin: 17px 0;
+        border-radius: 20px 150px 20px 20px;
+        overflow: hidden;
+        flex: none;
+        width: 200px;
+        height: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+    }
+    .box-title {
+        margin-bottom: 12px;
+        font-size: 24px;
+        font-weight: 700;
+        text-transform: uppercase;
+        line-height: 1.416;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+        @include ml {
+            font-size: 20px;
+            max-width: 265px;
+        }
+    } 
+    &:hover {
+        .box-thumb-wrap {
+            .box-thumb {
+                img {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}
+
+/* Process Card 2---------------------------------- */
+.process-img-box2 {
+    border-radius: 30px;
+    overflow: hidden;
+    img {
+        width: 100%;
+    }
+}
+.process-wrap2 {
+    position: relative;
+    
+}
+.process-card2 {
+    position: relative;
+    display: flex;
+    gap: 56px;
+    @for $i from 1 through 9 {
+        &:nth-child(#{$i}) {
+            margin-left: ($i - 1) * 96px;
+            @include sm {
+                margin-left: 0;
+            }
+        }
+    }
+    .process-arrow {
+        position: absolute;
+        left: 19px;
+        top: 49px;
+        @include sm {
+            display: none;
+        }
+    }
+    &:nth-child(even) {
+        .process-arrow {
+            position: absolute;
+            left: -41px;
+            top: 40px;
+        }
+    }
+    &:not(:last-child) {
+        margin-bottom: 40px;
+    }
+    &:last-child {
+        .process-arrow {
+            display: none;
+        }
+    }
+    .box-number {
+        height: 40px;
+        width: 40px;
+        border: 2px solid $theme-color;
+        border-radius: 13px;
+        flex: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        font-weight: 500;
+        color: $title-color;
+        font-family: $title-font;
+    }
+    .box-title {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: -0.4em;
+        @include ml {
+            font-size: 22px;
+        }
+    }
+    .box-text {
+        margin-top: 24px;
+        max-width: 380px;
+    }
+    @include sm {
+        gap: 30px;
+    }
+    @include xs {
+        gap: 20px;
+    }
+}

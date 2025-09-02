@@ -1,0 +1,122 @@
+//Call to action 1---------------------------------------
+.cta-wrap1 {
+    .text-stroke {
+        color: transparent;
+        -webkit-text-stroke: 1px $body-color;
+    }
+    .cta-img {
+        display: inline-flex;
+        border-radius: 30px;
+        overflow: hidden;
+        position: relative;
+        bottom: -12px;
+        img {
+            height: 56px;
+            object-fit: cover;
+        }
+        .play-btn {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: $white-color;
+            display: inline-flex;
+            --icon-size: 40px;
+            --icon-font-size: 14px;
+        }
+    }
+}
+
+//Call to action 2---------------------------------------
+.cta-wrap2 {
+    max-width: 1720px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50px;
+    padding: 200px 0;
+    border: 1px solid $black-color3;
+    overflow: hidden;
+    @include xl {
+        padding: 150px 0;
+    }
+    .cta-thumb2-1 {
+        position: absolute;
+        z-index: 1;
+        left: 100px;
+        top: 48px;
+        @include xs {
+            left: 50px;
+        }
+        .img {
+            overflow: hidden;
+            border-radius: 20px 20px 200px 200px;
+            transform: rotate(-10.84deg);
+            position: relative;
+            width: 329px;
+            &:after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: $black-color;
+                opacity: 0.4;
+            }
+            @include ml {
+                width: 250px;
+            }
+            @include lg {
+                width: 200px;
+            }
+            @include md {
+                width: 150px;
+            }
+        }
+    }
+    .cta-thumb2-2 {
+        position: absolute;
+        z-index: 1;
+        right: 52px;
+        bottom: 70px;
+        .img {
+            overflow: hidden;
+            border-radius: 20px 200px 20px 20px;
+            transform: rotate(15.72deg);
+            position: relative;
+            width: 296px;
+            &:after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: $black-color;
+                opacity: 0.4;
+            }
+            @include ml {
+                width: 200px;
+            }
+            @include lg {
+                width: 180px;
+            }
+            @include md {
+                width: 150px;
+            }
+        }
+    }
+    &:after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: $theme-color;
+        mix-blend-mode: hue;        
+    }
+    .sec-title {
+        font-size: 54px;
+        @include ml {
+            font-size: 44px;
+        }
+        @include lg {
+            font-size: 36px;
+        }
+        @include sm {
+            font-size: 34px;
+        }
+    }
+}
