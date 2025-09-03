@@ -70,7 +70,7 @@
 	******************************** -->
   <div class="cursor-follower"></div>
 
- 
+
   <!--==============================
      Preloader
   ==============================-->
@@ -105,7 +105,7 @@
           </li>
           <li><a href="about.html">About Us</a></li>
           <li class="menu-item-has-children">
-            <a href="#">Products</a>
+            <a href="products.html">Products</a>
             <ul class="sub-menu">
               <li class="menu-item-has-children">
                 <a href="#">Glyptic Special</a>
@@ -214,7 +214,7 @@
             </ul>
           </li>
           <li class="menu-item-has-children">
-            <a href="#">Training</a>
+            <a href="Training.html">Training</a>
             <ul class="sub-menu">
               <li><a href="training-calender.html">Training Calender</a></li>
               <li><a href="basic-fire-alarm.html">Basic Fire Alarm Training</a></li>
@@ -241,7 +241,7 @@
             <a href="contact.html">Contact Us</a>
           </li>
         </ul>
-       </div>
+      </div>
     </div>
   </div>
   <!-- <div class="color-scheme-wrap active">
@@ -280,7 +280,7 @@
                   </li>
                   <li><a href="about.html">About Us</a></li>
                   <li class="menu-item-has-children">
-                    <a href="#">Products</a>
+                    <a href="products.html">Products</a>
                     <ul class="sub-menu">
                       <li class="menu-item-has-children">
                         <a href="#">Glyptic Special</a>
@@ -393,7 +393,7 @@
                     </ul>
                   </li>
                   <li class="menu-item-has-children">
-                    <a href="#">Training</a>
+                    <a href="Training.html">Training</a>
                     <ul class="sub-menu">
                       <li><a href="training-calender.html">Training Calender</a></li>
                       <li><a href="basic-fire-alarm-training.html">Basic Fire Alarm Training</a></li>
@@ -430,7 +430,8 @@
             </div>
             <div class="col-md-2 d-xl-block d-none">
               <div class="header-button">
-                <a href="contact.html" class="th-btn style2">Call Us <i class="far fa-long-arrow-right ms-2"></i></a>
+                <a href="tel:+9133 29725520" class="th-btn style2">Call Us <i
+                    class="far fa-long-arrow-right ms-2"></i></a>
               </div>
             </div>
           </div>
@@ -464,247 +465,270 @@
 Faq Area
 ==============================-->
   <div class="container py-5">
-      <!-- Header Section -->
-      <div class="row gy-4 mb-4">
-        <div class="col-xxl-6">
-          <div class="title-area">
-            <span class="sub-title">FAQ's</span>
-            <h2 class="sec-title">
-              Frequently Asked Questions
-            </h2>
-          </div>
+    <!-- Header Section -->
+    <div class="row gy-4 mb-4">
+      <div class="col-xxl-6">
+        <div class="title-area">
+          <span class="sub-title">FAQ's</span>
+          <h2 class="sec-title">
+            Frequently Asked Questions
+          </h2>
         </div>
-        <!-- <div class="col-xxl-6 align-self-center">
+      </div>
+      <!-- <div class="col-xxl-6 align-self-center">
           <div class="img-box1">
             <div class="img2">
             </div>
             <div class="shadow-text">FAQ</div>
           </div>
         </div> -->
+    </div>
+
+    <!-- FAQ Section with Sidebar -->
+    <div class="row">
+      <!-- Sidebar Menu -->
+      <div class="col-lg-3">
+        <div class="faq-sidebar">
+          <h4 class="sidebar-title">Categories</h4>
+          <ul class="faq-menu">
+            <li>
+              <a href="#" class="faq-menu-item active" data-category="fire-detection">Fire Detection & Alarm System</a>
+            </li>
+            <li>
+              <a href="#" class="faq-menu-item" data-category="public-address">Public Address System</a>
+            </li>
+            <li>
+              <a href="#" class="faq-menu-item" data-category="cctv-system">CCTV System</a>
+            </li>
+          </ul>
+        </div>
       </div>
- 
-      <!-- FAQ Section with Sidebar -->
-      <div class="row">
-        <!-- Sidebar Menu -->
-        <div class="col-lg-3">
-          <div class="faq-sidebar">
-            <h4 class="sidebar-title">Categories</h4>
-            <ul class="faq-menu">
-              <li>
-                <a href="#" class="faq-menu-item active" data-category="fire-detection">Fire Detection & Alarm System</a>
-              </li>
-              <li>
-                <a href="#" class="faq-menu-item" data-category="public-address">Public Address System</a>
-              </li>
-              <li>
-                <a href="#" class="faq-menu-item" data-category="cctv-system">CCTV System</a>
-              </li>
-            </ul>
+
+      <!-- FAQ Content -->
+      <div class="col-lg-9">
+        <!-- Fire Detection & Alarm System FAQs -->
+        <div class="faq-category active" id="fire-detection">
+          <h3 class="category-title">Fire Detection & Alarm System</h3>
+          <div class="accordion" id="fireDetectionAccordion">
+            <div class="accordion-card">
+              <div class="accordion-header" id="fire-item-1">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#fire-collapse-1" aria-expanded="true" aria-controls="fire-collapse-1">
+                  What types of fire detection systems do you offer?
+                </button>
+              </div>
+              <div id="fire-collapse-1" class="accordion-collapse collapse show" aria-labelledby="fire-item-1"
+                data-bs-parent="#fireDetectionAccordion">
+                <div class="accordion-body">
+                  <p class="faq-text">
+                    We offer comprehensive fire detection systems including smoke detectors, heat detectors, flame
+                    detectors, and multi-sensor detectors. Our systems are designed to provide early warning and ensure
+                    maximum safety for your premises with advanced addressable and conventional fire alarm solutions.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-card">
+              <div class="accordion-header" id="fire-item-2">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#fire-collapse-2" aria-expanded="false" aria-controls="fire-collapse-2">
+                  How often should fire alarm systems be maintained?
+                </button>
+              </div>
+              <div id="fire-collapse-2" class="accordion-collapse collapse" aria-labelledby="fire-item-2"
+                data-bs-parent="#fireDetectionAccordion">
+                <div class="accordion-body">
+                  <p class="faq-text">
+                    Fire alarm systems should be inspected and tested monthly, with comprehensive maintenance performed
+                    annually by certified technicians. Regular maintenance ensures optimal performance and compliance
+                    with safety regulations. We provide AMC support for all our installed systems.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-card">
+              <div class="accordion-header" id="fire-item-3">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#fire-collapse-3" aria-expanded="false" aria-controls="fire-collapse-3">
+                  Are your fire detection systems compliant with local regulations?
+                </button>
+              </div>
+              <div id="fire-collapse-3" class="accordion-collapse collapse" aria-labelledby="fire-item-3"
+                data-bs-parent="#fireDetectionAccordion">
+                <div class="accordion-body">
+                  <p class="faq-text">
+                    Yes, all our fire detection and alarm systems are fully compliant with local fire safety codes and
+                    regulations. We ensure proper installation and certification to meet all legal requirements and help
+                    you obtain fire NOC certificates.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-card">
+              <div class="accordion-header" id="fire-item-4">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#fire-collapse-4" aria-expanded="false" aria-controls="fire-collapse-4">
+                  Do you provide training for fire alarm systems?
+                </button>
+              </div>
+              <div id="fire-collapse-4" class="accordion-collapse collapse" aria-labelledby="fire-item-4"
+                data-bs-parent="#fireDetectionAccordion">
+                <div class="accordion-body">
+                  <p class="faq-text">
+                    Yes, we offer comprehensive training programs including Basic Fire Alarm Training and Advanced Fire
+                    Alarm Commissioning Training. Our classroom training sessions are designed to educate your staff on
+                    proper system operation and maintenance procedures.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
- 
-        <!-- FAQ Content -->
-        <div class="col-lg-9">
-          <!-- Fire Detection & Alarm System FAQs -->
-          <div class="faq-category active" id="fire-detection">
-            <h3 class="category-title">Fire Detection & Alarm System</h3>
-            <div class="accordion" id="fireDetectionAccordion">
-              <div class="accordion-card">
-                <div class="accordion-header" id="fire-item-1">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#fire-collapse-1" aria-expanded="true" aria-controls="fire-collapse-1">
-                    What types of fire detection systems do you offer?
-                  </button>
-                </div>
-                <div id="fire-collapse-1" class="accordion-collapse collapse show" aria-labelledby="fire-item-1"
-                  data-bs-parent="#fireDetectionAccordion">
-                  <div class="accordion-body">
-                    <p class="faq-text">
-                      We offer comprehensive fire detection systems including smoke detectors, heat detectors, flame detectors, and multi-sensor detectors. Our systems are designed to provide early warning and ensure maximum safety for your premises with advanced addressable and conventional fire alarm solutions.
-                    </p>
-                  </div>
+
+        <!-- Public Address System FAQs -->
+        <div class="faq-category" id="public-address">
+          <h3 class="category-title">Public Address System</h3>
+          <div class="accordion" id="publicAddressAccordion">
+            <div class="accordion-card">
+              <div class="accordion-header" id="pa-item-1">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#pa-collapse-1"
+                  aria-expanded="true" aria-controls="pa-collapse-1">
+                  What is an IP-PA system and how does it work?
+                </button>
+              </div>
+              <div id="pa-collapse-1" class="accordion-collapse collapse show" aria-labelledby="pa-item-1"
+                data-bs-parent="#publicAddressAccordion">
+                <div class="accordion-body">
+                  <p class="faq-text">
+                    An IP-PA (Internet Protocol Public Address) system uses network infrastructure to deliver audio
+                    announcements. It offers superior sound quality, easier installation, and better integration with
+                    other systems compared to traditional analog PA systems. Our integrated IP-PA & Talk Back Systems
+                    provide two-way communication capabilities.
+                  </p>
                 </div>
               </div>
- 
-              <div class="accordion-card">
-                <div class="accordion-header" id="fire-item-2">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#fire-collapse-2" aria-expanded="false" aria-controls="fire-collapse-2">
-                    How often should fire alarm systems be maintained?
-                  </button>
-                </div>
-                <div id="fire-collapse-2" class="accordion-collapse collapse" aria-labelledby="fire-item-2"
-                  data-bs-parent="#fireDetectionAccordion">
-                  <div class="accordion-body">
-                    <p class="faq-text">
-                      Fire alarm systems should be inspected and tested monthly, with comprehensive maintenance performed annually by certified technicians. Regular maintenance ensures optimal performance and compliance with safety regulations. We provide AMC support for all our installed systems.
-                    </p>
-                  </div>
+            </div>
+
+            <div class="accordion-card">
+              <div class="accordion-header" id="pa-item-2">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#pa-collapse-2" aria-expanded="false" aria-controls="pa-collapse-2">
+                  Can PA systems be integrated with fire alarm systems?
+                </button>
+              </div>
+              <div id="pa-collapse-2" class="accordion-collapse collapse" aria-labelledby="pa-item-2"
+                data-bs-parent="#publicAddressAccordion">
+                <div class="accordion-body">
+                  <p class="faq-text">
+                    Yes, modern PA systems can be seamlessly integrated with fire alarm systems to provide automatic
+                    emergency announcements. When a fire alarm is triggered, the PA system can automatically broadcast
+                    evacuation messages, ensuring clear communication during emergencies.
+                  </p>
                 </div>
               </div>
- 
-              <div class="accordion-card">
-                <div class="accordion-header" id="fire-item-3">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#fire-collapse-3" aria-expanded="false" aria-controls="fire-collapse-3">
-                    Are your fire detection systems compliant with local regulations?
-                  </button>
-                </div>
-                <div id="fire-collapse-3" class="accordion-collapse collapse" aria-labelledby="fire-item-3"
-                  data-bs-parent="#fireDetectionAccordion">
-                  <div class="accordion-body">
-                    <p class="faq-text">
-                      Yes, all our fire detection and alarm systems are fully compliant with local fire safety codes and regulations. We ensure proper installation and certification to meet all legal requirements and help you obtain fire NOC certificates.
-                    </p>
-                  </div>
-                </div>
+            </div>
+
+            <div class="accordion-card">
+              <div class="accordion-header" id="pa-item-3">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#pa-collapse-3" aria-expanded="false" aria-controls="pa-collapse-3">
+                  What are the benefits of digital PA systems?
+                </button>
               </div>
- 
-              <div class="accordion-card">
-                <div class="accordion-header" id="fire-item-4">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#fire-collapse-4" aria-expanded="false" aria-controls="fire-collapse-4">
-                    Do you provide training for fire alarm systems?
-                  </button>
-                </div>
-                <div id="fire-collapse-4" class="accordion-collapse collapse" aria-labelledby="fire-item-4"
-                  data-bs-parent="#fireDetectionAccordion">
-                  <div class="accordion-body">
-                    <p class="faq-text">
-                      Yes, we offer comprehensive training programs including Basic Fire Alarm Training and Advanced Fire Alarm Commissioning Training. Our classroom training sessions are designed to educate your staff on proper system operation and maintenance procedures.
-                    </p>
-                  </div>
+              <div id="pa-collapse-3" class="accordion-collapse collapse" aria-labelledby="pa-item-3"
+                data-bs-parent="#publicAddressAccordion">
+                <div class="accordion-body">
+                  <p class="faq-text">
+                    Digital PA systems offer superior audio quality, reduced interference, easier maintenance, and
+                    advanced features like zone-specific announcements, scheduled messaging, and remote control
+                    capabilities. They also provide better integration with modern building management systems.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
- 
-          <!-- Public Address System FAQs -->
-          <div class="faq-category" id="public-address">
-            <h3 class="category-title">Public Address System</h3>
-            <div class="accordion" id="publicAddressAccordion">
-              <div class="accordion-card">
-                <div class="accordion-header" id="pa-item-1">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#pa-collapse-1" aria-expanded="true" aria-controls="pa-collapse-1">
-                    What is an IP-PA system and how does it work?
-                  </button>
-                </div>
-                <div id="pa-collapse-1" class="accordion-collapse collapse show" aria-labelledby="pa-item-1"
-                  data-bs-parent="#publicAddressAccordion">
-                  <div class="accordion-body">
-                    <p class="faq-text">
-                      An IP-PA (Internet Protocol Public Address) system uses network infrastructure to deliver audio announcements. It offers superior sound quality, easier installation, and better integration with other systems compared to traditional analog PA systems. Our integrated IP-PA & Talk Back Systems provide two-way communication capabilities.
-                    </p>
-                  </div>
-                </div>
+        </div>
+
+        <!-- CCTV System FAQs -->
+        <div class="faq-category" id="cctv-system">
+          <h3 class="category-title">CCTV System</h3>
+          <div class="accordion" id="cctvAccordion">
+            <div class="accordion-card">
+              <div class="accordion-header" id="cctv-item-1">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#cctv-collapse-1" aria-expanded="true" aria-controls="cctv-collapse-1">
+                  What types of CCTV cameras do you offer?
+                </button>
               </div>
- 
-              <div class="accordion-card">
-                <div class="accordion-header" id="pa-item-2">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#pa-collapse-2" aria-expanded="false" aria-controls="pa-collapse-2">
-                    Can PA systems be integrated with fire alarm systems?
-                  </button>
-                </div>
-                <div id="pa-collapse-2" class="accordion-collapse collapse" aria-labelledby="pa-item-2"
-                  data-bs-parent="#publicAddressAccordion">
-                  <div class="accordion-body">
-                    <p class="faq-text">
-                      Yes, modern PA systems can be seamlessly integrated with fire alarm systems to provide automatic emergency announcements. When a fire alarm is triggered, the PA system can automatically broadcast evacuation messages, ensuring clear communication during emergencies.
-                    </p>
-                  </div>
-                </div>
-              </div>
- 
-              <div class="accordion-card">
-                <div class="accordion-header" id="pa-item-3">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#pa-collapse-3" aria-expanded="false" aria-controls="pa-collapse-3">
-                    What are the benefits of digital PA systems?
-                  </button>
-                </div>
-                <div id="pa-collapse-3" class="accordion-collapse collapse" aria-labelledby="pa-item-3"
-                  data-bs-parent="#publicAddressAccordion">
-                  <div class="accordion-body">
-                    <p class="faq-text">
-                      Digital PA systems offer superior audio quality, reduced interference, easier maintenance, and advanced features like zone-specific announcements, scheduled messaging, and remote control capabilities. They also provide better integration with modern building management systems.
-                    </p>
-                  </div>
+              <div id="cctv-collapse-1" class="accordion-collapse collapse show" aria-labelledby="cctv-item-1"
+                data-bs-parent="#cctvAccordion">
+                <div class="accordion-body">
+                  <p class="faq-text">
+                    We offer a comprehensive range of CCTV cameras including IP cameras, analog cameras, PTZ cameras,
+                    dome cameras, bullet cameras, and specialized flame and smoke detection cameras. Our industrial
+                    integrated IP-CCTV systems provide high-resolution monitoring with advanced analytics capabilities.
+                  </p>
                 </div>
               </div>
             </div>
-          </div>
- 
-          <!-- CCTV System FAQs -->
-          <div class="faq-category" id="cctv-system">
-            <h3 class="category-title">CCTV System</h3>
-            <div class="accordion" id="cctvAccordion">
-              <div class="accordion-card">
-                <div class="accordion-header" id="cctv-item-1">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#cctv-collapse-1" aria-expanded="true" aria-controls="cctv-collapse-1">
-                    What types of CCTV cameras do you offer?
-                  </button>
-                </div>
-                <div id="cctv-collapse-1" class="accordion-collapse collapse show" aria-labelledby="cctv-item-1"
-                  data-bs-parent="#cctvAccordion">
-                  <div class="accordion-body">
-                    <p class="faq-text">
-                      We offer a comprehensive range of CCTV cameras including IP cameras, analog cameras, PTZ cameras, dome cameras, bullet cameras, and specialized flame and smoke detection cameras. Our industrial integrated IP-CCTV systems provide high-resolution monitoring with advanced analytics capabilities.
-                    </p>
-                  </div>
+
+            <div class="accordion-card">
+              <div class="accordion-header" id="cctv-item-2">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#cctv-collapse-2" aria-expanded="false" aria-controls="cctv-collapse-2">
+                  How long can CCTV footage be stored?
+                </button>
+              </div>
+              <div id="cctv-collapse-2" class="accordion-collapse collapse" aria-labelledby="cctv-item-2"
+                data-bs-parent="#cctvAccordion">
+                <div class="accordion-body">
+                  <p class="faq-text">
+                    Storage duration depends on several factors including hard drive capacity, video resolution,
+                    compression settings, and number of cameras. Typically, systems can store footage for 7-90 days. We
+                    design storage solutions based on your specific requirements and compliance needs.
+                  </p>
                 </div>
               </div>
- 
-              <div class="accordion-card">
-                <div class="accordion-header" id="cctv-item-2">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#cctv-collapse-2" aria-expanded="false" aria-controls="cctv-collapse-2">
-                    How long can CCTV footage be stored?
-                  </button>
-                </div>
-                <div id="cctv-collapse-2" class="accordion-collapse collapse" aria-labelledby="cctv-item-2"
-                  data-bs-parent="#cctvAccordion">
-                  <div class="accordion-body">
-                    <p class="faq-text">
-                      Storage duration depends on several factors including hard drive capacity, video resolution, compression settings, and number of cameras. Typically, systems can store footage for 7-90 days. We design storage solutions based on your specific requirements and compliance needs.
-                    </p>
-                  </div>
+            </div>
+
+            <div class="accordion-card">
+              <div class="accordion-header" id="cctv-item-3">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#cctv-collapse-3" aria-expanded="false" aria-controls="cctv-collapse-3">
+                  Can CCTV systems detect fire and smoke?
+                </button>
+              </div>
+              <div id="cctv-collapse-3" class="accordion-collapse collapse" aria-labelledby="cctv-item-3"
+                data-bs-parent="#cctvAccordion">
+                <div class="accordion-body">
+                  <p class="faq-text">
+                    Yes, we offer specialized flame and smoke detection cameras that can automatically detect fire and
+                    smoke through video analytics. These integrated fire catcher cameras provide early warning
+                    capabilities and can trigger alarms or notifications when fire or smoke is detected in the monitored
+                    area.
+                  </p>
                 </div>
               </div>
- 
-              <div class="accordion-card">
-                <div class="accordion-header" id="cctv-item-3">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#cctv-collapse-3" aria-expanded="false" aria-controls="cctv-collapse-3">
-                    Can CCTV systems detect fire and smoke?
-                  </button>
-                </div>
-                <div id="cctv-collapse-3" class="accordion-collapse collapse" aria-labelledby="cctv-item-3"
-                  data-bs-parent="#cctvAccordion">
-                  <div class="accordion-body">
-                    <p class="faq-text">
-                      Yes, we offer specialized flame and smoke detection cameras that can automatically detect fire and smoke through video analytics. These integrated fire catcher cameras provide early warning capabilities and can trigger alarms or notifications when fire or smoke is detected in the monitored area.
-                    </p>
-                  </div>
-                </div>
+            </div>
+
+            <div class="accordion-card">
+              <div class="accordion-header" id="cctv-item-4">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#cctv-collapse-4" aria-expanded="false" aria-controls="cctv-collapse-4">
+                  Do you provide remote monitoring services?
+                </button>
               </div>
- 
-              <div class="accordion-card">
-                <div class="accordion-header" id="cctv-item-4">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#cctv-collapse-4" aria-expanded="false" aria-controls="cctv-collapse-4">
-                    Do you provide remote monitoring services?
-                  </button>
-                </div>
-                <div id="cctv-collapse-4" class="accordion-collapse collapse" aria-labelledby="cctv-item-4"
-                  data-bs-parent="#cctvAccordion">
-                  <div class="accordion-body">
-                    <p class="faq-text">
-                      Yes, our CCTV systems support remote monitoring capabilities. You can access live feeds and recorded footage from anywhere using computers, tablets, or smartphones. We also offer centralized command and control system setups for comprehensive monitoring solutions.
-                    </p>
-                  </div>
+              <div id="cctv-collapse-4" class="accordion-collapse collapse" aria-labelledby="cctv-item-4"
+                data-bs-parent="#cctvAccordion">
+                <div class="accordion-body">
+                  <p class="faq-text">
+                    Yes, our CCTV systems support remote monitoring capabilities. You can access live feeds and recorded
+                    footage from anywhere using computers, tablets, or smartphones. We also offer centralized command
+                    and control system setups for comprehensive monitoring solutions.
+                  </p>
                 </div>
               </div>
             </div>
@@ -712,66 +736,67 @@ Faq Area
         </div>
       </div>
     </div>
- 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-   
-    <!-- Custom JavaScript -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const menuItems = document.querySelectorAll(".faq-menu-item");
-        const categories = document.querySelectorAll(".faq-category");
- 
-        menuItems.forEach((item) => {
-          item.addEventListener("click", function (e) {
-            e.preventDefault();
- 
-            // Remove active class from all menu items
-            menuItems.forEach((mi) => mi.classList.remove("active"));
- 
-            // Add active class to clicked item
-            this.classList.add("active");
- 
-            // Hide all categories
-            categories.forEach((cat) => cat.classList.remove("active"));
- 
-            // Show selected category
-            const categoryId = this.getAttribute("data-category");
-            const targetCategory = document.getElementById(categoryId);
-            if (targetCategory) {
-              targetCategory.classList.add("active");
-             
-              // Close all open accordions in the new category
-              const accordions = targetCategory.querySelectorAll('.accordion-collapse');
-              accordions.forEach((accordion, index) => {
-                // Show first accordion item by default
-                if (index === 0) {
-                  accordion.classList.add('show');
-                  const button = targetCategory.querySelector(`[data-bs-target="#${accordion.id}"]`);
-                  if (button) {
-                    button.classList.remove('collapsed');
-                    button.setAttribute('aria-expanded', 'true');
-                  }
-                } else {
-                  accordion.classList.remove('show');
-                  const button = targetCategory.querySelector(`[data-bs-target="#${accordion.id}"]`);
-                  if (button) {
-                    button.classList.add('collapsed');
-                    button.setAttribute('aria-expanded', 'false');
-                  }
-                }
-              });
-            }
-          });
-        });
-      });
-    </script>
- 
+  </div>
+
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-  
-  
+  <!-- Custom JavaScript -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuItems = document.querySelectorAll(".faq-menu-item");
+      const categories = document.querySelectorAll(".faq-category");
+
+      menuItems.forEach((item) => {
+        item.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          // Remove active class from all menu items
+          menuItems.forEach((mi) => mi.classList.remove("active"));
+
+          // Add active class to clicked item
+          this.classList.add("active");
+
+          // Hide all categories
+          categories.forEach((cat) => cat.classList.remove("active"));
+
+          // Show selected category
+          const categoryId = this.getAttribute("data-category");
+          const targetCategory = document.getElementById(categoryId);
+          if (targetCategory) {
+            targetCategory.classList.add("active");
+
+            // Close all open accordions in the new category
+            const accordions = targetCategory.querySelectorAll('.accordion-collapse');
+            accordions.forEach((accordion, index) => {
+              // Show first accordion item by default
+              if (index === 0) {
+                accordion.classList.add('show');
+                const button = targetCategory.querySelector(`[data-bs-target="#${accordion.id}"]`);
+                if (button) {
+                  button.classList.remove('collapsed');
+                  button.setAttribute('aria-expanded', 'true');
+                }
+              } else {
+                accordion.classList.remove('show');
+                const button = targetCategory.querySelector(`[data-bs-target="#${accordion.id}"]`);
+                if (button) {
+                  button.classList.add('collapsed');
+                  button.setAttribute('aria-expanded', 'false');
+                }
+              }
+            });
+          }
+        });
+      });
+    });
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
   <!-- Footer Area -->
   <footer class="footer-wrapper footer-default ">
     <div class="footer-bg-shape bg-title" data-mask-src="assets/img/shape/footer-bg-shape1.png"></div>
@@ -942,8 +967,24 @@ Faq Area
           </div>
   </footer>
 
-  
-  
+
+  <!-- whatsapp pulse -->
+
+  <a href="https://wa.me/919836838438" class="btn-whatsapp-pulse" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Scroll To Top -->
+  <div class="scroll-top">
+    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+      <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="
+            transition: stroke-dashoffset 10ms linear 0s;
+            stroke-dasharray: 307.919, 307.919;
+            stroke-dashoffset: 307.919;
+          "></path>
+    </svg>
+  </div>
+
 
   <!--==============================
     All Js File
