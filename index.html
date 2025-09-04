@@ -439,8 +439,8 @@
         </div>
     </header>
 
-    <!-- <div>
-
+    <!--======== / Hero Section ========-->
+    <div class="position-relative hero-wrapper">
         <div id="tsparticles"></div>
         <div class="th-hero-wrapper hero-1  " id="hero" data-bg-src="assets/img/hero/glyptic-card.jpg">
             <div class="hero-inner ">
@@ -455,7 +455,7 @@
                                     Dedicated Customer Support Team to provide effortless delightful after sales
                                     service.
                                 </p>
-                                <p class="hero-text text-white text-anim2">Customer premise having of Fire Detection,
+                                <!-- <p class="hero-text text-white text-anim2">Customer premise having of Fire Detection,
                                     Suppression &amp; Protection System regardless
                                     of any Brand and architectural system complexity GLYPTIC always stands ready to
                                     ensure
@@ -469,8 +469,11 @@
                                     Commissioning
                                     Engineer provide offline support round the clock and On-site support on demand upon
                                     requirement.
-                                </p>
-                                
+                                </p> -->
+                                <!-- <div class="btn-wrap justify-content-center" data-cue="slideInUp" data-delay="500">
+                                <a href="service.html" class="th-btn style2">Discover More <i
+                                        class="far fa-long-arrow-right ms-2"></i></a>
+                            </div> -->
                             </div>
                         </div>
 
@@ -483,56 +486,19 @@
             <div class="hero_aurora is-blured">
                 <div class="hero_aurora-inner"></div>
             </div>
-            <div class="scroll-down">
+            <!-- <div class="scroll-down">
                 <a href="#about-sec" class="hero-scroll-wrap"></a>
-            </div>
+            </div> -->
             <div class="container position-relative">
                 <div class="chevron"></div>
                 <div class="chevron"></div>
-                <div class="chevron"></div>
+
                 <span class="text">Scroll down</span>
             </div>
         </div>
     </div>
-    </div> -->
 
-    <div class="th-hero-wrapper hero-1 bg-attachment bg-black" id="hero" data-bg-src="assets/img/hero/glyptic-card.jpg">
-        <div class="hero-inner ">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-10">
-                        <div class="hero-style1 text-center bg-blue">
-                            <h1 class="hero-title text-white text-anim2" data-cue="slideInUp" data-delay="100">
-                                Glyptic
-                            </h1>
-                            <p class="hero-text text-white text-anim2" data-cue="slideInUp" data-delay="300">
-                                Dedicated Customer Support Team to provide effortless delightful after sales service.
-                            </p>
-                            <p class="hero-text text-white text-anim2">Customer premise having of Fire Detection,
-                                Suppression &amp; Protection System regardless
-                                of any Brand and architectural system complexity GLYPTIC always stands ready to ensure
-                                speedy service to restore system operation to its normalcy. 24x7 Service team ready tom
-                                respond understand the issue and provide resolution at minimum downtime maintaining SLA.
-                                Huge Stock inventories help to keep the system up completing faulty spares replacement
-                                and extension project. Trained, OEM Certified, experienced and qualified Commissioning
-                                Engineer provide offline support round the clock and On-site support on demand upon
-                                requirement.
-                            </p>
-                            <div class="btn-wrap justify-content-center" data-cue="slideInUp" data-delay="500">
-                                <a href="service.html" class="th-btn style2">Discover More <i
-                                        class="far fa-long-arrow-right ms-2"></i></a>
-            
-                            </div>
-                        </div>
-                    </div>
 
-                </div>
-            </div>
-        </div>
-        <div class="scroll-down">
-            <a href="#about-sec" class="hero-scroll-wrap"></a>
-        </div>
-    </div>
 
     <div class="scroll-down">
         <a href="#about-sec" class="hero-scroll-wrap"></a>
@@ -2307,9 +2273,13 @@ Contact Area
     <script src="assets/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
     <script>
         tsParticles.load("tsparticles", {
+            fullScreen: {
+                enable: false  // 👈 important: disables fullscreen mode
+            },
             fps_limit: 60,
             interactivity: {
                 detect_on: "canvas",
@@ -2391,7 +2361,7 @@ Contact Area
         });
         var stats = new Stats();
         stats.setMode(0);
-        stats.domElement.style.position = "absolute";
+        stats.domElement.style.position = "relative";
         stats.domElement.style.left = "0px";
         stats.domElement.style.top = "0px";
         document.body.appendChild(stats.domElement);
@@ -2406,7 +2376,8 @@ Contact Area
         };
         requestAnimationFrame(update);
     </script>
-    <script src="http://threejs.org/examples/js/libs/stats.min.js"></script> -->
+    <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+
 </body>
 
 </html>
