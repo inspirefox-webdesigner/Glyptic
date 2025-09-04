@@ -845,6 +845,12 @@ ul.wp-block-rss a {
   top: 32px;
 }
 
+@media (max-width:576px) {
+.loader {
+   font-size: 60px; 
+}
+}
+
 @media (max-width: 782px) {
 
   .logged-in .sticky-wrapper.sticky,
