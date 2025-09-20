@@ -883,7 +883,9 @@
 
         // Use GSAP's ticker to sync with animations
         gsap.ticker.add((time) => {
-            lenis.raf(time * 1000);
+            if (lenis && lenis.raf) {
+                lenis.raf(time * 1000);
+            }
         });
 
         // Allow native scroll inside specified elements

@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Favicons - Place favicon.ico in the root directory -->
-    <link rel="shortcut icon" href="assets/img/logo/Glytic-nav-logo.png" type="image/x-icon" class="w-100">
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
     <!--
     <link rel="apple-touch-icon" sizes="57x57" href="assets/img/favicons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/img/favicons/apple-icon-60x60.png">
@@ -221,7 +221,7 @@
                     <li class="menu-item-has-children">
                         <a href="Training.html">Training</a>
                         <ul class="sub-menu">
-                              <li><a href="Training.html"/>Training Calender</a></li>
+                            <li><a href="Training.html" />Training Calender</a></li>
                             <li><a href="basic-fire-alarm.html">Basic Fire Alarm Training</a></li>
                             <li><a href="advance-fire-alarm-commisoning.html">Advanced Fire Alarm Commissioning
                                     Training</a></li>
@@ -391,7 +391,7 @@
                                     <li class="menu-item-has-children">
                                         <a href="Training.html">Training</a>
                                         <ul class="sub-menu">
-                                              <li><a href="Training.html"/>Training Calender</a></li>
+                                            <li><a href="Training.html" />Training Calender</a></li>
                                             <li><a href="basic-fire-alarm-training.html">Basic Fire Alarm Training</a>
                                             </li>
                                             <li><a href="advanced-fire-alarm-commissioning-training.html">Advanced Fire
@@ -412,7 +412,8 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="contact.html">Raise Support Ticket</a>
+                                        <a href="https://script.google.com/macros/s/AKfycbx4KofKLMjh6RZVjJFpvmjCkxSKiAEOUto8CnzVgwp2MJ6P5-i2QssKsvtD-UMOPU1D/exec"
+                                            target="_blank">Raise Support Ticket</a>
                                     </li>
                                     <li>
                                         <a href="contact.html">Contact Us</a>
@@ -466,14 +467,15 @@
     <div class="container" style="margin-top: 30px; margin-bottom: 30px;">
         <div class="row justify-content-center">
             <div class="col-md-10 col-lg-8">
-                <div class="calendar-wrapper text-center">
+                <div class="calendar-wrapper text-center"
+                    style="background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); padding: 2rem; border: 1px solid #e9ecef;">
                     <h3 style="margin-bottom: 20px;;"> Training Calendar</h3>
                     <div id="calendar"></div>
                 </div>
             </div>
         </div>
     </div>
-
+ 
     <!-- Event Modal
   <div class="modal fade" id="eventModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -492,7 +494,7 @@
       </div>
     </div>
   </div> -->
-
+ 
     <!-- Edit Event Modal
   <div class="modal fade" id="editEventModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -508,110 +510,72 @@
       </div>
     </div>
   </div> -->
-
+ 
+    <!-- Registration Modal -->
+    <div class="modal fade" id="registrationModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="container" style="max-width: 700px;">
+                <div class="modal-content"
+                    style="background: white; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); border: none; color: #000;">
+                    <div class="modal-header"
+                        style="border-bottom: 1px solid #e9ecef; padding: 1.5rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 12px 12px 0 0;">
+                        <h5 class="modal-title" style="color: white; font-weight: 600; font-size: 1.25rem;">Register for
+                            Event: <span id="eventTitle" style="font-weight: 700;"></span></h5>
+                    </div>
+                    <div class="modal-body" style="padding: 2rem; background: white;">
+                        <form id="registrationForm">
+                            <div class="mb-3">
+                                <label for="userName" class="form-label"
+                                    style="color: #333; font-weight: 500; margin-bottom: 0.5rem; display: block;">Name
+                                    *</label>
+                                <input type="text" class="form-control" id="userName" required
+                                    style="border: 2px solid #e9ecef; border-radius: 8px; padding: 0.75rem; font-size: 1rem; color: #333; transition: border-color 0.3s ease;"
+                                    placeholder="Enter your full name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="userPhone" class="form-label"
+                                    style="color: #333; font-weight: 500; margin-bottom: 0.5rem; display: block;">Phone
+                                    Number *</label>
+                                <input type="tel" class="form-control" id="userPhone" required
+                                    style="border: 2px solid #e9ecef; border-radius: 8px; padding: 0.75rem; font-size: 1rem; color: #333; transition: border-color 0.3s ease;"
+                                    placeholder="Enter your phone number">
+                            </div>
+                            <div class="mb-3">
+                                <label for="userEmail" class="form-label"
+                                    style="color: #333; font-weight: 500; margin-bottom: 0.5rem; display: block;">Email
+                                    Address *</label>
+                                <input type="email" class="form-control" id="userEmail" required
+                                    style="border: 2px solid #e9ecef; border-radius: 8px; padding: 0.75rem; font-size: 1rem; color: #333; transition: border-color 0.3s ease;"
+                                    placeholder="Enter your email address">
+                            </div>
+                            <div class="mb-3">
+                                <label for="userAddress" class="form-label"
+                                    style="color: #333; font-weight: 500; margin-bottom: 0.5rem; display: block;">Address
+                                    *</label>
+                                <textarea class="form-control" id="userAddress" rows="3" required
+                                    style="border: 2px solid #e9ecef; border-radius: 8px; padding: 0.75rem; font-size: 1rem; color: #333; transition: border-color 0.3s ease; resize: vertical;"
+                                    placeholder="Enter your complete address"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer"
+                        style="border-top: 1px solid #e9ecef; padding: 1.5rem; background: #f8f9fa; border-radius: 0 0 12px 12px; display: flex; justify-content: flex-end; gap: 0.75rem;">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            style="background: #6c757d; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 500; transition: all 0.3s ease;">Cancel</button>
+                        <button type="button" class="btn btn-primary" id="submitRegistration"
+                            style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 500; transition: all 0.3s ease;">Submit
+                            Registration</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var calendarEl = document.getElementById('calendar');
-            var selectedDate = null;
-            var eventToEdit = null;
+    <script src="assets/js/form-handler.js"></script>
+    <script src="assets/js/training-calendar.js"></script>
 
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                fixedWeekCount: true,
-                showNonCurrentDates: true,
-                headerToolbar: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: ''
-                },
-                events: [
-                    { title: 'Milad un-Nabi', start: '2025-09-05' },
-                    { title: 'Onam', start: '2025-09-05' },
-                    { title: 'Sharad Navratri Start', start: '2025-09-22' },
-                    { title: 'Dussehra', start: '2025-10-02' }
-                ],
-                dateClick: function (info) {
-                    selectedDate = info.dateStr;
-                    document.getElementById('eventDate').innerText = new Date(selectedDate).toDateString();
-
-                    renderEventsList(selectedDate);
-
-                    document.getElementById('newEventTitle').value = '';
-                    document.getElementById('saveEventBtn').onclick = function () {
-                        let title = document.getElementById('newEventTitle').value.trim();
-                        if (title !== '') {
-                            calendar.addEvent({ title: title, start: selectedDate });
-                            renderEventsList(selectedDate);
-                            document.getElementById('newEventTitle').value = '';
-                        }
-                    };
-
-                    var modal = new bootstrap.Modal(document.getElementById('eventModal'));
-                    modal.show();
-                }
-            });
-
-            calendar.render();
-
-            function renderEventsList(date) {
-                let eventsOnDate = calendar.getEvents().filter(e => e.startStr === date);
-                let eventListDiv = document.getElementById('eventList');
-                eventListDiv.innerHTML = '';
-
-                if (eventsOnDate.length > 0) {
-                    eventsOnDate.forEach(ev => {
-                        let div = document.createElement('div');
-                        div.className = 'event-item';
-
-                        let span = document.createElement('span');
-                        span.innerText = ev.title;
-
-                        let btnGroup = document.createElement('div');
-
-                        let editBtn = document.createElement('button');
-                        editBtn.className = 'btn btn-sm btn-warning me-2';
-                        editBtn.innerText = 'Edit';
-                        editBtn.onclick = function () {
-                            eventToEdit = ev;
-                            document.getElementById('editEventTitle').value = ev.title;
-                            var editModal = new bootstrap.Modal(document.getElementById('editEventModal'));
-                            editModal.show();
-                        };
-
-                        let delBtn = document.createElement('button');
-                        delBtn.className = 'btn btn-sm btn-danger';
-                        delBtn.innerText = 'Delete';
-                        delBtn.onclick = function () {
-                            ev.remove();
-                            renderEventsList(date);
-                        };
-
-                        btnGroup.appendChild(editBtn);
-                        btnGroup.appendChild(delBtn);
-
-                        div.appendChild(span);
-                        div.appendChild(btnGroup);
-
-                        eventListDiv.appendChild(div);
-                    });
-                } else {
-                    eventListDiv.innerHTML = '<p>No Events</p>';
-                }
-            }
-
-            document.getElementById('updateEventBtn').onclick = function () {
-                let newTitle = document.getElementById('editEventTitle').value.trim();
-                if (eventToEdit && newTitle !== '') {
-                    eventToEdit.setProp('title', newTitle);
-                    renderEventsList(eventToEdit.startStr);
-                    var editModal = bootstrap.Modal.getInstance(document.getElementById('editEventModal'));
-                    editModal.hide();
-                }
-            };
-        });
-    </script>
 
 
 
@@ -684,8 +648,8 @@
 
                                     <li><a href="index.html">Home</a></li>
                                     <li><a href="about.html">About Us</a></li>
-                                    <li><a href="product.html">Our Products</a></li>
-                                    <li><a href="discover.html">News & Articles</a></li>
+                                    <li><a href="addressable-fire-alarm.html">Our Products</a></li>
+                                    <li><a href="blog-2.html">News & Articles</a></li>
                                     <li><a href="faq.html">FAQ</a></li>
                                     <li><a href="contact.html">Contact us</a></li>
 
@@ -714,43 +678,40 @@
                             <h3 class="widget_title">Our Gallery</h3>
                             <div class="row g-3">
                                 <div class="col-4">
-                                    <a href="https://glyptic.in/wp-content/uploads/2025/03/4-LOOP.png"
-                                        data-fancybox="gallery" class="gallery-item">
-                                        <img src="https://glyptic.in/wp-content/uploads/2025/03/4-LOOP.png" alt="">
+                                    <a href="assets/img/gallery/4-LOOP.png" data-fancybox="gallery"
+                                        class="gallery-item">
+                                        <img src="assets/img/gallery/4-LOOP.png" alt="">
                                     </a>
                                 </div>
                                 <div class="col-4">
-                                    <a href="https://glyptic.in/wp-content/uploads/2025/03/System-Addressable-Fire-Alarm-Control-Panels-With-Accessories-Buy-Home-Security-System-addressable-Fire-Alarm-System-fire-Alarm-Control-Panel-addressable-Fire-Detection.jpg"
+                                    <a href="assets/img/gallery/System-Addressable-Fire-Alarm-Control-Panels-With-Accessories-Buy-Home-Security-System-addressable-Fire-Alarm-System-fire-Alarm-Control-Panel-addressable-Fire-Detection.jpg"
                                         data-fancybox="gallery" class="gallery-item">
-                                        <img src="https://glyptic.in/wp-content/uploads/2025/03/System-Addressable-Fire-Alarm-Control-Panels-With-Accessories-Buy-Home-Security-System-addressable-Fire-Alarm-System-fire-Alarm-Control-Panel-addressable-Fire-Detection.jpg"
+                                        <img src="assets/img/gallery/System-Addressable-Fire-Alarm-Control-Panels-With-Accessories-Buy-Home-Security-System-addressable-Fire-Alarm-System-fire-Alarm-Control-Panel-addressable-Fire-Detection.jpg"
                                             alt="">
                                     </a>
                                 </div>
                                 <div class="col-4">
-                                    <a href="https://glyptic.in/wp-content/uploads/2025/03/DTS.jpg"
-                                        data-fancybox="gallery" class="gallery-item">
-                                        <img src="https://glyptic.in/wp-content/uploads/2025/03/DTS.jpg" alt="">
+                                    <a href="assets/img/gallery/DTS.jpg" data-fancybox="gallery" class="gallery-item">
+                                        <img src="assets/img/gallery/DTS.jpg" alt="">
                                     </a>
                                 </div>
                                 <div class="col-4">
-                                    <a href="https://glyptic.in/wp-content/uploads/2025/03/WhatsApp-Image-2025-03-13-at-4.58.55-PM2.jpeg"
+                                    <a href="assets/img/gallery/WhatsApp-Image-2025-03-13-at-4.58.55-PM2-1.jpeg"
                                         data-fancybox="gallery" class="gallery-item">
-                                        <img src="https://glyptic.in/wp-content/uploads/2025/03/WhatsApp-Image-2025-03-13-at-4.58.55-PM2.jpeg"
+                                        <img src="assets/img/gallery/WhatsApp-Image-2025-03-13-at-4.58.55-PM2-1.jpeg"
                                             alt="">
                                     </a>
                                 </div>
                                 <div class="col-4">
-                                    <a href="https://glyptic.in/wp-content/uploads/2025/03/ABUIABACG7gU.jpg"
-                                        data-fancybox="gallery" class="gallery-item">
-                                        <img src="https://glyptic.in/wp-content/uploads/2025/03/ABUIABACG7gU.jpg"
-                                            alt="">
+                                    <a href="assets/img/gallery/ABUIABACG7gU.jpg" data-fancybox="gallery"
+                                        class="gallery-item">
+                                        <img src="assets/img/gallery/ABUIABACG7gU.jpg" alt="">
                                     </a>
                                 </div>
                                 <div class="col-4">
-                                    <a href="https://glyptic.in/wp-content/uploads/2025/03/ABUIABACGA7gU47gU.jpg"
-                                        data-fancybox="gallery" class="gallery-item">
-                                        <img src="https://glyptic.in/wp-content/uploads/2025/03/ABUIABACGA7gU47gU.jpg"
-                                            alt="">
+                                    <a href="assets/img/gallery/ABUIABACGA7gU47gU.jpg" data-fancybox="gallery"
+                                        class="gallery-item">
+                                        <img src="assets/img/gallery/ABUIABACGA7gU47gU.jpg" alt="">
                                     </a>
                                 </div>
                             </div>
@@ -791,9 +752,9 @@
     <!--********************************
 			Code End  Here 
 	******************************** -->
-  <!-- whatsapp pulse -->
-     
-     <a href="https://wa.me/919836838438" class="btn-whatsapp-pulse" target="_blank">
+    <!-- whatsapp pulse -->
+
+    <a href="https://wa.me/919836838438" class="btn-whatsapp-pulse" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
     <!-- Scroll To Top -->
@@ -843,11 +804,11 @@
     <script src="assets/js/SplitText.min.js"></script>
     <!-- Lenis Js -->
     <script src="assets/js/lenis.min.js"></script>
-
+ 
     <!-- Perticle Js -->
     <script src="assets/js/particles.min.js"></script>
     <script src="assets/js/particles-config.js"></script>
-
+ 
     <!-- Main Js File -->
     <script src="assets/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>

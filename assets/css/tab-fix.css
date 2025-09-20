@@ -1,0 +1,49 @@
+/* Tab styling fixes */
+.nav-link {
+  background-color: transparent !important;
+  color: #666 !important;
+  border: none !important;
+  transition: all 0.3s ease;
+}
+
+.nav-link.active {
+  background-color: #007bff !important;
+  color: white !important;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  background-color: #f8f9fa !important;
+  color: #007bff !important;
+}
+
+.nav-link.active:hover {
+  background-color: #0056b3 !important;
+  color: white !important;
+}
+
+.nav-category-title {
+  cursor: pointer;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  margin-bottom: 5px;
+  transition: all 0.3s ease;
+}
+
+.nav-category-title.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.nav-category-content {
+  padding: 10px 0;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.show.active {
+  display: block;
+}

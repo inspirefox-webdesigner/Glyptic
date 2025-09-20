@@ -1,0 +1,301 @@
+/* Product Details Page Styles */
+ 
+.product-tabs {
+  margin-top: 2rem;
+}
+ 
+.product-tabs .nav-tabs {
+  border-bottom: 2px solid #e9ecef;
+}
+ 
+.product-tabs .nav-link {
+  color: #6c757d;
+  font-weight: 600;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-bottom: 3px solid transparent;
+  background: none;
+  transition: all 0.3s ease;
+}
+ 
+.product-tabs .nav-link:hover {
+  color: #667eea;
+  border-bottom-color: #667eea;
+}
+ 
+.product-tabs .nav-link.active {
+  color: #667eea;
+  border-bottom-color: #667eea;
+  background: none;
+}
+ 
+.tab-content-wrapper {
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+ 
+/* Video Container Styles */
+.video-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+ 
+.video-container iframe,
+.video-container video {
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+ 
+/* Table Styles for Tech Specifications */
+.tab-content-wrapper table {
+  width: 100%;
+  margin-bottom: 1rem;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+ 
+.tab-content-wrapper table th {
+  background-color: #43a409 !important;
+  color: white !important;
+  padding: 0.75rem !important;
+  font-weight: 600 !important;
+  text-align: left;
+  border: none !important;
+}
+ 
+.tab-content-wrapper table td {
+  padding: 0.75rem !important;
+  color: #6c757d !important;
+  border: 1px solid #dee2e6 !important;
+  vertical-align: top;
+}
+ 
+.tab-content-wrapper table tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+ 
+.tab-content-wrapper table tr:hover {
+  background-color: #e9ecef;
+}
+ 
+/* Content Styling */
+.tab-content-wrapper h4,
+.tab-content-wrapper h5,
+.tab-content-wrapper h6 {
+  color: #667eea !important;
+  margin-bottom: 1rem !important;
+  font-weight: 600 !important;
+}
+ 
+.tab-content-wrapper p {
+  margin-bottom: 1rem !important;
+  line-height: 1.6 !important;
+  color: #6c757d !important;
+}
+ 
+.tab-content-wrapper ul,
+.tab-content-wrapper ol {
+  margin-bottom: 1rem !important;
+  padding-left: 1.5rem !important;
+}
+ 
+.tab-content-wrapper li {
+  margin-bottom: 0.5rem !important;
+  color: #6c757d !important;
+}
+ 
+.tab-content-wrapper strong,
+.tab-content-wrapper b {
+  color: #495057 !important;
+  font-weight: 600 !important;
+}
+ 
+/* Manual Download Styles */
+.manual-download-container {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+ 
+.manual-download-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+ 
+.manual-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+ 
+.manual-download-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  color: white;
+  text-decoration: none;
+}
+ 
+.manual-download-btn i {
+  font-size: 16px;
+}
+ 
+/* Responsive Design */
+@media (max-width: 768px) {
+  .product-tabs .nav-link {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+ 
+  .tab-content-wrapper {
+    padding: 1rem;
+  }
+ 
+  .video-container {
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+  }
+ 
+  .video-container iframe,
+  .video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+ 
+  .manual-download-container {
+    padding: 1.5rem;
+  }
+ 
+  .manual-download-card {
+    padding: 1.5rem;
+  }
+ 
+  .manual-download-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+ 
+/* Product Gallery Enhancements */
+.product-card-clickable {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none !important;
+  color: inherit !important;
+}
+ 
+.product-card-clickable:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+  text-decoration: none !important;
+  color: inherit !important;
+}
+ 
+.product-card-clickable .card-body {
+  transition: all 0.3s ease;
+}
+ 
+.product-card-clickable:hover .card-body {
+  background-color: #f8f9fa;
+}
+ 
+.product-card-clickable .card-text {
+  font-weight: 600;
+  color: #333 !important;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+ 
+.product-card-clickable:hover .card-text {
+  color: #667eea !important;
+}
+ 
+/* Loading States */
+.products-loading {
+  text-align: center;
+  padding: 3rem;
+  color: #6c757d;
+}
+ 
+.products-loading i {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  animation: spin 1s linear infinite;
+}
+ 
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+ 
+/* Error States */
+.products-error {
+  text-align: center;
+  padding: 3rem;
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  color: #721c24;
+}
+ 
+.products-error i {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #dc3545;
+}
+ 
+/* Empty States */
+.products-empty {
+  text-align: center;
+  padding: 3rem;
+  background: #d1ecf1;
+  border: 1px solid #bee5eb;
+  border-radius: 8px;
+  color: #0c5460;
+}
+ 
+.products-empty i {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #17a2b8;
+}
+
+
+/* Remove scroll bar from product content */
+/* #product-content {
+  overflow: hidden !important;
+} */
+ 
+#product-content * {
+  overflow: visible !important;
+}
+ 
+/* .product-content-wrapper {
+  overflow: hidden !important;
+} */
+ 
+.col-md-6 {
+  overflow: visible !important;
+}

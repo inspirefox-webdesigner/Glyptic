@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Favicons - Place favicon.ico in the root directory -->
-    <link rel="shortcut icon" href="assets/img/logo/Glytic-nav-logo.png" type="image/x-icon" class="w-100">
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
     <!--
     <link rel="apple-touch-icon" sizes="57x57" href="assets/img/favicons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/img/favicons/apple-icon-60x60.png">
@@ -221,7 +221,7 @@
                     <li class="menu-item-has-children">
                         <a href="Training.html">Training</a>
                         <ul class="sub-menu">
-                              <li><a href="Training.html"/>Training Calender</a></li>
+                            <li><a href="Training.html" />Training Calender</a></li>
                             <li><a href="basic-fire-alarm.html">Basic Fire Alarm Training</a></li>
                             <li><a href="advance-fire-alarm-commisoning.html">Advanced Fire Alarm Commissioning
                                     Training</a></li>
@@ -391,7 +391,7 @@
                                     <li class="menu-item-has-children">
                                         <a href="Training.html">Training</a>
                                         <ul class="sub-menu">
-                                              <li><a href="Training.html"/>Training Calender</a></li>
+                                            <li><a href="Training.html" />Training Calender</a></li>
                                             <li><a href="basic-fire-alarm-training.html">Basic Fire Alarm Training</a>
                                             </li>
                                             <li><a href="advanced-fire-alarm-commissioning-training.html">Advanced Fire
@@ -412,7 +412,8 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="contact.html">Raise Support Ticket</a>
+                                        <a href="https://script.google.com/macros/s/AKfycbx4KofKLMjh6RZVjJFpvmjCkxSKiAEOUto8CnzVgwp2MJ6P5-i2QssKsvtD-UMOPU1D/exec"
+                                            target="_blank">Raise Support Ticket</a>
                                     </li>
                                     <li>
                                         <a href="contact.html">Contact Us</a>
@@ -444,9 +445,7 @@
     <!--==============================
     Breadcumb
 ============================== -->
-    <div class="breadcumb-wrapper"
-        data-bg-src="https://glyptic.in/wp-content/uploads/2025/01/glyptic-background-website-3-.jpg"
-        data-overlay="black" data-opacity="7">
+    <div class="breadcumb-wrapper" data-bg-src="assets/img/bg/about.jfif" data-overlay="black" data-opacity="7">
         <div class="container">
             <div class="row">
                 <div class="col-xxl-12">
@@ -535,7 +534,7 @@
                         <h2 class="text-center mb-4" style="color: #333; font-weight: bold">
                             Apply Now
                         </h2>
-                        <form class="contact-form ajax-contact">
+                        <form id="careerForm" class="contact-form">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group" style="margin-bottom: 25px">
@@ -545,7 +544,7 @@
                           font-weight: 500;
                           color: #333;
                         ">Honorific *</label>
-                                        <select class="form-control" style="
+                                        <select name="honorific" class="form-control" style="
                           padding: 12px 15px;
                           border-radius: 5px;
                           border: 1px solid #ddd;
@@ -565,7 +564,7 @@
                           font-weight: 500;
                           color: #333;
                         ">Full Name *</label>
-                                        <input type="text" class="form-control" style="
+                                        <input type="text" name="fullName" class="form-control" style="
                           padding: 12px 15px;
                           border-radius: 5px;
                           border: 1px solid #ddd;
@@ -580,7 +579,7 @@
                           font-weight: 500;
                           color: #333;
                         ">Email Address *</label>
-                                        <input type="email" class="form-control" style="
+                                        <input type="email" name="email" class="form-control" style="
                           padding: 12px 15px;
                           border-radius: 5px;
                           border: 1px solid #ddd;
@@ -595,11 +594,11 @@
                           font-weight: 500;
                           color: #333;
                         ">Mobile Number *</label>
-                                        <input type="tel" class="form-control" style="
+                                        <input type="tel" name="mobile" class="form-control" style="
                           padding: 12px 15px;
                           border-radius: 5px;
                           border: 1px solid #ddd;
-                        " placeholder="Mobile Number" required />
+                        " placeholder="Mobile Number" pattern="[0-9]{10}" required />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -610,7 +609,7 @@
                           font-weight: 500;
                           color: #333;
                         ">Highest Qualification *</label>
-                                        <select class="form-control" style="
+                                        <select name="qualification" class="form-control" style="
                           padding: 12px 15px;
                           border-radius: 5px;
                           border: 1px solid #ddd;
@@ -628,7 +627,6 @@
                                             <option value="mcom">MCOM</option>
                                             <option value="be">BE</option>
                                             <option value="btech">BTECH</option>
-                                            <option value="bsc">BSC</option>
                                         </select>
                                     </div>
                                 </div>
@@ -640,7 +638,7 @@
                           font-weight: 500;
                           color: #333;
                         ">Specialization *</label>
-                                        <input type="text" class="form-control" style="
+                                        <input type="text" name="specialization" class="form-control" style="
                           padding: 12px 15px;
                           border-radius: 5px;
                           border: 1px solid #ddd;
@@ -655,36 +653,26 @@
                           font-weight: 500;
                           color: #333;
                         ">Position Applied For *</label>
-                                        <select class="form-control" style="
+                                        <select name="position" class="form-control" style="
                           padding: 12px 15px;
                           border-radius: 5px;
                           border: 1px solid #ddd;
                         " required>
                                             <option value="">Select Position</option>
-                                            <option value="field-assistant">Field Assistant</option>
-                                            <option value="project-executive">
-                                                Project Executive
+                                            <option value="commissioning-engineer">Commissioning Engineer</option>
+                                            <option value="supervisor-customer-support">Supervisor – Customer Support
                                             </option>
-                                            <option value="team-leader">Team Leader</option>
-                                            <option value="customer-support-executive">
-                                                Customer Support Executive
+                                            <option value="team-leader">Team Leader / Executive for Fire Protection
+                                                Project</option>
+                                            <option value="field-assistant">Field Assistant</option>
+                                            <option value="project-executive">Project Executive</option>
+                                            <option value="customer-support-executive">Customer Support Executive
                                             </option>
                                             <option value="manager">Manager</option>
                                             <option value="senior-manager">Senior Manager</option>
-                                            <option value="estimation-engineer">
-                                                Estimation Engineer
-                                            </option>
+                                            <option value="estimation-engineer">Estimation Engineer</option>
                                             <option value="de-engineer">D&E Engineer</option>
-                                            <option value="account-executive">
-                                                Account Executive
-                                            </option>
-                                            <option value="asst-manager">Asst. Manager</option>
-                                            <option value="sr-account-executive">
-                                                SR. Account Executive
-                                            </option>
-                                            <option value="executive-warehouse">
-                                                Executive-Warehouse
-                                            </option>
+                                            <option value="account-executive">Account Executive</option>
                                         </select>
                                     </div>
                                 </div>
@@ -696,7 +684,7 @@
                           font-weight: 500;
                           color: #333;
                         ">Experience *</label>
-                                        <select class="form-control" style="
+                                        <select name="experience" class="form-control" style="
                           padding: 12px 15px;
                           border-radius: 5px;
                           border: 1px solid #ddd;
@@ -718,11 +706,11 @@
                           font-weight: 500;
                           color: #333;
                         ">Postal Address *</label>
-                                        <textarea class="form-control" style="
+                                        <textarea name="postalAddress" class="form-control" style="
                           padding: 12px 15px;
                           border-radius: 5px;
                           border: 1px solid #ddd;
-                        " rows="4" placeholder="Postal Address" required></textarea>
+                        " rows="4" placeholder="Enter your complete postal address" required></textarea>
                                     </div>
                                 </div>
                                 <div class="col-12 text-center">
@@ -809,8 +797,8 @@
 
                                     <li><a href="index.html">Home</a></li>
                                     <li><a href="about.html">About Us</a></li>
-                                    <li><a href="product.html">Our Products</a></li>
-                                    <li><a href="discover.html">News & Articles</a></li>
+                                    <li><a href="addressable-fire-alarm.html">Our Products</a></li>
+                                    <li><a href="blog-2.html">News & Articles</a></li>
                                     <li><a href="faq.html">FAQ</a></li>
                                     <li><a href="contact.html">Contact us</a></li>
 
@@ -839,43 +827,40 @@
                             <h3 class="widget_title">Our Gallery</h3>
                             <div class="row g-3">
                                 <div class="col-4">
-                                    <a href="https://glyptic.in/wp-content/uploads/2025/03/4-LOOP.png"
-                                        data-fancybox="gallery" class="gallery-item">
-                                        <img src="https://glyptic.in/wp-content/uploads/2025/03/4-LOOP.png" alt="">
+                                    <a href="assets/img/gallery/4-LOOP.png" data-fancybox="gallery"
+                                        class="gallery-item">
+                                        <img src="assets/img/gallery/4-LOOP.png" alt="">
                                     </a>
                                 </div>
                                 <div class="col-4">
-                                    <a href="https://glyptic.in/wp-content/uploads/2025/03/System-Addressable-Fire-Alarm-Control-Panels-With-Accessories-Buy-Home-Security-System-addressable-Fire-Alarm-System-fire-Alarm-Control-Panel-addressable-Fire-Detection.jpg"
+                                    <a href="assets/img/gallery/System-Addressable-Fire-Alarm-Control-Panels-With-Accessories-Buy-Home-Security-System-addressable-Fire-Alarm-System-fire-Alarm-Control-Panel-addressable-Fire-Detection.jpg"
                                         data-fancybox="gallery" class="gallery-item">
-                                        <img src="https://glyptic.in/wp-content/uploads/2025/03/System-Addressable-Fire-Alarm-Control-Panels-With-Accessories-Buy-Home-Security-System-addressable-Fire-Alarm-System-fire-Alarm-Control-Panel-addressable-Fire-Detection.jpg"
+                                        <img src="assets/img/gallery/System-Addressable-Fire-Alarm-Control-Panels-With-Accessories-Buy-Home-Security-System-addressable-Fire-Alarm-System-fire-Alarm-Control-Panel-addressable-Fire-Detection.jpg"
                                             alt="">
                                     </a>
                                 </div>
                                 <div class="col-4">
-                                    <a href="https://glyptic.in/wp-content/uploads/2025/03/DTS.jpg"
-                                        data-fancybox="gallery" class="gallery-item">
-                                        <img src="https://glyptic.in/wp-content/uploads/2025/03/DTS.jpg" alt="">
+                                    <a href="assets/img/gallery/DTS.jpg" data-fancybox="gallery" class="gallery-item">
+                                        <img src="assets/img/gallery/DTS.jpg" alt="">
                                     </a>
                                 </div>
                                 <div class="col-4">
-                                    <a href="https://glyptic.in/wp-content/uploads/2025/03/WhatsApp-Image-2025-03-13-at-4.58.55-PM2.jpeg"
+                                    <a href="assets/img/gallery/WhatsApp-Image-2025-03-13-at-4.58.55-PM2-1.jpeg"
                                         data-fancybox="gallery" class="gallery-item">
-                                        <img src="https://glyptic.in/wp-content/uploads/2025/03/WhatsApp-Image-2025-03-13-at-4.58.55-PM2.jpeg"
+                                        <img src="assets/img/gallery/WhatsApp-Image-2025-03-13-at-4.58.55-PM2-1.jpeg"
                                             alt="">
                                     </a>
                                 </div>
                                 <div class="col-4">
-                                    <a href="https://glyptic.in/wp-content/uploads/2025/03/ABUIABACG7gU.jpg"
-                                        data-fancybox="gallery" class="gallery-item">
-                                        <img src="https://glyptic.in/wp-content/uploads/2025/03/ABUIABACG7gU.jpg"
-                                            alt="">
+                                    <a href="assets/img/gallery/ABUIABACG7gU.jpg" data-fancybox="gallery"
+                                        class="gallery-item">
+                                        <img src="assets/img/gallery/ABUIABACG7gU.jpg" alt="">
                                     </a>
                                 </div>
                                 <div class="col-4">
-                                    <a href="https://glyptic.in/wp-content/uploads/2025/03/ABUIABACGA7gU47gU.jpg"
-                                        data-fancybox="gallery" class="gallery-item">
-                                        <img src="https://glyptic.in/wp-content/uploads/2025/03/ABUIABACGA7gU47gU.jpg"
-                                            alt="">
+                                    <a href="assets/img/gallery/ABUIABACGA7gU47gU.jpg" data-fancybox="gallery"
+                                        class="gallery-item">
+                                        <img src="assets/img/gallery/ABUIABACGA7gU47gU.jpg" alt="">
                                     </a>
                                 </div>
                             </div>
@@ -917,9 +902,9 @@
     <!--********************************
 			Code End  Here 
 	******************************** -->
-  <!-- whatsapp pulse -->
-     
-     <a href="https://wa.me/919836838438" class="btn-whatsapp-pulse" target="_blank">
+    <!-- whatsapp pulse -->
+
+    <a href="https://wa.me/919836838438" class="btn-whatsapp-pulse" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
     <!-- Scroll To Top -->
@@ -935,14 +920,14 @@
     All Js File
 ============================== -->
 
-    <script>
+   <script>
         Fancybox.bind("[data-fancybox='gallery']", {
             Toolbar: {
                 display: ["close"]
             }
         });
     </script>
-
+ 
     <!-- Jquery -->
     <script src="assets/js/vendor/jquery-3.7.1.min.js"></script>
     <!-- Swiper Js -->
@@ -968,15 +953,18 @@
     <script src="assets/js/SplitText.min.js"></script>
     <!-- Lenis Js -->
     <script src="assets/js/lenis.min.js"></script>
-
+ 
     <!-- Perticle Js -->
     <script src="assets/js/particles.min.js"></script>
     <script src="assets/js/particles-config.js"></script>
-
-
+ 
+ 
     <!-- Main Js File -->
     <script src="assets/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+ 
+    <!-- Optimized Form Handler -->
+    <script src="assets/js/form-handler.js"></script>
 </body>
 
 </html>

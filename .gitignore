@@ -1,0 +1,57 @@
+# Node.js dependencies and build output
+node_modules/
+dist/
+dist-ssr/
+uploads/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+ 
+# Environment files
+.env
+.env.local
+.env.*.local
+ 
+# Editor directories and files
+.vscode/
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+ 
+# OS generated files
+Thumbs.db
+Desktop.ini
+ 
+# Admin panel build and dependencies
+admin/node_modules/
+admin/dist/
+admin/dist-ssr/
+admin/.DS_Store
+admin/.idea/
+admin/.vscode/
+admin/*.log
+ 
+# Backend build and dependencies
+backend/node_modules/
+backend/dist/
+backend/uploads/
+backend/.env
+backend/*.log
+ 
+# Ignore bat scripts if not needed in repo
+*.bat
+ 
+# Ignore any log or temp files in root
+*.log
+*.tmp
+ 
+# Ignore any other assets that should not be tracked
+assets/tmp/
+assets/*.log
