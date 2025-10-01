@@ -78,7 +78,7 @@ const Gallery = () => {
   }
  
   return (
-    <div style={{maxWidth: '1400px', margin: '0 auto', padding: '20px'}}>
+    <div>
       <Toast
         message={toast.message}
         type={toast.type}

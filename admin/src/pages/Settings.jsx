@@ -108,7 +108,7 @@ const Settings = () => {
   }
 
   return (
-    <div className="container-fluid" style={{maxWidth: '1400px', margin: '0 auto', padding: '20px'}} >
+    <div className="container-fluid"  >
       <div className="page-header">
         <h1 className="page-title" style={{ color: '#000' }}>
           Admin Settings

@@ -39,7 +39,7 @@ const Services = () => {
   );
 
   return (
-    <div style={{maxWidth: '1400px', margin: '0 auto', padding: '20px'}}>
+    <div >
       <div className="page-header">
         <h1 className="page-title">Services</h1>
         <Link to="/services/new" className="btn btn-primary">

@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Dashboard = () => {
   const [stats, setStats] = useState({
@@ -15,7 +15,7 @@ const Dashboard = () => {
     trainingEvents: 0,
     eventRegistrations: 0,
     loading: true,
-    error: null
+    error: null,
   });
 
   useEffect(() => {
@@ -24,17 +24,28 @@ const Dashboard = () => {
 
   const fetchStats = async () => {
     try {
-      const [servicesRes, solutionsRes, productsRes, blogsRes, galleryRes, careersRes, contactsRes, faqsRes, trainingEventsRes, registrationsRes] = await Promise.all([
-        axios.get('http://localhost:5000/api/services'),
-        axios.get('http://localhost:5000/api/solutions'),
-        axios.get('http://localhost:5000/api/products'),
-        axios.get('http://localhost:5000/api/blogs'),
-        axios.get('http://localhost:5000/api/gallery'),
-        axios.get('http://localhost:5000/api/careers'),
-        axios.get('http://localhost:5000/api/contacts'),
-        axios.get('http://localhost:5000/api/faqs'),
-        axios.get('http://localhost:5000/api/training/events'),
-        axios.get('http://localhost:5000/api/training/registrations')
+      const [
+        servicesRes,
+        solutionsRes,
+        productsRes,
+        blogsRes,
+        galleryRes,
+        careersRes,
+        contactsRes,
+        faqsRes,
+        trainingEventsRes,
+        registrationsRes,
+      ] = await Promise.all([
+        axios.get("http://localhost:5000/api/services"),
+        axios.get("http://localhost:5000/api/solutions"),
+        axios.get("http://localhost:5000/api/products"),
+        axios.get("http://localhost:5000/api/blogs"),
+        axios.get("http://localhost:5000/api/gallery"),
+        axios.get("http://localhost:5000/api/careers"),
+        axios.get("http://localhost:5000/api/contacts"),
+        axios.get("http://localhost:5000/api/faqs"),
+        axios.get("http://localhost:5000/api/training/events"),
+        axios.get("http://localhost:5000/api/training/registrations"),
       ]);
 
       setStats({
@@ -49,10 +60,10 @@ const Dashboard = () => {
         trainingEvents: trainingEventsRes.data.length,
         eventRegistrations: registrationsRes.data.length,
         loading: false,
-        error: null
+        error: null,
       });
     } catch (error) {
-      console.error('Error fetching stats:', error);
+      console.error("Error fetching stats:", error);
       setStats({
         services: 0,
         solutions: 0,
@@ -65,17 +76,13 @@ const Dashboard = () => {
         trainingEvents: 0,
         eventRegistrations: 0,
         loading: false,
-        error: 'Backend server not connected. Please start the backend server.'
+        error: "Backend server not connected. Please start the backend server.",
       });
     }
   };
 
   if (stats.loading) {
-    return (
-      <div className="loading-spinner">
-        Loading Dashboard...
-      </div>
-    );
+    return <div className="loading-spinner">Loading Dashboard...</div>;
   }
 
   if (stats.error) {
@@ -84,15 +91,28 @@ const Dashboard = () => {
         <div className="page-header">
           <h1 className="page-title">Dashboard</h1>
         </div>
-        <div className="card" style={{ border: '2px solid #f56565', backgroundColor: '#fed7d7' }}>
+        <div
+          className="card"
+          style={{ border: "2px solid #f56565", backgroundColor: "#fed7d7" }}
+        >
           <div className="card-body">
-            <h3 style={{ color: '#c53030', marginBottom: '1rem' }}>⚠️ Connection Error</h3>
-            <p style={{ color: '#742a2a', marginBottom: '1rem' }}>{stats.error}</p>
-            <div style={{ display: 'flex', gap: '1rem' }}>
+            <h3 style={{ color: "#c53030", marginBottom: "1rem" }}>
+              ⚠️ Connection Error
+            </h3>
+            <p style={{ color: "#742a2a", marginBottom: "1rem" }}>
+              {stats.error}
+            </p>
+            <div style={{ display: "flex", gap: "1rem" }}>
               <button onClick={fetchStats} className="btn btn-primary">
                 🔄 Retry Connection
               </button>
-              <a href="#" onClick={() => window.open('http://localhost:5000/api/services', '_blank')} className="btn btn-secondary">
+              <a
+                href="#"
+                onClick={() =>
+                  window.open("http://localhost:5000/api/services", "_blank")
+                }
+                className="btn btn-secondary"
+              >
                 🔗 Test Backend
               </a>
             </div>
@@ -108,100 +128,253 @@ const Dashboard = () => {
         <h1 className="page-title">Dashboard</h1>
       </div>
 
-      <div className='dashboard-grid' style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginBottom: '2rem', width: '100%',overflowX: 'auto' }}>
-
+      <div
+        className="dashboard-grid"
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          gap: "2rem",
+          marginBottom: "2rem",
+          width: "100%",
+          overflowX: "auto",
+        }}
+      >
         <div className="card">
-          <div className="card-header">
-            Getting Started
-          </div>
+          <div className="card-header">Getting Started</div>
           <div className="card-body">
-            <div className='dashboard-services-grid' style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem',width: '100%',overflowX: 'auto' }}>
+            <div
+              className="dashboard-services-grid"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+                gap: "2rem",
+                width: "100%",
+                overflowX: "auto",
+              }}
+            >
               <div>
-                <h4 style={{ color: '#2d3748', fontSize: '2rem', }}> {stats.services}</h4>
-                <p style={{ color: '#718096', marginBottom: '1rem', fontSize: '1.5rem' }}>
-                  Services
-                </p>
+                <div style={{ display: "flex" }}>                  
+                  <p
+                    style={{
+                      color: "#718096",
+                      marginBottom: "1rem",
+                      fontSize: "1.5rem",
+                    }}
+                  >
+                    Services
+                  </p>
+                  <h4 style={{ color: "#2d3748", fontSize: "1.5rem" , marginBottom: "1rem", marginLeft:"0.5rem"}}>
+                    {" "}
+                    ({stats.services})
+                  </h4>
+                </div>
                 <Link to="/services" className="btn btn-secondary">
                   View Services
                 </Link>
               </div>
+
+
               <div>
-                <h4 style={{ color: '#2d3748', fontSize: '2rem' }}> {stats.solutions}</h4>
-                <p style={{ color: '#718096', marginBottom: '1rem', fontSize: '1.5rem' }}>
+                <div style={{ display: "flex" }}>
+                    <p
+                  style={{
+                    color: "#718096",
+                    marginBottom: "1rem",
+                    fontSize: "1.5rem",
+                  }}
+                >
                   Solutions
                 </p>
+                <h4 style={{ color: "#2d3748", fontSize: "1.5rem",marginBottom: "1rem", marginLeft:"0.5rem"}}>
+                  {" "}
+                  ({stats.solutions})
+                </h4>
+              
+                </div>
                 <Link to="/solutions" className="btn btn-secondary">
                   View Solutions
                 </Link>
               </div>
+
+
               <div>
-                <h4 style={{ color: '#2d3748', fontSize: '2rem' }}> {stats.products}</h4>
-                <p style={{ color: '#718096', marginBottom: '1rem', fontSize: '1.5rem' }}>
+                <div style={{ display: "flex" }}>
+                   <p
+                  style={{
+                    color: "#718096",
+                    marginBottom: "1rem",
+                    fontSize: "1.5rem",
+                  }}
+                >
                   Products
                 </p>
+                <h4 style={{ color: "#2d3748", fontSize: "1.5rem", marginBottom: "1rem", marginLeft:"0.5rem"}}>
+                  {" "}
+                  ({stats.products})
+                </h4>
+                </div>
+               
                 <Link to="/products" className="btn btn-secondary">
                   View Products
                 </Link>
               </div>
+
+
               <div>
-                <h4 style={{ color: '#2d3748', fontSize: '2rem' }}> {stats.blogs}</h4>
-                <p style={{ color: '#718096', marginBottom: '1rem', fontSize: '1.5rem' }}>
+                <div style={{ display: "flex" }}>
+                   <p
+                  style={{
+                    color: "#718096",
+                    marginBottom: "1rem",
+                    fontSize: "1.5rem",
+                  }}
+                >
                   Blogs
                 </p>
+                <h4 style={{ color: "#2d3748", fontSize: "1.5rem", marginBottom: "1rem", marginLeft:"0.5rem"}}>
+                  {" "}
+                 ({stats.blogs})
+                </h4>
+                </div>
+               
                 <Link to="/blogs" className="btn btn-secondary">
                   View Blogs
                 </Link>
               </div>
+
+
               <div>
-                <h4 style={{ color: '#2d3748', fontSize: '2rem' }}> {stats.gallery}</h4>
-                <p style={{ color: '#718096', marginBottom: '1rem', fontSize: '1.5rem' }}>
+                <div style={{ display: "flex" }}>
+                  <p
+                  style={{
+                    color: "#718096",
+                    marginBottom: "1rem",
+                    fontSize: "1.5rem",
+                  }}
+                >
                   Gallery Images
                 </p>
+                <h4 style={{ color: "#2d3748", fontSize: "1.5rem", marginBottom: "1rem", marginLeft:"0.5rem"}}>
+                  {" "}
+                  ({stats.gallery})
+                </h4>
+                </div>
+                
                 <Link to="/gallery" className="btn btn-secondary">
                   View Gallery
                 </Link>
               </div>
+
+
               <div>
-                <h4 style={{ color: '#2d3748', fontSize: '2rem' }}> {stats.careers}</h4>
-                <p style={{ color: '#718096', marginBottom: '1rem', fontSize: '1.5rem' }}>
+               <div style={{ display: "flex" }}>
+                 <p
+                  style={{
+                    color: "#718096",
+                    marginBottom: "1rem",
+                    fontSize: "1.5rem",
+                  }}
+                >
                   Career Applications
                 </p>
+                <h4 style={{ color: "#2d3748", fontSize: "1.5rem", marginBottom: "1rem", marginLeft:"0.5rem"}}>
+                  {" "}
+                  ({stats.careers})
+                </h4>
+               </div>
+                
                 <Link to="/careers" className="btn btn-secondary">
                   View Applications
                 </Link>
               </div>
+
+
               <div>
-                <h4 style={{ color: '#2d3748', fontSize: '2rem' }}> {stats.contacts}</h4>
-                <p style={{ color: '#718096', marginBottom: '1rem', fontSize: '1.5rem' }}>
-                  Contact Form Submissions
+               <div style={{ display: "flex" }}>
+                 <p
+                  style={{
+                    color: "#718096",
+                    marginBottom: "1rem",
+                    fontSize: "1.5rem",
+                  }}
+                >
+                  Contact Form Submissions <span style={{color: "#2d3748", fontSize: "1.5rem", marginBottom: "1rem" , fontWeight: "700"}}>({stats.contacts})</span>
                 </p>
+                {/* <h4 style={{ color: "#2d3748", fontSize: "1.5rem", marginBottom: "1rem"}}>
+                  {" "}
+                   ({stats.contacts})
+                </h4> */}
+               </div>
+                
                 <Link to="/contacts" className="btn btn-secondary">
                   View Contacts
                 </Link>
               </div>
+
+
               <div>
-                <h4 style={{ color: '#2d3748', fontSize: '2rem' }}> {stats.faqs}</h4>
-                <p style={{ color: '#718096', marginBottom: '1rem', fontSize: '1.5rem' }}>
+                <div style={{ display: "flex" }}>
+                   <p
+                  style={{
+                    color: "#718096",
+                    marginBottom: "1rem",
+                    fontSize: "1.5rem",
+                  }}
+                >
                   FAQ Categories
                 </p>
+                <h4 style={{ color: "#2d3748", fontSize: "1.5rem", marginBottom: "1rem", marginLeft:"0.5rem"}}>
+                  {" "}
+                  ({stats.faqs})
+                </h4>
+                </div>
+               
                 <Link to="/faqs" className="btn btn-secondary">
                   View FAQs
                 </Link>
               </div>
+
+
               <div>
-                <h4 style={{ color: '#2d3748', fontSize: '2rem' }}> {stats.trainingEvents}</h4>
-                <p style={{ color: '#718096', marginBottom: '1rem', fontSize: '1.5rem' }}>
+                <div style={{ display: "flex" }}>
+                  <p
+                  style={{
+                    color: "#718096",
+                    marginBottom: "1rem",
+                    fontSize: "1.5rem",
+                  }}
+                >
                   Training Events
                 </p>
+                <h4 style={{ color: "#2d3748", fontSize: "1.5rem", marginBottom: "1rem", marginLeft:"0.5rem"}}>
+                  {" "}
+                  ({stats.trainingEvents})
+                </h4>
+                </div>
+                
                 <Link to="/training-calendar" className="btn btn-secondary">
                   View Calendar
                 </Link>
               </div>
+
+
               <div>
-                <h4 style={{ color: '#2d3748', fontSize: '2rem' }}> {stats.eventRegistrations}</h4>
-                <p style={{ color: '#718096', marginBottom: '1rem', fontSize: '1.5rem' }}>
+              <div style={{ display: "flex" }}>
+                  <p
+                  style={{
+                    color: "#718096",
+                    marginBottom: "1rem",
+                    fontSize: "1.5rem",
+                  }}
+                >
                   Event Registrations
                 </p>
+                <h4 style={{ color: "#2d3748", fontSize: "1.5rem", marginBottom: "1rem", marginLeft:"0.5rem"}}>
+                  {" "}
+                  ({stats.eventRegistrations})
+                </h4>
+              </div>
+                
                 <Link to="/events-data" className="btn btn-secondary">
                   View Registrations
                 </Link>
@@ -209,17 +382,8 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-
-
       </div>
-
-
-
     </div>
-
-
-
-
 
     // <div>
     //   <div className="page-header">
@@ -313,7 +477,6 @@ const Dashboard = () => {
     //       <div className="card-body">
     //         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
 
-
     //            <Link to="/services/new" className="btn btn-primary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.3rem 1rem' }}>
     //             <span style={{ fontSize: '2rem', color:'#fff', }}>+</span> Add New Service
     //           </Link>
@@ -335,25 +498,24 @@ const Dashboard = () => {
     //           </Link>
 
     //           <Link to="/careers" className="btn btn-purple" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.8rem 1rem' }}>
-    //             <span style={{ fontSize: '1.3rem', color:'#fff', }}>📋</span> View Career Applications 
+    //             <span style={{ fontSize: '1.3rem', color:'#fff', }}>📋</span> View Career Applications
     //           </Link>
 
     //           <Link to="/contacts" className="btn btn-teal" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '1rem 1rem' }}>
-    //             <span style={{ fontSize: '1rem', color:'#fff', }}>📞</span> View Contact Submissions 
+    //             <span style={{ fontSize: '1rem', color:'#fff', }}>📞</span> View Contact Submissions
     //           </Link>
 
     //          <Link to="/faqs/new" className="btn btn-FAQs" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.3rem 1rem' }}>
-    //             <span style={{ fontSize: '2rem', color:'#fff', }}>+</span> Add New FAQ 
+    //             <span style={{ fontSize: '2rem', color:'#fff', }}>+</span> Add New FAQ
     //           </Link>
 
     //           <Link to="/training-calendar" className="btn btn-primary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '1rem 1rem' }}>
-    //             <span style={{ fontSize: '1rem', color:'#fff', }}>📅</span> View Training Calendar 
+    //             <span style={{ fontSize: '1rem', color:'#fff', }}>📅</span> View Training Calendar
     //           </Link>
 
     //            <Link to="/events-data" className="btn btn-success" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '1rem 1rem' }}>
-    //             <span style={{ fontSize: '1rem', color:'#fff', }}>📊</span> Events Data 
+    //             <span style={{ fontSize: '1rem', color:'#fff', }}>📊</span> Events Data
     //           </Link>
-
 
     //         </div>
     //       </div>
@@ -462,14 +624,7 @@ const Dashboard = () => {
 
     //   </div>
 
-
     // </div>
-
-
-
-
-
-
   );
 };
 
