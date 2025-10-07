@@ -6,7 +6,7 @@ async function sendEmailNotification(formData, formType) {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                to: formData.to || 'sd.220841102001@gmail.com', // Default recipient email
+                to: formData.to || 'emailer@glyptic.in', // Default recipient email
                 formType: formType,
                 formData: formData
             })
@@ -16,7 +16,7 @@ async function sendEmailNotification(formData, formType) {
     } catch (error) {
         console.error('Email notification error:', error);
         throw error;
-    }
+    } 
 }
 
 /**

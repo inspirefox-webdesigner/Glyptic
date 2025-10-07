@@ -18,7 +18,7 @@ exports.login = async (req, res) => {
     if (!settings) {
       settings = new AdminSettings({
         emailSettings: { adminEmail: 'admin@glyptic.com', emailEnabled: true },
-        passwordSettings: { currentPassword: 'Pass@123' }
+        passwordSettings: { currentPassword: 'admin123' }
       });
       await settings.save();
     }

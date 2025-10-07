@@ -209,12 +209,16 @@ const Settings = () => {
           </div>
         </div>
 
-        {/* Email Settings Grid */}
+
+
+          {/* Do not delete this code*/}
+          {/* This code is not delete but commented for future use.         */}
+
         {/* <div className="col-md-6" style={{ paddingLeft: '10px' }}>
           <div className="card" style={{ height: '500px', width: '100%' }}>
             <div className="card-body" style={{ padding: '25px' }}>
               <h3 style={{ color: '#000', marginBottom: '20px', borderBottom: '2px solid #007bff', paddingBottom: '10px' }}>
-                📧 Email Settings
+                📧 Send Email Notifications
               </h3>
               
               <form onSubmit={handleSave}>
@@ -228,7 +232,7 @@ const Settings = () => {
                     onChange={(e) => handleEmailChange('adminEmail', e.target.value)}
                     className="form-control"
                     style={{ padding: '12px 15px', borderRadius: '5px', border: '1px solid #ddd', fontSize: '16px' }}
-                    placeholder="webdesigner2502@gmail.com"
+                    placeholder="emailer@glyptic.in"
                     required
                   />
                   <small style={{ color: '#666', fontSize: '12px', marginTop: '5px', display: 'block' }}>
@@ -290,6 +294,8 @@ const Settings = () => {
           </div>
         </div> */}
         
+
+
       </div>
     </div>
   );

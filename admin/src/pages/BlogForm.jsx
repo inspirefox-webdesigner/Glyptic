@@ -129,7 +129,7 @@ const BlogForm = () => {
   ];
 
   return (
-    <div style={{maxWidth: '1400px', margin: '0 auto', padding: '20px'}}>
+    <div >
       <Toast 
         message={toast.message} 
         type={toast.type} 
@@ -265,7 +265,8 @@ const BlogForm = () => {
             </div>
 
             <div className="form-group">
-              <button
+             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+               <button
                 type="submit"
                 className="btn btn-success"
                 disabled={loading}
@@ -276,9 +277,11 @@ const BlogForm = () => {
                 type="button"
                 className="btn btn-secondary"
                 onClick={() => navigate('/blogs')}
+                style={{ marginLeft: '1rem' }}
               >
                 Cancel
               </button>
+             </div>
             </div>
           </div>
         </div>

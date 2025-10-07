@@ -9,10 +9,12 @@ class EmailService {
  
   async initTransporter() {
     this.transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: process.env.SMTP_HOST || "mail.glyptic.in", // cPanel mail host
+      port: process.env.SMTP_PORT || 465, // SSL=465, TLS=587
+      secure: true, // 465 mate true, 587 mate false
       auth: {
-        user: process.env.EMAIL_USER || 'sd.220841102001@gmail.com',
-        pass: process.env.EMAIL_PASS || 'ekkbthcysjprucyt'
+        user: process.env.SMTP_USER || "emailer@glyptic.in", // cPanel email
+        pass: process.env.SMTP_PASS || "VWn}_c+4RFr*" // ema nu password
       },
       tls: {
         rejectUnauthorized: false
@@ -31,9 +33,9 @@ class EmailService {
   async getAdminEmail() {
     try {
       const settings = await AdminSettings.findOne();
-      return settings?.emailSettings?.adminEmail || 'sd.220841102001@gmail.com';
+      return settings?.emailSettings?.adminEmail || 'emailer@glyptic.in';
     } catch (error) {
-      return 'sd.220841102001@gmail.com';
+      return 'emailer@glyptic.in';
     }
   }
  
@@ -87,7 +89,7 @@ class EmailService {
  
       // Send notification to admin
       const adminMailOptions = {
-        from: 'sd.220841102001@gmail.com',
+        from: 'emailer@glyptic.in',
         to: adminEmail,
         subject: 'New Career Application - Glyptic',
         html: `
@@ -154,7 +156,7 @@ class EmailService {
  
       // Send notification to admin
       const adminMailOptions = {
-        from: 'sd.220841102001@gmail.com',
+        from: 'emailer@glyptic.in',
         to: adminEmail,
         subject: 'New Contact Form Submission - Glyptic',
         html: `
@@ -188,7 +190,7 @@ class EmailService {
      
       // Send only one email to admin with all registration details
       const adminMailOptions = {
-        from: 'sd.220841102001@gmail.com',
+        from: 'emailer@glyptic.in',
         to: adminEmail,
         subject: 'New Training Registration - Glyptic',
         html: `
