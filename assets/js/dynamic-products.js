@@ -76,6 +76,17 @@ class DynamicProductsLoader {
   }
  
   renderCategories(groupedProducts, tabNav, tabContent) {
+
+    // Add a static heading at the top
+  const allHeading = document.createElement('h5');
+  allHeading.className = 'all-categories-heading mb-3 mt-2 py-2';
+  allHeading.textContent = 'Category Filter'; // Change text as needed
+  tabNav.appendChild(allHeading);
+
+
+
+
+
     let tabIndex = 1;
     let isFirstCategory = true;
     let globalFirstTab = true;
@@ -86,6 +97,7 @@ class DynamicProductsLoader {
       // Create category section
       const categoryDiv = document.createElement('div');
       categoryDiv.className = 'nav-category';
+
  
       const categoryTitle = document.createElement('h6');
       categoryTitle.className = `nav-category-title ${isFirstCategory ? 'active' : ''}`;

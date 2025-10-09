@@ -310,7 +310,7 @@ class ProductLoader {
             if (isImage) {
               specHTML += `<div style="margin-bottom: 1.5rem; text-align: center;">
                 <img src="${this.apiBase.replace('/api', '')}/uploads/${specContent.data}"
-                     style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"
+                     style="max-width: 100%; height: 400px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"
                      alt="Specification Image"
                      onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
                 <div style="display: none; padding: 1rem; background: #f8f9fa; border-radius: 8px; color: #6c757d;">
