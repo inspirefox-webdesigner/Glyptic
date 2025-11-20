@@ -15,6 +15,8 @@ import Contacts from './pages/Contacts';
 import FAQs from './pages/FAQs';
 import TrainingCalendar from './pages/TrainingCalendar';
 import EventsData from './pages/EventsData';
+import HeroSlider from './pages/HeroSlider';
+import HeroSliderForm from './pages/HeroSliderForm';
 import ServiceForm from './pages/ServiceForm';
 import SolutionForm from './pages/SolutionForm';
 import ProductForm from './pages/ProductForm';
@@ -82,6 +84,9 @@ function App() {
               <Route path="/faqs/edit/:id" element={<FAQForm />} />
               <Route path="/training-calendar" element={<TrainingCalendar />} />
               <Route path="/events-data" element={<EventsData />} />
+              <Route path="/hero-slider" element={<HeroSlider />} />
+              <Route path="/hero-slider/new" element={<HeroSliderForm />} />
+              <Route path="/hero-slider/edit/:id" element={<HeroSliderForm />} />
               <Route path="/login" element={<Navigate to="/" replace />} />
             </Routes>
           </div>

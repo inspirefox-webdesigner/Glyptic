@@ -59,10 +59,14 @@
 
 
   <link href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" rel="stylesheet">
-  <script src="assets/js/dynamic-products.js" defer></script>
+
 
   <style>
     /* Standardize product card image sizes */
+    .card-img-top {
+      height: 250px;
+      object-fit: cover;
+    }
   </style>
 </head>
 
@@ -146,23 +150,22 @@
               <li class="menu-item-has-children">
                 <a href="#">Authorize Partners</a>
                 <ul class="sub-menu">
-                  <li><a href="#">Edwards</a></li>
-                  <li><a href="#">Siemens</a></li>
-                  <li><a href="#">Notifier</a></li>
-                  <li><a href="#">Simplex</a></li>
-                  <li><a href="#">TNA</a></li>
-                  <li><a href="#">Farenhyt</a></li>
-                  <li><a href="#">ESSER</a></li>
-                  <li><a href="#">Honeywell</a></li>
-                  <li><a href="#">Apollo</a></li>
-                  <li><a href="#">Ansul</a></li>
-                  <li><a href="#">Kidde</a></li>
-                  <li><a href="#">Blazecut</a></li>
-                  <li><a href="#">Kentec</a></li>
-                  <li><a href="#">Wagner</a></li>
-                  
-<li><a href="#">Bandweaver</a></li>
-                  <li><a href="#">Securiton</a></li>
+                  <li><a href="products.html?brand=Edwards">Edwards</a></li>
+                  <li><a href="products.html?brand=Siemens">Siemens</a></li>
+                  <li><a href="products.html?brand=Notifier">Notifier</a></li>
+                  <li><a href="products.html?brand=Simplex">Simplex</a></li>
+                  <li><a href="products.html?brand=TNA">TNA</a></li>
+                  <li><a href="products.html?brand=Farenhyt">Farenhyt</a></li>
+                  <li><a href="products.html?brand=ESSER">ESSER</a></li>
+                  <li><a href="products.html?brand=Honeywell">Honeywell</a></li>
+                  <li><a href="products.html?brand=Apollo">Apollo</a></li>
+                  <li><a href="products.html?brand=Ansul">Ansul</a></li>
+                  <li><a href="products.html?brand=Kidde">Kidde</a></li>
+                  <li><a href="products.html?brand=Blazecut">Blazecut</a></li>
+                  <li><a href="products.html?brand=Kentec">Kentec</a></li>
+                  <li><a href="products.html?brand=Wagner">Wagner</a></li>
+                  <li><a href="products.html?brand=Bandweaver">Bandweaver</a></li>
+                  <li><a href="products.html?brand=Securiton">Securiton</a></li>
                 </ul>
               </li>
             </ul>
@@ -324,23 +327,22 @@
                       <li class="menu-item-has-children">
                         <a href="#">Authorize Partners</a>
                         <ul class="sub-menu">
-                          <li><a href="#">Edwards</a></li>
-                          <li><a href="#">Siemens</a></li>
-                          <li><a href="#">Notifier</a></li>
-                          <li><a href="#">Simplex</a></li>
-                          <li><a href="#">TNA</a></li>
-                          <li><a href="#">Farenhyt</a></li>
-                          <li><a href="#">ESSER</a></li>
-                          <li><a href="#">Honeywell</a></li>
-                          <li><a href="#">Apollo</a></li>
-                          <li><a href="#">Ansul</a></li>
-                          <li><a href="#">Kidde</a></li>
-                          <li><a href="#">Blazecut</a></li>
-                          <li><a href="#">Kentec</a></li>
-                          <li><a href="#">Wagner</a></li>
-                          
-<li><a href="#">Bandweaver</a></li>
-                          <li><a href="#">Securiton</a></li>
+                          <li><a href="products.html?brand=Edwards">Edwards</a></li>
+                          <li><a href="products.html?brand=Siemens">Siemens</a></li>
+                          <li><a href="products.html?brand=Notifier">Notifier</a></li>
+                          <li><a href="products.html?brand=Simplex">Simplex</a></li>
+                          <li><a href="products.html?brand=TNA">TNA</a></li>
+                          <li><a href="products.html?brand=Farenhyt">Farenhyt</a></li>
+                          <li><a href="products.html?brand=ESSER">ESSER</a></li>
+                          <li><a href="products.html?brand=Honeywell">Honeywell</a></li>
+                          <li><a href="products.html?brand=Apollo">Apollo</a></li>
+                          <li><a href="products.html?brand=Ansul">Ansul</a></li>
+                          <li><a href="products.html?brand=Kidde">Kidde</a></li>
+                          <li><a href="products.html?brand=Blazecut">Blazecut</a></li>
+                          <li><a href="products.html?brand=Kentec">Kentec</a></li>
+                          <li><a href="products.html?brand=Wagner">Wagner</a></li>
+                          <li><a href="products.html?brand=Bandweaver">Bandweaver</a></li>
+                          <li><a href="products.html?brand=Securiton">Securiton</a></li>
                         </ul>
                       </li>
                     </ul>
@@ -500,6 +502,7 @@
         <div class="col-md-4 col-lg-3">
           <div class="nav tab-nav w-100 flex-column nav-pills mb-lg-0 mb-4 sticky-top" id="v-pills-tab" role="tablist"
             aria-orientation="vertical">
+
             <!-- Fire Alarm System -->
             <div class="nav-category">
               <h6 class="nav-category-title active" data-category="fire-alarm">
@@ -904,9 +907,10 @@
               </div>
             </div>
           </div>
-          <div class="footer-cta-thumb" data-cue="slideInRight">
-                            <img src="assets/img/contact-footer-img.png" alt="img" class="w-100">
-                        </div>
+          <div class="col-lg-6">
+            <div class="footer-cta-thumb" data-cue="slideInRight">
+              <img src="assets/img/contact-footer-img.png" alt="img" class="w-100">
+            </div>
           </div>
         </div>
       </div>
@@ -1166,6 +1170,8 @@
   <script src="assets/js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
   <script src="assets/js/product-loader.js"></script>
+  <script src="assets/js/category-products.js" defer></script>
+
 
 
 </body>

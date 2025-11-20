@@ -2535,9 +2535,6 @@ textarea.is-invalid {
   }
 }
 
-.icon-box {
-  /* Medium devices */
-}
 
 .icon-box .slider-arrow {
   opacity: 1;
@@ -21095,7 +21092,7 @@ space {
 }
 
 .service-card {
-  height: 100%;
+  /* height: 100%; */
   position: relative;
   padding: 30px;
   overflow: hidden;
@@ -21203,6 +21200,9 @@ space {
     font-size: 20px;
   }
 }
+
+
+/* service card end */
 
 /* Service Area 2 ---------------------------------- */
 .service-wrap2 {
@@ -27104,7 +27104,7 @@ space {
   /* height: 100%; */
   transition: transform 0.3s ease;
   border-radius: 20px;
-  width: 100%;
+  width: 500px;
 }
 
 .products-tab-addressable .card:hover {
@@ -27414,15 +27414,6 @@ space {
 }
 
 
-
-
-
-
-
-
-
-
-
 .hero-slider {
   width: 100%;
   height: 100vh;
@@ -27530,3 +27521,138 @@ space {
     margin: 10px;
   }
 }
+
+/* Event Details Popup Styles */
+.event-details-popup {
+  font-family: var(--body-font);
+  animation: popupFadeIn 0.3s ease-out;
+}
+
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.event-details-popup h4 {
+  margin-bottom: 15px;
+  font-family: var(--title-font);
+}
+
+.event-details-popup button {
+  transition: all 0.3s ease;
+}
+
+.event-details-popup button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* WhatsApp Pulse Button */
+.btn-whatsapp-pulse {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 30px;
+  text-decoration: none;
+  z-index: 1000;
+  animation: pulse 2s infinite;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  }
+}
+
+.btn-whatsapp-pulse:hover {
+  color: white;
+  transform: scale(1.1);
+}
+
+
+
+
+/* popup model css */
+/* Popup background */
+.custom-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(1px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+/* Popup box */
+.custom-modal-content {
+    background: #fff;
+    width: 30%;
+    max-height: 80vh;
+    padding: 25px;
+    border-radius: 12px;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: fadeIn 0.3s ease;
+}
+
+/* Close button */
+.close-modal {
+    float: right;
+    font-size: 28px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Scrollbar */
+.custom-modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+.custom-modal-content::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Card text clamp */
+.service-card .box-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+

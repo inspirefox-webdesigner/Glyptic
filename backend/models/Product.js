@@ -8,7 +8,11 @@ const productSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    required: true
+    default: ''
+  },
+  brand: {
+    type: String,
+    default: ''
   },
   coverImage: {
     type: String,
@@ -27,6 +31,11 @@ const productSchema = new mongoose.Schema({
       type: String,
       enum: ['text', 'image'],
       default: 'text'
+    },
+    videoType: {
+      type: String,
+      enum: ['upload', 'url'],
+      default: 'upload'
     },
     data: {
       type: mongoose.Schema.Types.Mixed,

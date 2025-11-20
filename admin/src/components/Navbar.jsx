@@ -97,6 +97,15 @@ const Navbar = ({ onLogout }) => {
         </li>
         <li>
           <Link
+            to="/hero-slider"
+            className={`sidebar-link ${location.pathname.includes('/hero-slider') ? 'active' : ''}`}
+            onClick={closeMenu}
+          >
+             Home Slider
+          </Link>
+        </li>
+        <li>
+          <Link
             to="/services"
             className={`sidebar-link ${location.pathname.includes('/services') ? 'active' : ''}`}
             onClick={closeMenu}

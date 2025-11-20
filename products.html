@@ -56,6 +56,8 @@
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
     <!-- Theme Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Products Filter CSS -->
+    <link rel="stylesheet" href="assets/css/products-filter.css">
 
 
     <link href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" rel="stylesheet">
@@ -141,23 +143,22 @@
                             <li class="menu-item-has-children">
                                 <a href="#">Authorize Partners</a>
                                 <ul class="sub-menu">
-                                    <li><a href="#">Edwards</a></li>
-                                    <li><a href="#">Siemens</a></li>
-                                    <li><a href="#">Notifier</a></li>
-                                    <li><a href="#">Simplex</a></li>
-                                    <li><a href="#">TNA</a></li>
-                                    <li><a href="#">Farenhyt</a></li>
-                                    <li><a href="#">ESSER</a></li>
-                                    <li><a href="#">Honeywell</a></li>
-                                    <li><a href="#">Apollo</a></li>
-                                    <li><a href="#">Ansul</a></li>
-                                    <li><a href="#">Kidde</a></li>
-                                    <li><a href="#">Blazecut</a></li>
-                                    <li><a href="#">Kentec</a></li>
-                                    <li><a href="#">Wagner</a></li>
-                                    
-<li><a href="#">Bandweaver</a></li>
-                                    <li><a href="#">Securiton</a></li>
+                                    <li><a href="products.html?brand=Edwards">Edwards</a></li>
+                                    <li><a href="products.html?brand=Siemens">Siemens</a></li>
+                                    <li><a href="products.html?brand=Notifier">Notifier</a></li>
+                                    <li><a href="products.html?brand=Simplex">Simplex</a></li>
+                                    <li><a href="products.html?brand=TNA">TNA</a></li>
+                                    <li><a href="products.html?brand=Farenhyt">Farenhyt</a></li>
+                                    <li><a href="products.html?brand=ESSER">ESSER</a></li>
+                                    <li><a href="products.html?brand=Honeywell">Honeywell</a></li>
+                                    <li><a href="products.html?brand=Apollo">Apollo</a></li>
+                                    <li><a href="products.html?brand=Ansul">Ansul</a></li>
+                                    <li><a href="products.html?brand=Kidde">Kidde</a></li>
+                                    <li><a href="products.html?brand=Blazecut">Blazecut</a></li>
+                                    <li><a href="products.html?brand=Kentec">Kentec</a></li>
+                                    <li><a href="products.html?brand=Wagner">Wagner</a></li>
+                                    <li><a href="products.html?brand=Bandweaver">Bandweaver</a></li>
+                                    <li><a href="products.html?brand=Securiton">Securiton</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -319,23 +320,22 @@
                                             <li class="menu-item-has-children">
                                                 <a href="#">Authorize Partners</a>
                                                 <ul class="sub-menu">
-                                                    <li><a href="#">Edwards</a></li>
-                                                    <li><a href="#">Siemens</a></li>
-                                                    <li><a href="#">Notifier</a></li>
-                                                    <li><a href="#">Simplex</a></li>
-                                                    <li><a href="#">TNA</a></li>
-                                                    <li><a href="#">Farenhyt</a></li>
-                                                    <li><a href="#">ESSER</a></li>
-                                                    <li><a href="#">Honeywell</a></li>
-                                                    <li><a href="#">Apollo</a></li>
-                                                    <li><a href="#">Ansul</a></li>
-                                                    <li><a href="#">Kidde</a></li>
-                                                    <li><a href="#">Blazecut</a></li>
-                                                    <li><a href="#">Kentec</a></li>
-                                                    <li><a href="#">Wagner</a></li>
-                                                    
-<li><a href="#">Bandweaver</a></li>
-                                                    <li><a href="#">Securiton</a></li>
+                                                    <li><a href="products.html?brand=Edwards">Edwards</a></li>
+                                                    <li><a href="products.html?brand=Siemens">Siemens</a></li>
+                                                    <li><a href="products.html?brand=Notifier">Notifier</a></li>
+                                                    <li><a href="products.html?brand=Simplex">Simplex</a></li>
+                                                    <li><a href="products.html?brand=TNA">TNA</a></li>
+                                                    <li><a href="products.html?brand=Farenhyt">Farenhyt</a></li>
+                                                    <li><a href="products.html?brand=ESSER">ESSER</a></li>
+                                                    <li><a href="products.html?brand=Honeywell">Honeywell</a></li>
+                                                    <li><a href="products.html?brand=Apollo">Apollo</a></li>
+                                                    <li><a href="products.html?brand=Ansul">Ansul</a></li>
+                                                    <li><a href="products.html?brand=Kidde">Kidde</a></li>
+                                                    <li><a href="products.html?brand=Blazecut">Blazecut</a></li>
+                                                    <li><a href="products.html?brand=Kentec">Kentec</a></li>
+                                                    <li><a href="products.html?brand=Wagner">Wagner</a></li>
+                                                    <li><a href="products.html?brand=Bandweaver">Bandweaver</a></li>
+                                                    <li><a href="products.html?brand=Securiton">Securiton</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -474,8 +474,44 @@
     <!-- Products Gallery Section -->
     <section class="space-top space-extra-bottom" id="products-sec" style="background-color: #f8f9fa; padding: 80px 0;">
         <div class="container">
-            <div class="row g-3" id="products-gallery">
-                <!-- Dynamic products will be loaded here -->
+            <div class="row">
+                <!-- Sidebar for Filters -->
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <div class="products-sidebar">
+                        <!-- By Categories Section -->
+                        <div class="filter-section">
+                            <h4 class="filter-title active" data-toggle="categories">
+                                By Categories <i class="fas fa-chevron-down"></i>
+                            </h4>
+                            <div class="filter-content" id="categories-content">
+                                <button class="filter-btn category-filter active" data-category="all">
+                                    All Products
+                                </button>
+                                <!-- Dynamic categories will be loaded here -->
+                            </div>
+                        </div>
+
+                        <!-- By Brand Section -->
+                        <div class="filter-section">
+                            <h4 class="filter-title" data-toggle="brands">
+                                By Brand <i class="fas fa-chevron-down"></i>
+                            </h4>
+                            <div class="filter-content" id="brands-content" style="display: none;">
+                                <button class="filter-btn brand-filter active" data-brand="all">
+                                    All Products
+                                </button>
+                                <!-- Dynamic brands will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="col-lg-9 col-md-8">
+                    <div class="row g-4" id="products-gallery">
+                        <!-- Dynamic products will be loaded here -->
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -719,8 +755,7 @@
 
     <!-- Main Js File -->
     <script src="assets/js/main.js"></script>
-    <!-- Dynamic Products JS -->
-    <script src="assets/js/dynamic-products.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 </body>
 

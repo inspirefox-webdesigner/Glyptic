@@ -26,16 +26,16 @@ const getProductById = async (req, res) => {
 // Create new product
 const createProduct = async (req, res) => {
   try {
-    const { title, category, contents = [] } = req.body;
+    const { title, category = '', brand = '', contents = [], coverImage = '', variationImages = [] } = req.body;
     
-    console.log('Creating product with data:', { title, category, contents });
+    console.log('Creating product with data:', { title, category, brand, contents });
     
     if (!title) {
       return res.status(400).json({ message: 'Title is required' });
     }
     
-    if (!category) {
-      return res.status(400).json({ message: 'Category is required' });
+    if (!category && !brand) {
+      return res.status(400).json({ message: 'Either category or brand is required' });
     }
     
     let parsedContents;
@@ -47,7 +47,10 @@ const createProduct = async (req, res) => {
     
     const product = new Product({
       title: title.trim(),
-      category: category.trim(),
+      category: category ? category.trim() : '',
+      brand: brand ? brand.trim() : '',
+      coverImage,
+      variationImages,
       contents: parsedContents
     });
     
@@ -63,15 +66,19 @@ const createProduct = async (req, res) => {
 // Update product
 const updateProduct = async (req, res) => {
   try {
-    const { title, category, contents = [] } = req.body;
+    const { title, category = '', brand = '', contents = [], coverImage = '', variationImages = [] } = req.body;
     
-    if (!title || !category) {
-      return res.status(400).json({ message: 'Title and category are required' });
+    if (!title) {
+      return res.status(400).json({ message: 'Title is required' });
+    }
+    
+    if (!category && !brand) {
+      return res.status(400).json({ message: 'Either category or brand is required' });
     }
     
     const product = await Product.findByIdAndUpdate(
       req.params.id,
-      { title, category, contents },
+      { title, category, brand, contents, coverImage, variationImages },
       { new: true, runValidators: true }
     );
     
