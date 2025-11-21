@@ -41,16 +41,16 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log("\n🚀 ================================");
-    console.log("✅ MongoDB Connected Successfully!");
-    console.log("📊 Database: glyptic");
-    console.log("🔗 Connection: mongodb://localhost:27017/glyptic");
-    console.log("🚀 ================================\n");
+    console.log("\n ================================");
+    console.log(" MongoDB Connected Successfully!");
+    console.log(" Database: glyptic");
+    console.log(" Connection: mongodb://localhost:27017/glyptic");
+    console.log(" ================================\n");
   })
   .catch((err) => {
-    console.error("\n❌ ================================");
-    console.error("❌ MongoDB Connection Error:", err.message);
-    console.error("❌ ================================\n");
+    console.error("\n ================================");
+    console.error(" MongoDB Connection Error:", err.message);
+    console.error(" ================================\n");
   });
 
 // Routes
