@@ -136,10 +136,11 @@
     /*---------- 04. Sticky fix ----------*/
     $(window).scroll(function () {
         var topPos = $(this).scrollTop();
-        if (topPos > 1000) {
+        if (topPos > 0) {
             $('.sticky-wrapper').addClass('sticky');
             $('.category-menu').addClass('close-category');
-        } else {
+        } 
+        else {
             $('.sticky-wrapper').removeClass('sticky')
             $('.category-menu').removeClass('close-category');
         }

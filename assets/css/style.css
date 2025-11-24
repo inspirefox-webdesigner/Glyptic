@@ -9823,6 +9823,7 @@ ol.wp-block-rss {
 .sticky-wrapper {
   -webkit-transition: 0.4s ease-in-out;
   transition: 0.4s ease-in-out;
+  width: 100%;
 }
 
 .sticky-wrapper.sticky {
@@ -9830,6 +9831,8 @@ ol.wp-block-rss {
   top: 0;
   right: 0;
   left: 0;
+  width: 100%;
+  z-index: 999;
   background-color: var(--white-color);
   -webkit-filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.07));
   filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.07));
@@ -10171,6 +10174,7 @@ ol.wp-block-rss {
 .header-logo {
   padding-top: 15px;
   padding-bottom: 15px;
+  width: 150px;
 }
 
 .header-logo a {
