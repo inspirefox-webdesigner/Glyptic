@@ -2642,7 +2642,7 @@ textarea.is-invalid {
   padding-top: 40px;
   display: block;
   text-align: center;
-  background-color: var(--smoke-color);
+  background-color: var(--black-color3);
 }
 
 .th-menu-wrapper .mobile-logo svg {
@@ -10474,7 +10474,7 @@ ol.wp-block-rss {
 /* Medium devices */
 @media (max-width: 991px) {
   .header-default .menu-area {
-    padding: 10px 0;
+    padding: 0 0 !important;
   }
 }
 
