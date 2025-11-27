@@ -1,7 +1,7 @@
 // Dynamic content loader for services and solutions
 class DynamicContentLoader {
   constructor() {
-    this.apiBase = 'http://localhost:5000/api';
+    this.apiBase = `${API_CONFIG.API_BASE}`;
     this.init();
   }
 
@@ -141,7 +141,7 @@ class DynamicContentLoader {
 
       case 'image':
         element = document.createElement('img');
-        element.src = `http://localhost:5000/uploads/${content.data}`;
+        element.src = `${API_CONFIG.API_BASE.replace('/api', '')}/uploads/${content.data}`;
         element.alt = 'Service/Solution Image';
         element.style.maxWidth = '100%';
         element.style.height = 'auto';

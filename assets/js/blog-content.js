@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 async function loadBlogs() {
   try {
-    const response = await fetch("http://localhost:5000/api/blogs");
+    const response = await fetch(`${API_CONFIG.API_BASE}/blogs`);
     const blogs = await response.json();
 
     const container = document.getElementById("blogContainer");
@@ -36,7 +36,7 @@ async function loadBlogs() {
                         }'">
                             <img src="${
                               firstImage
-                                ? `http://localhost:5000/uploads/${firstImage.data}`
+                                ? `${API_CONFIG.API_BASE.replace('/api', '')}/uploads/${firstImage.data}`
                                 : "assets/img/blog/default-blog.jpg"
                             }" alt="${
         blog.title

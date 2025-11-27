@@ -141,7 +141,7 @@ class FormHandler {
                     }
  
                     // First, get all events to find the eventId by title
-                    const eventsResponse = await fetch('http://localhost:5000/api/training/events');
+                    const eventsResponse = await fetch(`${API_CONFIG.API_BASE}/training/events`);
                     if (!eventsResponse.ok) {
                         throw new Error('Failed to fetch events');
                     }
@@ -192,7 +192,7 @@ class FormHandler {
         const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
  
         try {
-            const response = await fetch(`http://localhost:5000/api/${endpoint}`, {
+            const response = await fetch(`${API_CONFIG.API_BASE}/${endpoint}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

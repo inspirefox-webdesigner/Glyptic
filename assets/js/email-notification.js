@@ -1,6 +1,6 @@
 async function sendEmailNotification(formData, formType) {
     try {
-        const response = await fetch('http://localhost:5000/api/notifications/email', {
+        const response = await fetch(`${API_CONFIG.API_BASE}/notifications/email`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

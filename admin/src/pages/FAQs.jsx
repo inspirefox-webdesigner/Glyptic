@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Toast from '../components/Toast';
+import API_BASE_URL from '../config/api';
 
 const FAQs = () => {
   const [faqs, setFaqs] = useState([]);
@@ -14,7 +15,7 @@ const FAQs = () => {
 
   const fetchFAQs = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/faqs');
+      const response = await axios.get('${API_BASE_URL}/faqs');
       setFaqs(response.data);
     } catch (error) {
       console.error('Error fetching FAQs:', error);
@@ -27,7 +28,7 @@ const FAQs = () => {
   const deleteFAQ = async (id) => {
     if (window.confirm('Are you sure you want to delete this FAQ category?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/faqs/${id}`);
+        await axios.delete(`${API_BASE_URL}/faqs/${id}`);
         setToast({ show: true, message: 'FAQ deleted successfully!', type: 'success' });
         fetchFAQs();
       } catch (error) {

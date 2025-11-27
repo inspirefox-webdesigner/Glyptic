@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 async function loadGallery() {
     try {
-        const response = await fetch('http://localhost:5000/api/gallery');
+        const response = await fetch(`${API_CONFIG.API_BASE}/gallery`);
         const images = await response.json();
 
         const galleryContainer = document.getElementById('gallery-sec');
@@ -57,7 +57,7 @@ function createGalleryItem(image) {
     const col = document.createElement('div');
     col.className = 'col-4';
 
-    const imageUrl = `http://localhost:5000/uploads/${image.filename}`;
+    const imageUrl = `${API_CONFIG.API_BASE.replace('/api', '')}/uploads/${image.filename}`;
 
     col.innerHTML = `
         <a href="${imageUrl}" data-fancybox="gallery" class="gallery-item">

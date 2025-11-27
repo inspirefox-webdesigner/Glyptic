@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Toast from "../components/Toast";
+import API_BASE_URL from '../config/api';
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
@@ -14,7 +15,7 @@ const Blogs = () => {
 
   const fetchBlogs = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/blogs");
+      const response = await axios.get(`${API_BASE_URL}/blogs`);
       setBlogs(response.data);
     } catch (error) {
       console.error("Error fetching blogs:", error);
@@ -27,7 +28,7 @@ const Blogs = () => {
   const deleteBlog = async (id) => {
     if (window.confirm("Are you sure you want to delete this blog?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/blogs/${id}`);
+        await axios.delete(`${API_BASE_URL}/blogs/${id}`);
         setBlogs(blogs.filter((blog) => blog._id !== id));
         setToast({
           show: true,
@@ -176,7 +177,7 @@ const Blogs = () => {
                         >
                           {firstImage ? (
                             <img
-                              src={`http://localhost:5000/uploads/${firstImage.data}`}
+                              src={`${API_BASE_URL.replace('/api','')}/uploads/${firstImage.data}`}
                               alt="Blog"
                               style={{
                                 width: "60px",

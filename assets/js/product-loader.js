@@ -2,7 +2,7 @@
 // Product loader for dynamic content
 class ProductLoader {
   constructor() {
-    this.apiBase = "http://localhost:5000/api";
+    this.apiBase = `${API_CONFIG.API_BASE}`;
     this.init();
   }
 

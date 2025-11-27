@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import API_BASE_URL from '../config/api';
 
 const TrainingCalendar = () => {
   const [events, setEvents] = useState([]);
@@ -29,7 +30,7 @@ const TrainingCalendar = () => {
   const fetchEvents = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/training/events"
+        `${API_BASE_URL}/training/events`
       );
       console.log("Fetched events:", response.data);
       setEvents(response.data);
@@ -124,7 +125,7 @@ const TrainingCalendar = () => {
       };
 
       const response = await axios.post(
-        "http://localhost:5000/api/training/events",
+        `${API_BASE_URL}/training/events`,
         eventData
       );
 
@@ -155,7 +156,7 @@ const TrainingCalendar = () => {
       };
 
       await axios.put(
-        `http://localhost:5000/api/training/events/${editingEvent._id}`,
+        `${API_BASE_URL}/training/events/${editingEvent._id}`,
         eventData
       );
 
@@ -178,7 +179,7 @@ const TrainingCalendar = () => {
 
     try {
       await axios.delete(
-        `http://localhost:5000/api/training/events/${eventId}`
+        `${API_BASE_URL}/training/events/${eventId}`
       );
 
       fetchEvents();

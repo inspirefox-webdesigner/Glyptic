@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import API_BASE_URL from '../config/api';
 
 const HeroSliderForm = () => {
   const navigate = useNavigate();
@@ -23,13 +24,13 @@ const HeroSliderForm = () => {
 
   const fetchSlide = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/hero-slider/${id}`);
+      const response = await fetch(`${API_BASE_URL}/hero-slider/${id}`);
       const slide = await response.json();
       setFormData({
         title: slide.title,
         isActive: slide.isActive
       });
-      setImagePreview(`http://localhost:5000/uploads/${slide.image}`);
+      setImagePreview(`${API_BASE_URL.replace('/api','')}/uploads/${slide.image}`);
     } catch (error) {
       console.error('Error fetching slide:', error);
     }
@@ -97,8 +98,8 @@ const HeroSliderForm = () => {
       }
 
       const url = isEdit 
-        ? `http://localhost:5000/api/hero-slider/${id}`
-        : 'http://localhost:5000/api/hero-slider';
+        ? `${API_BASE_URL}/hero-slider/${id}`
+        : `${API_BASE_URL}/hero-slider`;
       
       const method = isEdit ? 'PUT' : 'POST';
 

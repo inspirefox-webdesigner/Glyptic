@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 async function loadHeroSliderData() {
   try {
-    const response = await fetch("http://localhost:5000/api/hero-slider");
+    const response = await fetch(`${API_CONFIG.API_BASE}/hero-slider`);
     const slides = await response.json();
 
     if (slides && slides.length > 0) {
@@ -48,7 +48,7 @@ function createSlideElement(slide, index) {
   const slideDiv = document.createElement("div");
   slideDiv.className = "swiper-slide swiper-product-slide";
 
-  const imageUrl = `http://localhost:5000/uploads/${slide.image}`;
+  const imageUrl = `${API_CONFIG.API_BASE.replace('/api', '')}/uploads/${slide.image}`;
   const animationDirection = index % 2 === 0 ? "fade-right" : "fade-left";
 
   slideDiv.innerHTML = `

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import API_BASE_URL from '../config/api';
 
 const Careers = () => {
   const [careers, setCareers] = useState([]);
@@ -13,7 +14,7 @@ const Careers = () => {
 
   const fetchCareers = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/careers');
+      const response = await axios.get(`${API_BASE_URL}/careers`);
       setCareers(response.data);
     } catch (error) {
       console.error('Error fetching careers:', error);
@@ -25,7 +26,7 @@ const Careers = () => {
   const deleteCareer = async (id) => {
     if (window.confirm('Are you sure you want to delete this application?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/careers/${id}`);
+        await axios.delete(`${API_BASE_URL}/careers/${id}`);
         fetchCareers();
       } catch (error) {
         console.error('Error deleting career:', error);

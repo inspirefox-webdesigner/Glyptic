@@ -1,7 +1,7 @@
 // Training Calendar Handler
 class TrainingCalendarHandler {
   constructor() {
-    this.apiBase = "http://localhost:5000/api/training";
+    this.apiBase = `${API_CONFIG.API_BASE}/training`;
     this.calendar = null;
     this.selectedEvent = null;
     this.init();

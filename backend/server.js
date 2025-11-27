@@ -74,7 +74,7 @@ app.use("*", (req, res) => {
   res.status(404).json({ message: "Route not found" });
 });
 
-// Global error handler
+
 app.use((error, req, res, next) => {
   console.error("Global Error Handler:", error);
   res.status(error.status || 500).json({
@@ -84,9 +84,9 @@ app.use((error, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  console.log("\n🌟 ================================");
-  console.log(`🚀 Server running on port ${PORT}`);
-  console.log(`🌐 Admin Panel: http://localhost:5173`);
-  console.log(`🔧 API Base: http://localhost:${PORT}/api`);
-  console.log("🌟 ================================\n");
+  console.log("\n ================================");
+  console.log(` Server running on port ${PORT}`);
+  console.log(` Admin Panel: http://localhost:5173`);
+  console.log(` API Base: http://localhost:${PORT}/api`);
+  console.log(" ================================\n");
 });

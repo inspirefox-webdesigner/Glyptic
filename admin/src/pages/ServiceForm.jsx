@@ -1,20 +1,21 @@
-import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
-import axios from 'axios';
-import Toast from '../components/Toast';
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+import axios from "axios";
+import Toast from "../components/Toast";
+import API_BASE_URL from '../config/api';
 
 const ServiceForm = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const isEdit = Boolean(id);
 
-  const [title, setTitle] = useState('');
+  const [title, setTitle] = useState("");
   const [contents, setContents] = useState([]);
   const [loading, setLoading] = useState(false);
   const [uploadedFiles, setUploadedFiles] = useState({});
-  const [toast, setToast] = useState({ show: false, message: '', type: '' });
+  const [toast, setToast] = useState({ show: false, message: "", type: "" });
 
   useEffect(() => {
     if (isEdit) {
@@ -24,20 +25,21 @@ const ServiceForm = () => {
 
   const fetchService = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/services/${id}`);
+      const response = await axios.get(`${API_BASE_URL}
+/services/${id}`);
       const service = response.data;
       setTitle(service.title);
       setContents(service.contents);
     } catch (error) {
-      console.error('Error fetching service:', error);
+      console.error("Error fetching service:", error);
     }
   };
 
   const addContent = (type) => {
     const newContent = {
       type,
-      data: type === 'title' ? '' : type === 'image' ? '' : '',
-      order: contents.length
+      data: type === "title" ? "" : type === "image" ? "" : "",
+      order: contents.length,
     };
     setContents([...contents, newContent]);
   };
@@ -50,15 +52,20 @@ const ServiceForm = () => {
 
   const removeContent = (index) => {
     const updatedContents = contents.filter((_, i) => i !== index);
-    setContents(updatedContents.map((content, i) => ({ ...content, order: i })));
+    setContents(
+      updatedContents.map((content, i) => ({ ...content, order: i }))
+    );
   };
 
   const moveContent = (index, direction) => {
-    const newIndex = direction === 'up' ? index - 1 : index + 1;
+    const newIndex = direction === "up" ? index - 1 : index + 1;
     if (newIndex < 0 || newIndex >= contents.length) return;
 
     const updatedContents = [...contents];
-    [updatedContents[index], updatedContents[newIndex]] = [updatedContents[newIndex], updatedContents[index]];
+    [updatedContents[index], updatedContents[newIndex]] = [
+      updatedContents[newIndex],
+      updatedContents[index],
+    ];
     updatedContents[index].order = index;
     updatedContents[newIndex].order = newIndex;
     setContents(updatedContents);
@@ -66,27 +73,38 @@ const ServiceForm = () => {
 
   const handleFileUpload = async (file, index) => {
     if (!file) {
-      setToast({ show: true, message: 'Please select a file', type: 'error' });
+      setToast({ show: true, message: "Please select a file", type: "error" });
       return;
     }
 
     const formData = new FormData();
-    formData.append('file', file);
-    
+    formData.append("file", file);
+
     try {
-      const response = await axios.post('http://localhost:5000/api/upload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
+      const response = await axios.post(
+        `${API_BASE_URL}
+/upload`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
       const filename = response.data.filename;
-      updateContent(index, 'data', filename);
-      setUploadedFiles(prev => ({ ...prev, [index]: filename }));
-      setToast({ show: true, message: 'File uploaded successfully!', type: 'success' });
+      updateContent(index, "data", filename);
+      setUploadedFiles((prev) => ({ ...prev, [index]: filename }));
+      setToast({
+        show: true,
+        message: "File uploaded successfully!",
+        type: "success",
+      });
     } catch (error) {
-      console.error('Error uploading file:', error);
-      const errorMessage = error.response?.data?.error || 'Error uploading file. Please try again.';
-      setToast({ show: true, message: errorMessage, type: 'error' });
+      console.error("Error uploading file:", error);
+      const errorMessage =
+        error.response?.data?.error ||
+        "Error uploading file. Please try again.";
+      setToast({ show: true, message: errorMessage, type: "error" });
     }
   };
 
@@ -97,21 +115,37 @@ const ServiceForm = () => {
     try {
       const serviceData = {
         title,
-        contents
+        contents,
       };
 
       if (isEdit) {
-        await axios.put(`http://localhost:5000/api/services/${id}`, serviceData);
+        await axios.put(
+          `${API_BASE_URL}
+/services/${id}`,
+          serviceData
+        );
       } else {
-        await axios.post('http://localhost:5000/api/services', serviceData);
+        await axios.post(
+          `${API_BASE_URL}
+/services`,
+          serviceData
+        );
       }
 
-      setToast({ show: true, message: isEdit ? 'Service updated successfully!' : 'Service added successfully!', type: 'success' });
-      setTimeout(() => navigate('/services'), 1500);
+      setToast({
+        show: true,
+        message: isEdit
+          ? "Service updated successfully!"
+          : "Service added successfully!",
+        type: "success",
+      });
+      setTimeout(() => navigate("/services"), 1500);
     } catch (error) {
-      console.error('Error saving service:', error);
-      const errorMessage = error.response?.data?.message || 'Error saving service. Please try again.';
-      setToast({ show: true, message: errorMessage, type: 'error' });
+      console.error("Error saving service:", error);
+      const errorMessage =
+        error.response?.data?.message ||
+        "Error saving service. Please try again.";
+      setToast({ show: true, message: errorMessage, type: "error" });
     } finally {
       setLoading(false);
     }
@@ -119,28 +153,33 @@ const ServiceForm = () => {
 
   const quillModules = {
     toolbar: [
-      [{ 'header': [1, 2, 3, false] }],
-      ['bold', 'italic', 'underline'],
-      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-      ['clean']
+      [{ header: [1, 2, 3, false] }],
+      ["bold", "italic", "underline"],
+      [{ list: "ordered" }, { list: "bullet" }],
+      ["clean"],
     ],
   };
-  
+
   const quillFormats = [
-    'header', 'bold', 'italic', 'underline', 'list', 'bullet'
+    "header",
+    "bold",
+    "italic",
+    "underline",
+    "list",
+    "bullet",
   ];
 
   return (
-    <div >
-      <Toast 
-        message={toast.message} 
-        type={toast.type} 
-        show={toast.show} 
-        onClose={() => setToast({ ...toast, show: false })} 
+    <div>
+      <Toast
+        message={toast.message}
+        type={toast.type}
+        show={toast.show}
+        onClose={() => setToast({ ...toast, show: false })}
       />
       <div className="page-header">
         <h1 className="page-title">
-          {isEdit ? 'Edit Service' : 'Add New Service'}
+          {isEdit ? "Edit Service" : "Add New Service"}
         </h1>
       </div>
 
@@ -169,7 +208,7 @@ const ServiceForm = () => {
                         <button
                           type="button"
                           className="btn btn-sm btn-secondary"
-                          onClick={() => moveContent(index, 'up')}
+                          onClick={() => moveContent(index, "up")}
                           disabled={index === 0}
                         >
                           ↑
@@ -177,7 +216,7 @@ const ServiceForm = () => {
                         <button
                           type="button"
                           className="btn btn-sm btn-secondary"
-                          onClick={() => moveContent(index, 'down')}
+                          onClick={() => moveContent(index, "down")}
                           disabled={index === contents.length - 1}
                         >
                           ↓
@@ -192,17 +231,19 @@ const ServiceForm = () => {
                       </div>
                     </div>
 
-                    {content.type === 'title' && (
+                    {content.type === "title" && (
                       <input
                         type="text"
                         className="form-control"
                         placeholder="Enter title"
                         value={content.data}
-                        onChange={(e) => updateContent(index, 'data', e.target.value)}
+                        onChange={(e) =>
+                          updateContent(index, "data", e.target.value)
+                        }
                       />
                     )}
 
-                    {content.type === 'image' && (
+                    {content.type === "image" && (
                       <div>
                         <input
                           type="file"
@@ -216,24 +257,29 @@ const ServiceForm = () => {
                         />
                         {content.data && (
                           <div className="image-preview">
-                            <img 
-                              src={`http://localhost:5000/uploads/${content.data}`} 
-                              alt="Preview" 
+                            <img
+                              src={`${API_BASE_URL.replace(
+                                "/api",
+                                ""
+                              )}/uploads/${content.data}`}
+                              alt="Preview"
                             />
                           </div>
                         )}
                       </div>
                     )}
 
-                    {content.type === 'content' && (
+                    {content.type === "content" && (
                       <div key={`quill-${index}`}>
                         <ReactQuill
                           theme="snow"
-                          value={content.data || ''}
-                          onChange={(value) => updateContent(index, 'data', value)}
+                          value={content.data || ""}
+                          onChange={(value) =>
+                            updateContent(index, "data", value)
+                          }
                           modules={quillModules}
                           formats={quillFormats}
-                          style={{ backgroundColor: 'white' }}
+                          style={{ backgroundColor: "white" }}
                         />
                       </div>
                     )}
@@ -244,21 +290,21 @@ const ServiceForm = () => {
                   <button
                     type="button"
                     className="btn btn-secondary"
-                    onClick={() => addContent('title')}
+                    onClick={() => addContent("title")}
                   >
                     Add second Title
                   </button>
                   <button
                     type="button"
                     className="btn btn-secondary"
-                    onClick={() => addContent('image')}
+                    onClick={() => addContent("image")}
                   >
                     Add Image
                   </button>
                   <button
                     type="button"
                     className="btn btn-secondary"
-                    onClick={() => addContent('content')}
+                    onClick={() => addContent("content")}
                   >
                     Add Content
                   </button>
@@ -267,25 +313,33 @@ const ServiceForm = () => {
             </div>
 
             <div className="form-group">
-             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-               <button
-                type="submit"
-                className="btn btn-success"
-                
-                disabled={loading}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
               >
-                {loading ? 'Saving...' : isEdit ? 'Update Service' : 'Create Service'}
-              </button>
-              <button
-                type="button"
-                className="btn btn-secondary"
-                onClick={() => navigate('/services')}
-                style={{ marginLeft: '1rem' }}
-                
-              >
-                Cancel
-              </button>
-             </div>
+                <button
+                  type="submit"
+                  className="btn btn-success"
+                  disabled={loading}
+                >
+                  {loading
+                    ? "Saving..."
+                    : isEdit
+                    ? "Update Service"
+                    : "Create Service"}
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={() => navigate("/services")}
+                  style={{ marginLeft: "1rem" }}
+                >
+                  Cancel
+                </button>
+              </div>
             </div>
           </div>
         </div>

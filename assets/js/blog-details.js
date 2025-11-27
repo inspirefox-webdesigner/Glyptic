@@ -22,7 +22,7 @@ function loadBlogDetails() {
 
 async function fetchBlogFromAPI(blogId, container) {
     try {
-        const response = await fetch(`http://localhost:5000/api/blogs/${blogId}`);
+        const response = await fetch(`${API_CONFIG.API_BASE}/blogs/${blogId}`);
         if (response.ok) {
             const blog = await response.json();
             displayBlogContent(blog, container);
@@ -50,7 +50,7 @@ function displayBlogContent(blog, container) {
                     contentHTML += `<h3>${content.data}</h3>`;
                     break;
                 case 'image':
-                    contentHTML += `<div class="blog-image mb-4"><img src="http://localhost:5000/uploads/${content.data}" alt="Blog Image" style="width: 100%; max-width: 1000px; height: 500px; object-fit: cover;" class="img-fluid rounded-5"></div>`;
+                    contentHTML += `<div class="blog-image mb-4"><img src="${API_CONFIG.API_BASE.replace('/api', '')}/uploads/${content.data}" alt="Blog Image" style="width: 100%; max-width: 1000px; height: 500px; object-fit: cover;" class="img-fluid rounded-5"></div>`;
                     break;
                 case 'content':
                     contentHTML += `<div class="blog-content-block">${content.data}</div>`;

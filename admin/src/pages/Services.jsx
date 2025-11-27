@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import API_BASE_URL from '../config/api';
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -12,7 +13,8 @@ const Services = () => {
 
   const fetchServices = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/services');
+      const response = await axios.get(`${API_BASE_URL}
+/services`);
       setServices(response.data);
     } catch (error) {
       console.error('Error fetching services:', error);
@@ -24,7 +26,8 @@ const Services = () => {
   const deleteService = async (id) => {
     if (window.confirm('Are you sure you want to delete this service?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/services/${id}`);
+        await axios.delete(`${API_BASE_URL}
+/services/${id}`);
         fetchServices();
       } catch (error) {
         console.error('Error deleting service:', error);
@@ -90,7 +93,7 @@ const Services = () => {
                         <td style={{ padding: '15px 10px', verticalAlign: 'middle' }}>
                           {firstImage ? (
                             <img 
-                              src={`http://localhost:5000/uploads/${firstImage.data}`}
+                              src={`${API_BASE_URL.replace('/api','')}/uploads/${firstImage.data}`}
                               alt="Service"
                               style={{ width: '60px', height: '40px', objectFit: 'cover', borderRadius: '4px' }}
                             />

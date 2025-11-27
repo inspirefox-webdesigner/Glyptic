@@ -4,6 +4,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import axios from 'axios';
 import Toast from '../components/Toast';
+import API_BASE_URL from '../config/api';
 
 const SolutionForm = () => {
   const { id } = useParams();
@@ -24,7 +25,7 @@ const SolutionForm = () => {
 
   const fetchSolution = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/solutions/${id}`);
+      const response = await axios.get(`${API_BASE_URL}/solutions/${id}`);
       const solution = response.data;
       setTitle(solution.title);
       setContents(solution.contents);
@@ -74,7 +75,7 @@ const SolutionForm = () => {
     formData.append('file', file);
     
     try {
-      const response = await axios.post('http://localhost:5000/api/upload', formData, {
+      const response = await axios.post(`${API_BASE_URL}/upload`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -101,9 +102,9 @@ const SolutionForm = () => {
       };
 
       if (isEdit) {
-        await axios.put(`http://localhost:5000/api/solutions/${id}`, solutionData);
+        await axios.put(`${API_BASE_URL}/solutions/${id}`, solutionData);
       } else {
-        await axios.post('http://localhost:5000/api/solutions', solutionData);
+        await axios.post(`${API_BASE_URL}/solutions`, solutionData);
       }
 
       setToast({ show: true, message: isEdit ? 'Solution updated successfully!' : 'Solution added successfully!', type: 'success' });
@@ -217,7 +218,7 @@ const SolutionForm = () => {
                         {content.data && (
                           <div className="image-preview">
                             <img 
-                              src={`http://localhost:5000/uploads/${content.data}`} 
+                              src={`${API_BASE_URL.replace('/api','')}/uploads/${content.data}`} 
                               alt="Preview" 
                             />
                           </div>

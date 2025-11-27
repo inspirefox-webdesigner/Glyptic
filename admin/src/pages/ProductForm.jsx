@@ -6,6 +6,7 @@ import axios from "axios";
 import "react-quill/dist/quill.snow.css";
 import "./ProductForm.css";
 import Toast from "../components/Toast";
+import API_BASE_URL from '../config/api';
 
 const ProductForm = () => {
   const navigate = useNavigate();
@@ -59,7 +60,7 @@ const ProductForm = () => {
   const fetchProduct = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/products/${id}`
+        `${API_BASE_URL}/products/${id}`
       );
       const product = response.data;
       setTitle(product.title);
@@ -109,11 +110,11 @@ const ProductForm = () => {
 
       if (isEdit) {
         await axios.put(
-          `http://localhost:5000/api/products/${id}`,
+          `${API_BASE_URL}/products/${id}`,
           productData
         );
       } else {
-        await axios.post("http://localhost:5000/api/products", productData);
+        await axios.post(`${API_BASE_URL}/products`, productData);
       }
 
       setToast({
@@ -193,7 +194,7 @@ const ProductForm = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/upload",
+        `${API_BASE_URL}/upload`,
         formData,
         {
           headers: {
@@ -230,7 +231,7 @@ const ProductForm = () => {
       const formData = new FormData();
       formData.append("file", file);
       const response = await axios.post(
-        "http://localhost:5000/api/upload",
+        `${API_BASE_URL}/upload`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -280,7 +281,7 @@ const ProductForm = () => {
     formData.append("file", file);
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/upload",
+        `${API_BASE_URL}/upload`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -306,7 +307,7 @@ const ProductForm = () => {
       const formData = new FormData();
       formData.append("file", file);
       const response = await axios.post(
-        "http://localhost:5000/api/upload",
+        `${API_BASE_URL}/upload`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -612,7 +613,7 @@ const ProductForm = () => {
                                 className="image-preview-item"
                               >
                                 <img
-                                  src={`http://localhost:5000/uploads/${filename}`}
+                                  src={`${API_BASE_URL.replace('/api','')}/uploads/${filename}`}
                                   alt={`Preview ${imgIndex + 1}`}
                                   style={{
                                     width: "100px",
@@ -748,7 +749,7 @@ const ProductForm = () => {
                                 formData.append("file", file);
                                 try {
                                   const response = await axios.post(
-                                    "http://localhost:5000/api/upload",
+                                    `${API_BASE_URL}/upload`,
                                     formData
                                   );
                                   updateContent(
@@ -794,7 +795,7 @@ const ProductForm = () => {
                                 style={{ width: "100%", maxWidth: "300px" }}
                               >
                                 <source
-                                  src={`http://localhost:5000/${content.data}`}
+                                  src={`${API_BASE_URL.replace('/api','')}/${content.data}`}
                                 />
                               </video>
                             ) : (
@@ -1048,7 +1049,7 @@ const ProductForm = () => {
                               formData.append("file", file);
                               try {
                                 const response = await axios.post(
-                                  "http://localhost:5000/api/upload",
+                                  `${API_BASE_URL}/upload`,
                                   formData
                                 );
                                 updateContent(
@@ -1081,7 +1082,7 @@ const ProductForm = () => {
                             }}
                           >
                             <img
-                              src={`http://localhost:5000/uploads/${content.data}`}
+                              src={`${API_BASE_URL.replace('/api','')}/uploads/${content.data}`}
                               alt="Cover Image"
                               style={{
                                 width: "150px",
@@ -1125,7 +1126,7 @@ const ProductForm = () => {
                                 const formData = new FormData();
                                 formData.append("file", file);
                                 const response = await axios.post(
-                                  "http://localhost:5000/api/upload",
+                                  `${API_BASE_URL}/upload`,
                                   formData
                                 );
                                 return response.data.filename;
@@ -1176,7 +1177,7 @@ const ProductForm = () => {
                                   style={{ position: "relative" }}
                                 >
                                   <img
-                                    src={`http://localhost:5000/uploads/${filename}`}
+                                    src={`${API_BASE_URL.replace('/api','')}/uploads/${filename}`}
                                     alt={`Variation ${imgIndex + 1}`}
                                     style={{
                                       width: "100px",
@@ -1273,7 +1274,7 @@ const ProductForm = () => {
                                 formData.append("file", file);
                                 try {
                                   const response = await axios.post(
-                                    "http://localhost:5000/api/upload",
+                                    `${API_BASE_URL}/upload`,
                                     formData
                                   );
                                   updateContent(

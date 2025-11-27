@@ -4,6 +4,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import axios from 'axios';
 import Toast from '../components/Toast';
+import API_BASE_URL from '../config/api';
 
 const BlogForm = () => {
   const { id } = useParams();
@@ -23,7 +24,7 @@ const BlogForm = () => {
 
   const fetchBlog = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/blogs/${id}`);
+      const response = await axios.get(`${API_BASE_URL}/blogs/${id}`);
       const blog = response.data;
       setTitle(blog.title);
       setContents(blog.contents);
@@ -73,7 +74,7 @@ const BlogForm = () => {
     formData.append('file', file);
     
     try {
-      const response = await axios.post('http://localhost:5000/api/upload', formData, {
+      const response = await axios.post(`${API_BASE_URL}/upload`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -99,9 +100,9 @@ const BlogForm = () => {
       };
 
       if (isEdit) {
-        await axios.put(`http://localhost:5000/api/blogs/${id}`, blogData);
+        await axios.put(`${API_BASE_URL}/blogs/${id}`, blogData);
       } else {
-        await axios.post('http://localhost:5000/api/blogs', blogData);
+        await axios.post(`${API_BASE_URL}/api/blogs`, blogData);
       }
 
       setToast({ show: true, message: isEdit ? 'Blog updated successfully!' : 'Blog added successfully!', type: 'success' });
@@ -215,7 +216,7 @@ const BlogForm = () => {
                         {content.data && (
                           <div className="image-preview">
                             <img 
-                              src={`http://localhost:5000/uploads/${content.data}`} 
+                              src={`${API_BASE_URL.replace('/api','')}/uploads/${content.data}`} 
                               alt="Preview" 
                             />
                           </div>

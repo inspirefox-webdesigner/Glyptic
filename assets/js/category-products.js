@@ -1,5 +1,5 @@
 // Dynamic Category-Based Product Loader for addressable-fire-alarm.html
-const API_BASE_URL = 'http://localhost:5000';
+const API_BASE_URL = `${API_CONFIG.API_BASE}`;
 
 // Category mapping
 const categoryMapping = {

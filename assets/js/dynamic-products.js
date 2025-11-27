@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Load products from API
   async function loadProducts(initialBrand = null) {
     try {
-      const response = await fetch("http://localhost:5000/api/products");
+      const response = await fetch(`${API_CONFIG.API_BASE}/products`);
       if (!response.ok) {
         throw new Error("Failed to fetch products");
       }
@@ -277,7 +277,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function getProductImage(product) {
     // Only use cover image
     if (product.coverImage) {
-      return `http://localhost:5000/uploads/${product.coverImage}`;
+      return `${API_CONFIG.API_BASE.replace('/api', '')}/uploads/${product.coverImage}`;
     }
 
     // Default image if no cover image

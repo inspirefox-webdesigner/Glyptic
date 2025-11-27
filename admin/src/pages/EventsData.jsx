@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import API_BASE_URL from '../config/api';
 
 const EventsData = () => {
   const [registrations, setRegistrations] = useState([]);
@@ -11,7 +12,7 @@ const EventsData = () => {
 
   const fetchRegistrations = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/training/registrations');
+      const response = await axios.get(`${API_BASE_URL}/training/registrations`);
       setRegistrations(response.data);
     } catch (error) {
       console.error('Error fetching registrations:', error);
@@ -31,7 +32,7 @@ const EventsData = () => {
   const deleteRegistration = async (registrationId) => {
     if (window.confirm('Are you sure you want to delete this registration?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/training/registrations/${registrationId}`);
+        await axios.delete(`${API_BASE_URL}/training/registrations/${registrationId}`);
         fetchRegistrations();
       } catch (error) {
         console.error('Error deleting registration:', error);

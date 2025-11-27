@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Toast from '../components/Toast';
+import API_BASE_URL from '../config/api';
 
 const GalleryForm = () => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const GalleryForm = () => {
       const uploadPromises = files.map(file => {
         const formData = new FormData();
         formData.append('file', file);
-        return axios.post('http://localhost:5000/api/gallery', formData, {
+        return axios.post(`${API_BASE_URL}/gallery`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
