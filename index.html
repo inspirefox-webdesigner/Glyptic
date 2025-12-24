@@ -83,16 +83,12 @@
         <button class="th-btn preloaderCls">Cancel Preloader </button>
         <div class="preloader-inner">
             <div class="bounce">
-                <video 
-                src="assets/img/glyptic preloader.mp4" 
-                autoplay 
-                loop 
-            ></video>
+                <img src="assets/img/logo/logo.png" alt="img">
             </div>
-            <!-- <span class="loader">
+            <span class="loader">
                 Glyptic
                 <span class="loading-text">Glyptic</span>
-            </span> -->
+            </span>
         </div>
     </div>
 
@@ -447,35 +443,21 @@
     <section class="hero-slider bg-black">
         <div class="swiper product-swiper">
             <div class="swiper-wrapper product-swiper-wrapper">
+                <!-- Default slides - will be replaced by database slides if backend is connected -->
                 <div class="swiper-slide swiper-product-slide">
-                    <img src="assets/img/product/product-2.png" alt="Product 2" class="img-transition"
-                        data-aos="fade-right">
-                    <div class="hero-content ">
-                        <h1 data-aos="fade-right">Smart & Elegant Designs</h1>
-                    </div>
-                </div>
-                <!-- Slide 1 -->
-                <div class="swiper-slide swiper-product-slide">
-                    <img src="assets/img/product/product-1.png" alt="Product 1" class=" img-transition "
-                        data-aos="fade-left">
+                    <img src="assets/img/product/product-1.png" alt="FIRE DETECTION" class="img-transition" data-aos="fade-left">
                     <div class="hero-content">
-                        <h1 data-aos="fade-right" data-aos-delay="400"> FIRE DETECTION</h1>
+                        <h1 data-aos="fade-right" data-aos-delay="400">FIRE DETECTION</h1>
                     </div>
                 </div>
-
-                <!-- Slide 2 -->
                 <div class="swiper-slide swiper-product-slide">
-                    <img src="assets/img/product/product-2.png" alt="Product 2" class="img-transition"
-                        data-aos="fade-right">
-                    <div class="hero-content ">
+                    <img src="assets/img/product/product-2.png" alt="Smart & Elegant Designs" class="img-transition" data-aos="fade-right">
+                    <div class="hero-content">
                         <h1 data-aos="fade-right">Smart & Elegant Designs</h1>
                     </div>
                 </div>
-
-                <!-- Slide 3 -->
                 <div class="swiper-slide swiper-product-slide">
-                    <img src="assets/img/product/product-3.png" alt="Product 3" class="img-transition"
-                        data-aos="fade-left">
+                    <img src="assets/img/product/product-3.png" alt="Innovation Meets Quality" class="img-transition" data-aos="fade-left">
                     <div class="hero-content">
                         <h1 data-aos="fade-right">Innovation Meets Quality</h1>
                     </div>
@@ -1978,38 +1960,7 @@ Contact Area
     </script> -->
 
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        const swiper = new Swiper('.product-swiper', {
-            loop: true,
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            speed: 1000,
-            effect: 'fade',
-            fadeEffect: { crossFade: true },
 
-        });
-        document.addEventListener('DOMContentLoaded', () => {
-            AOS.init({
-                // duration: 3000,
-                delay: 1000,
-                easing: 'ease-in-out',
-                once: false,
-                mirror: false,
-
-            });
-        });
-        swiper.on('slideChangeTransitionEnd', function () {
-            AOS.refresh();
-        });
-
-    </script>
     <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
 
     <!-- <script>

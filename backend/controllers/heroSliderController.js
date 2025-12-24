@@ -6,8 +6,10 @@ const fs = require('fs');
 const getHeroSlides = async (req, res) => {
   try {
     const slides = await HeroSlider.find().sort({ createdAt: 1 });
+    console.log(`Fetched ${slides.length} hero slides from database`);
     res.json(slides);
   } catch (error) {
+    console.error('Error fetching hero slides:', error);
     res.status(500).json({ message: error.message });
   }
 };

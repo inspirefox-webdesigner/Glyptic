@@ -27449,6 +27449,13 @@ space {
   animation: float-animation 5s ease-in-out infinite;
   transition: transform 15s ease-in-out;
 }
+
+@media (max-width: 576px) {
+  .swiper-product-slide img {
+    max-width: 80%;
+    max-height: 100%;
+  }
+}
  
 .hero-content {
   position: absolute;
@@ -27476,6 +27483,12 @@ space {
   color: #fff;
   padding: 0 20px;
   background-color: var(--theme-color);
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: #fff;
+  color: #43a409;
 }
  
 .swiper-button-next::after,
