@@ -89,9 +89,9 @@ const Contacts = () => {
                       </td>
                       <td style={{ color: '#000000', padding: '15px 10px', verticalAlign: 'middle' }}>
                         <div style={{ maxWidth: '200px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                          {contact.message.length > 50 ? (
+                          {contact.message.length > 10 ? (
                             <>
-                              {contact.message.substring(0, 50)}...
+                              {contact.message.substring(0, 15)}...
                               <br />
                               <button
                                 onClick={() => setSelectedMessage(contact.message)}

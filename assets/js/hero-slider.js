@@ -106,12 +106,13 @@ function createSlideElement(slide, index) {
     ? slide.image 
     : `${API_CONFIG.API_BASE.replace('/api', '')}/uploads/${slide.image}`;
   
-  const animationDirection = index % 2 === 0 ? "fade-left" : "fade-right";
 
-  slideDiv.innerHTML = `
-        <img src="${imageUrl}" alt="${slide.title || 'Hero Slide'}" class="img-transition" data-aos="${animationDirection}">
+ slideDiv.innerHTML = `
+        <img src="${imageUrl}" alt="${
+    slide.title || "Hero Slide"
+  }" class="img-transition">
         <div class="hero-content">
-            <h1 data-aos="fade-right" data-aos-delay="400">${slide.title || ''}</h1>
+            <h1>${slide.title || ""}</h1>
         </div>
     `;
 
@@ -142,11 +143,12 @@ function reinitializeSwiper(slideCount) {
   const swiperConfig = {
     slidesPerView: 1,
     spaceBetween: 0,
-    loop: totalSlides > 1, // Only enable loop if more than 1 slide
+    loop: totalSlides > 1,
+    loopAdditionalSlides: 0,
     speed: 1000,
     effect: "fade",
     fadeEffect: {
-      crossFade: true
+      crossFade: true,
     },
     autoplay: totalSlides > 1 ? {
       delay: 4000,
@@ -159,24 +161,19 @@ function reinitializeSwiper(slideCount) {
     },
     on: {
       init: function () {
-        console.log(` Hero Swiper initialized with ${this.slides.length} slides`);
-        // Show/hide navigation based on slide count
+        console.log(` Hero Swiper initialized with ${totalSlides} slides`);
         const nextBtn = document.querySelector(".swiper-button-next");
         const prevBtn = document.querySelector(".swiper-button-prev");
         if (totalSlides <= 1) {
-          if (nextBtn) nextBtn.style.display = 'none';
-          if (prevBtn) prevBtn.style.display = 'none';
+          if (nextBtn) nextBtn.style.display = "none";
+          if (prevBtn) prevBtn.style.display = "none";
         } else {
-          if (nextBtn) nextBtn.style.display = 'flex';
-          if (prevBtn) prevBtn.style.display = 'flex';
+          if (nextBtn) nextBtn.style.display = "flex";
+          if (prevBtn) prevBtn.style.display = "flex";
         }
       },
       slideChange: function () {
-        console.log(` Current slide: ${this.realIndex + 1} of ${totalSlides}`);
-        // Refresh AOS animations if available
-        if (typeof AOS !== "undefined") {
-          AOS.refresh();
-        }
+        console.log(`Slide: ${this.realIndex + 1}/${totalSlides}`);
       },
     },
   };

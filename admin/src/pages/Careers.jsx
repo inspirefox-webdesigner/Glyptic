@@ -43,7 +43,7 @@ const Careers = () => {
     return <div className="loading-spinner">Loading Career Applications...</div>;
   }
 
-  const renderWithViewMore = (title, text, limit = 40) => {
+  const renderWithViewMore = (title, text, limit = 10) => {
     if (!text) return '';
     return text.length > limit ? (
       <>

@@ -7,6 +7,8 @@ const Solutions = () => {
   const [solutions, setSolutions] = useState([]);
   const [loading, setLoading] = useState(true);
 
+
+
   useEffect(() => {
     fetchSolutions();
   }, []);

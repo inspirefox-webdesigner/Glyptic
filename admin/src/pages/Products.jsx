@@ -73,7 +73,7 @@ const Products = () => {
                 style={{ width: "100%", color: "#000000" }}
               >
                 <thead>
-                  <tr style={{ color: "#000000", backgroundColor: "#f8f9fa" }}>
+                  <tr style={{ color: "#000000", backgroundColor: "#f8f9fa"}}>
                     <th
                       style={{
                         color: "#000000",
