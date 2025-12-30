@@ -1,12 +1,13 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import API_BASE_URL from '../config/api';
+import { useState, useEffect } from "react";
+import axios from "axios";
+import API_BASE_URL from "../config/api";
+import * as XLSX from "xlsx";
 
 const Careers = () => {
   const [careers, setCareers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedContent, setSelectedContent] = useState(null);
-  const [popupTitle, setPopupTitle] = useState('');
+  const [popupTitle, setPopupTitle] = useState("");
 
   useEffect(() => {
     fetchCareers();
@@ -17,19 +18,19 @@ const Careers = () => {
       const response = await axios.get(`${API_BASE_URL}/careers`);
       setCareers(response.data);
     } catch (error) {
-      console.error('Error fetching careers:', error);
+      console.error("Error fetching careers:", error);
     } finally {
       setLoading(false);
     }
   };
 
   const deleteCareer = async (id) => {
-    if (window.confirm('Are you sure you want to delete this application?')) {
+    if (window.confirm("Are you sure you want to delete this application?")) {
       try {
         await axios.delete(`${API_BASE_URL}/careers/${id}`);
         fetchCareers();
       } catch (error) {
-        console.error('Error deleting career:', error);
+        console.error("Error deleting career:", error);
       }
     }
   };
@@ -39,12 +40,37 @@ const Careers = () => {
     setSelectedContent(content);
   };
 
+  const exportToExcel = () => {
+    const exportData = careers.map((career, index) => ({
+      "No.": index + 1,
+      Name: `${career.honorific} ${career.fullName}`,
+      Email: career.email,
+      Mobile: career.mobile,
+      Position: career.position,
+      Qualification: career.qualification,
+      Specialization: career.specialization,
+      Experience: career.experience,
+      Address: career.postalAddress,
+      "Applied Date": new Date(career.createdAt).toLocaleDateString(),
+    }));
+
+    const ws = XLSX.utils.json_to_sheet(exportData);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "Careers");
+    XLSX.writeFile(
+      wb,
+      `Career_Applications_${new Date().toLocaleDateString()}.xlsx`
+    );
+  };
+
   if (loading) {
-    return <div className="loading-spinner">Loading Career Applications...</div>;
+    return (
+      <div className="loading-spinner">Loading Career Applications...</div>
+    );
   }
 
   const renderWithViewMore = (title, text, limit = 10) => {
-    if (!text) return '';
+    if (!text) return "";
     return text.length > limit ? (
       <>
         {text.substring(0, limit)}...
@@ -53,12 +79,12 @@ const Careers = () => {
           onClick={() => handleViewMore(title, text)}
           className="btn btn-link btn-sm"
           style={{
-            padding: '2px',
-            fontSize: '0.8rem',
-            color: '#000',
-            backgroundColor: '#fff',
-            border: 'none',
-            cursor: 'pointer',
+            padding: "2px",
+            fontSize: "0.8rem",
+            color: "#000",
+            backgroundColor: "#fff",
+            border: "none",
+            cursor: "pointer",
           }}
         >
           View More
@@ -71,97 +97,160 @@ const Careers = () => {
 
   return (
     <div>
-      <div className="page-header">
-        <h1 className="page-title" style={{ color: '#000' }}>
+      <div
+        className="page-header"
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <h1 className="page-title" style={{ color: "#000" }}>
           Career Applications
         </h1>
+        <button
+          onClick={exportToExcel}
+          className="btn btn-success"
+          style={{
+            padding: "10px 20px",
+            fontSize: "14px",
+            fontWeight: "600",
+            borderRadius: "6px",
+            backgroundColor: "#28a745",
+            border: "none",
+            color: "white",
+            cursor: "pointer",
+          }}
+        >
+          📥 Export
+        </button>
       </div>
 
       {careers.length === 0 ? (
         <div className="card">
           <div className="card-body empty-state">
-            <h3 style={{ color: '#000' }}>No Applications Found</h3>
-            <p style={{ color: '#000' }}>No career applications have been submitted yet.</p>
+            <h3 style={{ color: "#000" }}>No Applications Found</h3>
+            <p style={{ color: "#000" }}>
+              No career applications have been submitted yet.
+            </p>
           </div>
         </div>
       ) : (
-        <div className="card" style={{ width: '100%', margin: '20px 0' }}>
-          <div className="card-body" style={{ padding: '25px' }}>
-            <div className="table-responsive" style={{ width: '100%' }}>
-            <table
-              className="table table-striped"
-              style={{
-                width: '100%',
-                borderCollapse: 'separate',
-                borderSpacing: '0 10px',
-                color: '#000',
-              }}
-            >
-              <thead>
-                <tr style={{ backgroundColor: '#f8f9fa', color: '#000' }}>
-                  <th style={{ padding: '12px', fontWeight: 'bold' }}>No.</th>
-                  <th style={{ padding: '12px', fontWeight: 'bold' }}>Name</th>
-                  <th style={{ padding: '12px', fontWeight: 'bold' }}>Email</th>
-                  <th style={{ padding: '12px', fontWeight: 'bold' }}>Mobile</th>
-                  <th style={{ padding: '12px', fontWeight: 'bold' }}>Position</th>
-                  <th style={{ padding: '12px', fontWeight: 'bold' }}>Qualification</th>
-                  <th style={{ padding: '12px', fontWeight: 'bold' }}>Specialization</th>
-                  <th style={{ padding: '12px', fontWeight: 'bold' }}>Experience</th>
-                  <th style={{ padding: '12px', fontWeight: 'bold' }}>Address</th>
-                  <th style={{ padding: '12px', fontWeight: 'bold' }}>Applied Date</th>
-                  <th style={{ padding: '12px', fontWeight: 'bold' }}>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {careers.map((career, index) => (
-                  <tr
-                    key={career._id}
-                    style={{
-                      backgroundColor: '#fff',
-                      boxShadow: '0 2px 6px rgba(0,0,0,0.05)',
-                      color: '#000',
-                    }}
-                  >
-                    <td style={{ padding: '12px', verticalAlign: 'middle' }}>{index + 1}</td>
-                    <td style={{ padding: '12px', verticalAlign: 'middle' }}>
-                      {renderWithViewMore(
-                        'Full Name',
-                        `${career.honorific} ${career.fullName}`,
-                        25
-                      )}
-                    </td>
-                    <td style={{ padding: '12px', verticalAlign: 'middle' }}>
-                      {renderWithViewMore('Email', career.email, 25)}
-                    </td>
-                    <td style={{ padding: '12px', verticalAlign: 'middle' }}>{career.mobile}</td>
-                    <td style={{ padding: '12px', verticalAlign: 'middle' }}>
-                      {renderWithViewMore('Position', career.position, 20)}
-                    </td>
-                    <td style={{ padding: '12px', verticalAlign: 'middle' }}>
-                      {renderWithViewMore('Qualification', career.qualification, 20)}
-                    </td>
-                    <td style={{ padding: '12px', verticalAlign: 'middle' }}>
-                      {renderWithViewMore('Specialization', career.specialization, 20)}
-                    </td>
-                    <td style={{ padding: '12px', verticalAlign: 'middle' }}>{career.experience}</td>
-                    <td style={{ padding: '12px', verticalAlign: 'middle' }}>
-                      {renderWithViewMore('Address', career.postalAddress, 30)}
-                    </td>
-                    <td style={{ padding: '12px', verticalAlign: 'middle' }}>
-                      {new Date(career.createdAt).toLocaleDateString()}
-                    </td>
-                    <td style={{ padding: '12px', verticalAlign: 'middle' }}>
-                      <button
-                        onClick={() => deleteCareer(career._id)}
-                        className="btn btn-danger btn-sm"
-                      >
-                        🗑️ Delete
-                      </button>
-                    </td>
+        <div className="card" style={{ width: "100%", margin: "20px 0" }}>
+          <div className="card-body" style={{ padding: "25px" }}>
+            <div className="table-responsive" style={{ width: "100%" }}>
+              <table
+                className="table table-striped"
+                style={{
+                  width: "100%",
+                  borderCollapse: "separate",
+                  borderSpacing: "0 10px",
+                  color: "#000",
+                }}
+              >
+                <thead>
+                  <tr style={{ backgroundColor: "#f8f9fa", color: "#000" }}>
+                    <th style={{ padding: "12px", fontWeight: "bold" }}>No.</th>
+                    <th style={{ padding: "12px", fontWeight: "bold" }}>
+                      Name
+                    </th>
+                    <th style={{ padding: "12px", fontWeight: "bold" }}>
+                      Email
+                    </th>
+                    <th style={{ padding: "12px", fontWeight: "bold" }}>
+                      Mobile
+                    </th>
+                    <th style={{ padding: "12px", fontWeight: "bold" }}>
+                      Position
+                    </th>
+                    <th style={{ padding: "12px", fontWeight: "bold" }}>
+                      Qualification
+                    </th>
+                    <th style={{ padding: "12px", fontWeight: "bold" }}>
+                      Specialization
+                    </th>
+                    <th style={{ padding: "12px", fontWeight: "bold" }}>
+                      Experience
+                    </th>
+                    <th style={{ padding: "12px", fontWeight: "bold" }}>
+                      Address
+                    </th>
+                    <th style={{ padding: "12px", fontWeight: "bold" }}>
+                      Applied Date
+                    </th>
+                    <th style={{ padding: "12px", fontWeight: "bold" }}>
+                      Action
+                    </th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {careers.map((career, index) => (
+                    <tr
+                      key={career._id}
+                      style={{
+                        backgroundColor: "#fff",
+                        boxShadow: "0 2px 6px rgba(0,0,0,0.05)",
+                        color: "#000",
+                      }}
+                    >
+                      <td style={{ padding: "12px", verticalAlign: "middle" }}>
+                        {index + 1}
+                      </td>
+                      <td style={{ padding: "12px", verticalAlign: "middle" }}>
+                        {renderWithViewMore(
+                          "Full Name",
+                          `${career.honorific} ${career.fullName}`,
+                          25
+                        )}
+                      </td>
+                      <td style={{ padding: "12px", verticalAlign: "middle" }}>
+                        {renderWithViewMore("Email", career.email, 25)}
+                      </td>
+                      <td style={{ padding: "12px", verticalAlign: "middle" }}>
+                        {career.mobile}
+                      </td>
+                      <td style={{ padding: "12px", verticalAlign: "middle" }}>
+                        {renderWithViewMore("Position", career.position, 20)}
+                      </td>
+                      <td style={{ padding: "12px", verticalAlign: "middle" }}>
+                        {renderWithViewMore(
+                          "Qualification",
+                          career.qualification,
+                          20
+                        )}
+                      </td>
+                      <td style={{ padding: "12px", verticalAlign: "middle" }}>
+                        {renderWithViewMore(
+                          "Specialization",
+                          career.specialization,
+                          20
+                        )}
+                      </td>
+                      <td style={{ padding: "12px", verticalAlign: "middle" }}>
+                        {career.experience}
+                      </td>
+                      <td style={{ padding: "12px", verticalAlign: "middle" }}>
+                        {renderWithViewMore(
+                          "Address",
+                          career.postalAddress,
+                          30
+                        )}
+                      </td>
+                      <td style={{ padding: "12px", verticalAlign: "middle" }}>
+                        {new Date(career.createdAt).toLocaleDateString()}
+                      </td>
+                      <td style={{ padding: "12px", verticalAlign: "middle" }}>
+                        <button
+                          onClick={() => deleteCareer(career._id)}
+                          className="btn btn-danger btn-sm"
+                        >
+                          🗑️ Delete
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
@@ -171,50 +260,56 @@ const Careers = () => {
       {selectedContent && (
         <div
           style={{
-            position: 'fixed',
+            position: "fixed",
             top: 0,
             left: 0,
-            width: '100%',
-            height: '100%',
-            backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
             zIndex: 1000,
           }}
           onClick={() => setSelectedContent(null)}
         >
           <div
             style={{
-              backgroundColor: 'white',
-              padding: '30px',
-              borderRadius: '8px',
-              maxWidth: '600px',
-              maxHeight: '400px',
-              overflow: 'auto',
-              margin: '20px',
-              position: 'relative',
+              backgroundColor: "white",
+              padding: "30px",
+              borderRadius: "8px",
+              maxWidth: "600px",
+              maxHeight: "400px",
+              overflow: "auto",
+              margin: "20px",
+              position: "relative",
             }}
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setSelectedContent(null)}
               style={{
-                position: 'absolute',
-                top: '10px',
-                right: '15px',
-                background: 'none',
-                border: 'none',
-                fontSize: '20px',
-                cursor: 'pointer',
-                color: '#666',
+                position: "absolute",
+                top: "10px",
+                right: "15px",
+                background: "none",
+                border: "none",
+                fontSize: "20px",
+                cursor: "pointer",
+                color: "#666",
               }}
             >
               ×
             </button>
-            <h4 style={{ marginBottom: '20px', color: '#000' }}>{popupTitle}</h4>
+            <h4 style={{ marginBottom: "20px", color: "#000" }}>
+              {popupTitle}
+            </h4>
             <div
-              style={{ color: '#000', lineHeight: '1.6', whiteSpace: 'pre-wrap' }}
+              style={{
+                color: "#000",
+                lineHeight: "1.6",
+                whiteSpace: "pre-wrap",
+              }}
             >
               {selectedContent}
             </div>

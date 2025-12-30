@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import API_BASE_URL from '../config/api';
+import * as XLSX from 'xlsx';
 
 const EventsData = () => {
   const [registrations, setRegistrations] = useState([]);
@@ -41,6 +42,24 @@ const EventsData = () => {
     }
   };
 
+  const exportToExcel = () => {
+    const exportData = registrations.map((registration, index) => ({
+      'No.': index + 1,
+      'Event': registration.eventTitle,
+      'Event Date': formatDate(registration.eventDate),
+      'Name': registration.name,
+      'Phone': registration.phone,
+      'Email': registration.email,
+      'Address': registration.address,
+      'Registered': formatDate(registration.registeredAt)
+    }));
+
+    const ws = XLSX.utils.json_to_sheet(exportData);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Event Registrations');
+    XLSX.writeFile(wb, `Event_Registrations_${new Date().toLocaleDateString()}.xlsx`);
+  };
+
   if (loading) return (
     <div className="loading-spinner">
       Loading Event Registrations...
@@ -49,8 +68,24 @@ const EventsData = () => {
 
   return (
     <div>
-      <div className="page-header">
+      <div className="page-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <h1 className="page-title">Event Registrations</h1>
+        <button 
+          onClick={exportToExcel}
+          className="btn btn-success"
+          style={{
+            padding: '10px 20px',
+            fontSize: '14px',
+            fontWeight: '600',
+            borderRadius: '6px',
+            backgroundColor: '#28a745',
+            border: 'none',
+            color: 'white',
+            cursor: 'pointer'
+          }}
+        >
+          📥 Export
+        </button>
       </div>
 
       {registrations.length === 0 ? (
