@@ -1006,6 +1006,58 @@ scrollCue.init({
     duration : 900,
 });
 
+/*
+    Robust scroll-reset for tab/pill navigation
+    - Scrolls window to top (or to .breadcumb-wrapper if present) when tabs change
+    - Works for dynamically created tabs via delegated click handler
+    - Listens to Bootstrap's shown.bs.tab event as a reliable activation hook
+*/
+(function () {
+    function scrollToTopTarget() {
+        try {
+            var bread = document.querySelector('.breadcumb-wrapper');
+            if (bread && typeof bread.scrollIntoView === 'function') {
+                // align breadcrumb to top of viewport
+                bread.scrollIntoView(true);
+                // small nudge to ensure header isn't covering it if sticky
+                window.scrollBy(0, -10);
+                return;
+            }
+            window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        } catch (err) {
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+        }
+    }
+
+    // Called after tab activation
+    function onTabActivated() {
+        // Defer to allow bootstrap to finish DOM updates and any focus scroll
+        setTimeout(scrollToTopTarget, 0);
+    }
+
+    // Bootstrap tab shown event
+    document.addEventListener('shown.bs.tab', onTabActivated, false);
+
+    // Delegated click for any tab-like toggles (buttons/anchors created dynamically)
+    document.addEventListener('click', function (e) {
+        var btn = e.target.closest('[data-bs-toggle="pill"], [data-bs-toggle="tab"], a.nav-link, button.nav-link');
+        if (!btn) return;
+
+        // If the clicked element has an href with a hash and browser will jump, prevent default then activate
+        // But do not break Bootstrap's native behavior; just schedule scroll after activation.
+        setTimeout(scrollToTopTarget, 0);
+        // Also blur the element to prevent focus-from-click causing scroll into view of the clicked control
+        try { if (btn.blur) btn.blur(); } catch (err) {}
+    }, true);
+
+    // Also reset scroll of active tab-pane if it has its own scroll
+    document.addEventListener('shown.bs.tab', function () {
+        var pane = document.querySelector('.tab-pane.show, .tab-pane.active');
+        if (pane && pane.scrollTop) pane.scrollTop = 0;
+    });
+})();
+
 
 
 

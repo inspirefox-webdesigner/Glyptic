@@ -106,10 +106,32 @@ const deleteProduct = async (req, res) => {
   }
 };
 
+// Get unique categories
+const getCategories = async (req, res) => {
+  try {
+    const categories = await Product.distinct('category');
+    res.json(categories.filter(cat => cat && cat.trim() !== ''));
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// Get unique brands
+const getBrands = async (req, res) => {
+  try {
+    const brands = await Product.distinct('brand');
+    res.json(brands.filter(brand => brand && brand.trim() !== ''));
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   getProducts,
   getProductById,
   createProduct,
   updateProduct,
-  deleteProduct
+  deleteProduct,
+  getCategories,
+  getBrands
 };
