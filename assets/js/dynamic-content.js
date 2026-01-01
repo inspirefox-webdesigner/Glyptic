@@ -9,12 +9,79 @@ class DynamicContentLoader {
     // Load services if on service page
     if (window.location.pathname.includes('service.html')) {
       await this.loadServices();
+      this.activateTabFromURL('service');
     }
 
     // Load solutions if on solution page
     if (window.location.pathname.includes('solution.html')) {
       await this.loadSolutions();
+      this.activateTabFromURL('solution');
     }
+  }
+
+  activateTabFromURL(type) {
+    const urlParams = new URLSearchParams(window.location.search);
+    let targetName = urlParams.get(type);
+    
+    if (!targetName) return;
+
+    // Normalize the target name from URL
+    targetName = this.normalizeText(targetName);
+    console.log('Looking for tab:', targetName);
+
+    // Wait for tabs to be rendered
+    setTimeout(() => {
+      const tabButtons = document.querySelectorAll('#v-pills-tab .nav-link');
+      console.log('Total tabs found:', tabButtons.length);
+      
+      let found = false;
+      tabButtons.forEach(button => {
+        const buttonText = button.textContent.trim();
+        const normalizedButton = this.normalizeText(buttonText);
+        console.log('Comparing:', normalizedButton, '===', targetName);
+        
+        if (normalizedButton === targetName) {
+          found = true;
+          console.log('Match found!');
+          // Deactivate all tabs
+          tabButtons.forEach(btn => {
+            btn.classList.remove('active');
+            const target = btn.getAttribute('data-bs-target');
+            if (target) {
+              const pane = document.querySelector(target);
+              if (pane) {
+                pane.classList.remove('show', 'active');
+              }
+            }
+          });
+
+          // Activate target tab
+          button.classList.add('active');
+          const targetPane = button.getAttribute('data-bs-target');
+          if (targetPane) {
+            const pane = document.querySelector(targetPane);
+            if (pane) {
+              pane.classList.add('show', 'active');
+            }
+          }
+
+          // Scroll to tab
+          button.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      });
+      
+      if (!found) {
+        console.log('No matching tab found for:', targetName);
+      }
+    },);
+  }
+
+  normalizeText(text) {
+    return text
+      .toLowerCase()
+      .trim()
+      .replace(/&amp;/g, '&')
+      .replace(/\s+/g, ' ');
   }
 
   async loadServices() {
@@ -31,9 +98,16 @@ class DynamicContentLoader {
     try {
       const response = await fetch(`${this.apiBase}/solutions`);
       const solutions = await response.json();
-      this.renderSolutions(solutions);
+      
+      // Only render if we have solutions from API
+      if (solutions && solutions.length > 0) {
+        this.renderSolutions(solutions);
+      } else {
+        console.log('No solutions from API, using static tabs');
+      }
     } catch (error) {
       console.error('Error loading solutions:', error);
+      console.log('Using static tabs instead');
     }
   }
 
