@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const urlParams = new URLSearchParams(window.location.search);
     let brandParam = urlParams.get("brand");
     let categoryParam = urlParams.get("category");
-    
+
     // Normalize URL parameters
     if (brandParam) brandParam = normalizeText(brandParam);
     if (categoryParam) categoryParam = normalizeText(categoryParam);
@@ -38,8 +38,11 @@ document.addEventListener("DOMContentLoaded", function () {
         currentFilter = { type: "category", value: initialCategory };
         // Open categories section if category filter is active
         setTimeout(() => {
-          const categoriesContent = document.getElementById("categories-content");
-          const categoriesTitle = document.querySelector('[data-toggle="categories"]');
+          const categoriesContent =
+            document.getElementById("categories-content");
+          const categoriesTitle = document.querySelector(
+            '[data-toggle="categories"]'
+          );
           if (categoriesContent && categoriesTitle) {
             categoriesContent.style.display = "block";
             categoriesTitle.classList.add("active");
@@ -56,8 +59,11 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => {
           const brandsContent = document.getElementById("brands-content");
           const brandsTitle = document.querySelector('[data-toggle="brands"]');
-          const categoriesContent = document.getElementById("categories-content");
-          const categoriesTitle = document.querySelector('[data-toggle="categories"]');
+          const categoriesContent =
+            document.getElementById("categories-content");
+          const categoriesTitle = document.querySelector(
+            '[data-toggle="categories"]'
+          );
           if (brandsContent && brandsTitle) {
             brandsContent.style.display = "block";
             brandsTitle.classList.add("active");
@@ -169,7 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function setupBrandFilters(activeBrand = null) {
     const brandsContainer = document.getElementById("brands-content");
     if (!brandsContainer) return; // Exit if brands container doesn't exist
-    
+
     // Get all unique brands
     const brands = [
       ...new Set(
@@ -304,7 +310,9 @@ document.addEventListener("DOMContentLoaded", function () {
   function getProductImage(product) {
     // Only use cover image
     if (product.coverImage) {
-      return `${API_CONFIG.API_BASE.replace('/api', '')}/uploads/${product.coverImage}`;
+      return `${API_CONFIG.API_BASE.replace("/api", "")}/uploads/${
+        product.coverImage
+      }`;
     }
 
     // Default image if no cover image
@@ -315,8 +323,13 @@ document.addEventListener("DOMContentLoaded", function () {
   function getCategoryDisplayName(category) {
     const categoryMap = {
       "fire-alarm": "Fire Alarm System",
-      "other-products": "Other Products",
+      "digital-pa": "Digital PA System",
       "fire-suppression": "Fire Suppression System",
+      "digital-pa": "Digital PA System",
+      "flame-smoke-camera": "Flame And Smoke Detection Camera",
+      "dts-fo-lhs": "DTS FO LHS System",
+      "linear-heat-cable": "Linear Heat Sensing Cable",
+      "smoke-detector-tester": "Smoke Detector Tester",
     };
 
     return (
@@ -342,12 +355,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Normalize text for comparison
   function normalizeText(text) {
-    if (!text) return '';
+    if (!text) return "";
     return text
       .toLowerCase()
       .trim()
-      .replace(/&amp;/g, '&')
-      .replace(/[-_]/g, ' ')
-      .replace(/\s+/g, ' ');
+      .replace(/&amp;/g, "&")
+      .replace(/[-_]/g, " ")
+      .replace(/\s+/g, " ");
   }
 });

@@ -6,7 +6,7 @@ import axios from "axios";
 import "react-quill/dist/quill.snow.css";
 import "./ProductForm.css";
 import Toast from "../components/Toast";
-import API_BASE_URL from '../config/api';
+import API_BASE_URL from "../config/api";
 
 const ProductForm = () => {
   const navigate = useNavigate();
@@ -31,6 +31,11 @@ const ProductForm = () => {
     { value: "fire-alarm", label: "Fire Alarm System" },
     { value: "other-products", label: "Other Products" },
     { value: "fire-suppression", label: "Fire Suppression System" },
+    { value: "digital-pa", label: "Digital PA System" },
+    { value: "flame-smoke-camera", label: "Flame And Smoke Detection Camera" },
+    { value: "dts-fo-lhs", label: "DTS FO LHS System" },
+    { value: "linear-heat-cable", label: "Linear Heat Sensing Cable" },
+    { value: "smoke-detector-tester", label: "Smoke Detector Tester" }
   ];
 
   // Predefined brands from the "Authorize Partners" menu
@@ -64,20 +69,18 @@ const ProductForm = () => {
     try {
       const [categoriesRes, brandsRes] = await Promise.all([
         axios.get(`${API_BASE_URL}/products/categories`),
-        axios.get(`${API_BASE_URL}/products/brands`)
+        axios.get(`${API_BASE_URL}/products/brands`),
       ]);
       setDynamicCategories(categoriesRes.data || []);
       setDynamicBrands(brandsRes.data || []);
     } catch (error) {
-      console.error('Error fetching dynamic options:', error);
+      console.error("Error fetching dynamic options:", error);
     }
   };
 
   const fetchProduct = async () => {
     try {
-      const response = await axios.get(
-        `${API_BASE_URL}/products/${id}`
-      );
+      const response = await axios.get(`${API_BASE_URL}/products/${id}`);
       const product = response.data;
       setTitle(product.title);
       setCategory(product.category || "");
@@ -125,10 +128,7 @@ const ProductForm = () => {
       };
 
       if (isEdit) {
-        await axios.put(
-          `${API_BASE_URL}/products/${id}`,
-          productData
-        );
+        await axios.put(`${API_BASE_URL}/products/${id}`, productData);
       } else {
         await axios.post(`${API_BASE_URL}/products`, productData);
       }
@@ -210,15 +210,11 @@ const ProductForm = () => {
     formData.append("file", file);
 
     try {
-      const response = await axios.post(
-        `${API_BASE_URL}/upload`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const response = await axios.post(`${API_BASE_URL}/upload`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
       const filename = response.data.filename;
       updateContent(index, "data", filename);
       // Ensure subType is preserved for specification images
@@ -247,13 +243,9 @@ const ProductForm = () => {
     const uploadPromises = files.map(async (file) => {
       const formData = new FormData();
       formData.append("file", file);
-      const response = await axios.post(
-        `${API_BASE_URL}/upload`,
-        formData,
-        {
-          headers: { "Content-Type": "multipart/form-data" },
-        }
-      );
+      const response = await axios.post(`${API_BASE_URL}/upload`, formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
       return response.data.filename;
     });
 
@@ -297,13 +289,9 @@ const ProductForm = () => {
     const formData = new FormData();
     formData.append("file", file);
     try {
-      const response = await axios.post(
-        `${API_BASE_URL}/upload`,
-        formData,
-        {
-          headers: { "Content-Type": "multipart/form-data" },
-        }
-      );
+      const response = await axios.post(`${API_BASE_URL}/upload`, formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
       setCoverImage(response.data.filename);
       setToast({
         show: true,
@@ -323,13 +311,9 @@ const ProductForm = () => {
     const uploadPromises = Array.from(files).map(async (file) => {
       const formData = new FormData();
       formData.append("file", file);
-      const response = await axios.post(
-        `${API_BASE_URL}/upload`,
-        formData,
-        {
-          headers: { "Content-Type": "multipart/form-data" },
-        }
-      );
+      const response = await axios.post(`${API_BASE_URL}/upload`, formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
       return response.data.filename;
     });
     try {
@@ -458,11 +442,16 @@ const ProductForm = () => {
                         {cat.label}
                       </option>
                     ))}
-                    {dynamicCategories.filter(cat => !predefinedCategories.some(p => p.value === cat)).map((cat) => (
-                      <option key={cat} value={cat}>
-                        {cat}
-                      </option>
-                    ))}
+                    {dynamicCategories
+                      .filter(
+                        (cat) =>
+                          !predefinedCategories.some((p) => p.value === cat)
+                      )
+                      .map((cat) => (
+                        <option key={cat} value={cat}>
+                          {cat}
+                        </option>
+                      ))}
                   </select>
                 ) : (
                   <input
@@ -536,11 +525,15 @@ const ProductForm = () => {
                         {brandItem.label}
                       </option>
                     ))}
-                    {dynamicBrands.filter(b => !predefinedBrands.some(p => p.value === b)).map((b) => (
-                      <option key={b} value={b}>
-                        {b}
-                      </option>
-                    ))}
+                    {dynamicBrands
+                      .filter(
+                        (b) => !predefinedBrands.some((p) => p.value === b)
+                      )
+                      .map((b) => (
+                        <option key={b} value={b}>
+                          {b}
+                        </option>
+                      ))}
                   </select>
                 ) : (
                   <input
@@ -640,7 +633,10 @@ const ProductForm = () => {
                                 className="image-preview-item"
                               >
                                 <img
-                                  src={`${API_BASE_URL.replace('/api','')}/uploads/${filename}`}
+                                  src={`${API_BASE_URL.replace(
+                                    "/api",
+                                    ""
+                                  )}/uploads/${filename}`}
                                   alt={`Preview ${imgIndex + 1}`}
                                   style={{
                                     width: "100px",
@@ -822,7 +818,9 @@ const ProductForm = () => {
                                 style={{ width: "100%", maxWidth: "300px" }}
                               >
                                 <source
-                                  src={`${API_BASE_URL.replace('/api','')}/${content.data}`}
+                                  src={`${API_BASE_URL.replace("/api", "")}/${
+                                    content.data
+                                  }`}
                                 />
                               </video>
                             ) : (
@@ -1109,7 +1107,10 @@ const ProductForm = () => {
                             }}
                           >
                             <img
-                              src={`${API_BASE_URL.replace('/api','')}/uploads/${content.data}`}
+                              src={`${API_BASE_URL.replace(
+                                "/api",
+                                ""
+                              )}/uploads/${content.data}`}
                               alt="Cover Image"
                               style={{
                                 width: "150px",
@@ -1204,7 +1205,10 @@ const ProductForm = () => {
                                   style={{ position: "relative" }}
                                 >
                                   <img
-                                    src={`${API_BASE_URL.replace('/api','')}/uploads/${filename}`}
+                                    src={`${API_BASE_URL.replace(
+                                      "/api",
+                                      ""
+                                    )}/uploads/${filename}`}
                                     alt={`Variation ${imgIndex + 1}`}
                                     style={{
                                       width: "100px",

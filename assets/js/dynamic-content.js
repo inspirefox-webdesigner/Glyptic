@@ -227,7 +227,7 @@ class DynamicContentLoader {
         element.innerHTML = this.processContentHTML(content.data);
         element.className = 'text-box';
         element.style.marginBottom = '1rem';
-        element.style.textAlign = 'justify';
+        element.style.textAlign = 'left';
         element.style.lineHeight = '1.6';
         break;
 

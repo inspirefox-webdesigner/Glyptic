@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import API_BASE_URL from '../config/api';
+import API_BASE_URL from "../config/api";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -38,6 +38,11 @@ const Products = () => {
       "fire-alarm": "Fire Alarm System",
       "other-products": "Other Products",
       "fire-suppression": "Fire Suppression System",
+      "digital-pa": "Digital PA System",
+      "flame-smoke-camera": "Flame And Smoke Detection Camera",
+      "dts-fo-lhs": "DTS FO LHS System",
+      "linear-heat-cable": "Linear Heat Sensing Cable",
+      "smoke-detector-tester": "Smoke Detector Tester",
     };
     return categories[category] || category;
   };
@@ -73,7 +78,7 @@ const Products = () => {
                 style={{ width: "100%", color: "#000000" }}
               >
                 <thead>
-                  <tr style={{ color: "#000000", backgroundColor: "#f8f9fa"}}>
+                  <tr style={{ color: "#000000", backgroundColor: "#f8f9fa" }}>
                     <th
                       style={{
                         color: "#000000",
@@ -183,7 +188,9 @@ const Products = () => {
                             color: "#000000",
                           }}
                         >
-                          {product.category ? getCategoryName(product.category) : "-"}
+                          {product.category
+                            ? getCategoryName(product.category)
+                            : "-"}
                         </td>
                         <td
                           style={{
@@ -208,7 +215,10 @@ const Products = () => {
                               coverImageContent?.data || product.coverImage;
                             return coverImageSrc ? (
                               <img
-                                src={`${API_BASE_URL.replace('/api','')}/uploads/${coverImageSrc}`}
+                                src={`${API_BASE_URL.replace(
+                                  "/api",
+                                  ""
+                                )}/uploads/${coverImageSrc}`}
                                 alt="Product Cover"
                                 style={{
                                   width: "60px",
