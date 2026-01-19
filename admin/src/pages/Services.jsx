@@ -6,6 +6,7 @@ import API_BASE_URL from '../config/api';
 const Services = () => {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     fetchServices();
@@ -35,6 +36,10 @@ const Services = () => {
     }
   };
 
+  const filteredServices = services.filter(service => 
+    service.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   if (loading) return (
     <div className="loading-spinner">
       Loading Services...
@@ -45,19 +50,33 @@ const Services = () => {
     <div >
       <div className="page-header">
         <h1 className="page-title">Services</h1>
-        <Link to="/services/new" className="btn btn-primary">
-          Add New Service
-        </Link>
+        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+          <div style={{ position: 'relative' }}>
+            <span style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: '#a0aec0', fontSize: '1.1rem' }}>🔍</span>
+            <input
+              type="text"
+              placeholder="Search services..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className='product-search'
+            />
+          </div>
+          <Link to="/services/new" className="btn btn-primary">
+            Add New Service
+          </Link>
+        </div>
       </div>
 
-      {services.length === 0 ? (
+      {filteredServices.length === 0 ? (
         <div className="card">
           <div className="card-body empty-state">
-            <h3>No Services Found</h3>
-            <p>Create your first service to get started!</p>
-            <Link to="/services/new" className="btn btn-primary">
-              Create First Service
-            </Link>
+            <h3>{searchQuery ? 'No Services Found' : 'No Services Found'}</h3>
+            <p>{searchQuery ? 'Try a different search term' : 'Create your first service to get started!'}</p>
+            {!searchQuery && (
+              <Link to="/services/new" className="btn btn-primary">
+                Create First Service
+              </Link>
+            )}
           </div>
         </div>
       ) : (
@@ -75,7 +94,7 @@ const Services = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {services.map((service, index) => {
+                  {filteredServices.map((service, index) => {
                     const firstImage = service.contents.find(c => c.type === 'image');
                     const contentText = service.contents
                       .filter(c => c.type === 'content')

@@ -1932,3 +1932,14 @@ body {
     align-items: flex-start;
   }
 }
+
+.product-search{
+  padding: 0.875rem 1rem 0.875rem 2.5rem;
+  border: 2px solid rgba(226, 232, 240, 0.8);
+  border-radius: 12px;
+  font-size: 1rem;
+  width: 300px;
+  transition: all 0.3s ease;
+  background-color: white;
+  color: #000000;
+}

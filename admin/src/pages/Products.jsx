@@ -6,6 +6,7 @@ import API_BASE_URL from "../config/api";
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     fetchProducts();
@@ -47,6 +48,17 @@ const Products = () => {
     return categories[category] || category;
   };
 
+  const filteredProducts = products.filter(
+    (product) =>
+      product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (product.brand &&
+        product.brand.toLowerCase().includes(searchQuery.toLowerCase())) ||
+      (product.category &&
+        getCategoryName(product.category)
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase())),
+  );
+
   if (loading)
     return <div className="loading-spinner">Loading Products...</div>;
 
@@ -54,19 +66,48 @@ const Products = () => {
     <div>
       <div className="page-header">
         <h1 className="page-title">Products</h1>
-        <Link to="/products/new" className="btn btn-primary">
-          Add New Product
-        </Link>
+        <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+          <div style={{ position: "relative" }}>
+            <span
+              style={{
+                position: "absolute",
+                left: "12px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                color: "#a0aec0",
+                fontSize: "1.1rem",
+              }}
+            >
+              🔍
+            </span>
+            <input
+              type="text"
+              placeholder="Search products..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="product-search"
+            />
+          </div>
+          <Link to="/products/new" className="btn btn-primary">
+            Add New Product
+          </Link>
+        </div>
       </div>
 
-      {products.length === 0 ? (
+      {filteredProducts.length === 0 ? (
         <div className="card">
           <div className="card-body empty-state">
-            <h3>No Products Found</h3>
-            <p>Create your first product to get started!</p>
-            <Link to="/products/new" className="btn btn-primary">
-              Create First Product
-            </Link>
+            <h3>{searchQuery ? "No Products Found" : "No Products Found"}</h3>
+            <p>
+              {searchQuery
+                ? "Try a different search term"
+                : "Create your first product to get started!"}
+            </p>
+            {!searchQuery && (
+              <Link to="/products/new" className="btn btn-primary">
+                Create First Product
+              </Link>
+            )}
           </div>
         </div>
       ) : (
@@ -145,7 +186,7 @@ const Products = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {products.map((product, index) => {
+                  {filteredProducts.map((product, index) => {
                     const contentText = product.contents
                       .filter((c) => c.type === "content")
                       .map((c) => c.data.replace(/<[^>]*>/g, ""))
@@ -209,7 +250,7 @@ const Products = () => {
                         >
                           {(() => {
                             const coverImageContent = product.contents.find(
-                              (c) => c.type === "coverImage"
+                              (c) => c.type === "coverImage",
                             );
                             const coverImageSrc =
                               coverImageContent?.data || product.coverImage;
@@ -217,7 +258,7 @@ const Products = () => {
                               <img
                                 src={`${API_BASE_URL.replace(
                                   "/api",
-                                  ""
+                                  "",
                                 )}/uploads/${coverImageSrc}`}
                                 alt="Product Cover"
                                 style={{
