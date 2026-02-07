@@ -66,6 +66,9 @@ app.use("/api/faqs", require("./routes/faqs"));
 app.use("/api/training", require("./routes/training"));
 app.use("/api/admin-settings", require("./routes/adminSettings"));
 app.use("/api/hero-slider", require("./routes/heroSlider"));
+app.use("/api/contact-info", require("./routes/contactInfo"));
+app.use("/api/home-page", require("./routes/homePage"));
+app.use("/api/home-logos", require("./routes/homeLogos"));
 app.use("/api", require("./routes/upload"));
 app.use("/api/notifications", require("./routes/notification"));
 

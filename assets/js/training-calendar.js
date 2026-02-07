@@ -60,8 +60,8 @@ class TrainingCalendarHandler {
           title: event.title,
           start: event.date,
           allDay: true, // This prevents time display
-          description: event.description || "",
           extendedProps: {
+            description: event.description || "",
             time: event.time || "",
             formType: event.formType || "existing",
             customFormLink: event.customFormLink || "",
@@ -156,6 +156,7 @@ class TrainingCalendarHandler {
         id: calendarEvent.id,
         title: calendarEvent.title,
         date: calendarEvent.start,
+        description: calendarEvent.extendedProps.description || "",
         time: calendarEvent.extendedProps.time || "",
         formType: calendarEvent.extendedProps.formType || "existing",
         customFormLink: calendarEvent.extendedProps.customFormLink || "",
@@ -169,6 +170,7 @@ class TrainingCalendarHandler {
       id: info.event.id,
       title: info.event.title,
       date: info.event.start,
+      description: info.event.extendedProps.description || "",
       time: info.event.extendedProps.time || "",
       formType: info.event.extendedProps.formType || "existing",
       customFormLink: info.event.extendedProps.customFormLink || "",
@@ -191,8 +193,10 @@ class TrainingCalendarHandler {
       border-radius: 12px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.3);
       z-index: 10000;
-      max-width: 400px;
+      max-width: 500px;
       width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
       text-align: center;
       border: 2px solid #007bff;
     `;
@@ -214,6 +218,10 @@ class TrainingCalendarHandler {
         )}</p>`
       : "";
 
+    const descriptionDisplay = this.selectedEvent.description
+      ? `<div style="color: #333; margin: 15px 0; padding: 15px;  text-align: left; font-size: 14px; line-height: 1.6; max-height: 200px; overflow-y: auto;">${this.selectedEvent.description}</div>`
+      : "";
+
     const linkDisplay = this.selectedEvent.customFormLink
       ? `<p style="color: #007bff; margin: 10px 0; font-size: 14px; word-break: break-all;"><i class="far fa-link"></i> ${this.selectedEvent.customFormLink}</p>`
       : "";
@@ -223,6 +231,7 @@ class TrainingCalendarHandler {
         this.selectedEvent.title
       }</h4>
       ${timeDisplay}
+      ${descriptionDisplay}
       ${linkDisplay}
       <div style="margin-top: 20px; display: flex; gap: 10px; justify-content: center;">
         <button id="cancelBtn" style="

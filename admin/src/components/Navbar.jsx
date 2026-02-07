@@ -106,6 +106,33 @@ const Navbar = ({ onLogout }) => {
         </li>
         <li>
           <Link
+            to="/home-page"
+            className={`sidebar-link ${location.pathname.includes('/home-page') ? 'active' : ''}`}
+            onClick={closeMenu}
+          >
+             Home Page
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/home-logos"
+            className={`sidebar-link ${location.pathname.includes('/home-logos') ? 'active' : ''}`}
+            onClick={closeMenu}
+          >
+             Home Logos
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/contact-us"
+            className={`sidebar-link ${location.pathname.includes('/contact-us') ? 'active' : ''}`}
+            onClick={closeMenu}
+          >
+             Contact Us
+          </Link>
+        </li>
+        <li>
+          <Link
             to="/services"
             className={`sidebar-link ${location.pathname.includes('/services') ? 'active' : ''}`}
             onClick={closeMenu}

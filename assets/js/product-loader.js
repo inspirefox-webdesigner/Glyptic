@@ -137,7 +137,7 @@ class ProductLoader {
         <img src="${imageUrl}"
              class="card-img-top"
              alt="${product.title}"
-             style="border-radius: 8px; border: none; height: 250px; object-fit: cover;"
+             style="border-radius: 8px; border: none; height: 250px; object-fit: contain;"
              onerror="this.src='assets/img/product/Fire-Alarm-System-fire-Alarm-Control-Panel-addressable-Fire-Detection.jpg'" />
         <div class="card-body">
           <p class="card-text" style="font-weight: 600; color: #333; margin: 0;">${product.title}</p>
@@ -224,7 +224,7 @@ class ProductLoader {
         thumbnail.alt = `${product.title} - Variation ${index + 1}`;
         thumbnail.className = "thumbnail-image";
         thumbnail.style.cssText =
-          "width: 80px; height: 80px; object-fit: cover; border-radius: 8px; cursor: pointer; border: 2px solid transparent; margin-right: 10px; margin-bottom: 10px;";
+          "width: 80px; height: 80px; object-fit: contain; border-radius: 8px; cursor: pointer; border: 2px solid transparent; margin-right: 10px; margin-bottom: 10px;";
 
         // Add hover effect
         thumbnail.addEventListener("mouseenter", () => {

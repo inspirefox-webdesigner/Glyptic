@@ -3,7 +3,7 @@ const Product = require('../models/Product');
 // Get all products
 const getProducts = async (req, res) => {
   try {
-    const products = await Product.find().sort({ createdAt: -1 });
+    const products = await Product.find().sort({ position: 1, createdAt: -1 });
     res.json(products);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -26,7 +26,7 @@ const getProductById = async (req, res) => {
 // Create new product
 const createProduct = async (req, res) => {
   try {
-    const { title, category = '', brand = '', contents = [], coverImage = '', variationImages = [] } = req.body;
+    const { title, category = '', brand = '', contents = [], coverImage = '', variationImages = [], position = 0 } = req.body;
     
     console.log('Creating product with data:', { title, category, brand, contents });
     
@@ -51,6 +51,7 @@ const createProduct = async (req, res) => {
       brand: brand ? brand.trim() : '',
       coverImage,
       variationImages,
+      position,
       contents: parsedContents
     });
     
@@ -66,7 +67,7 @@ const createProduct = async (req, res) => {
 // Update product
 const updateProduct = async (req, res) => {
   try {
-    const { title, category = '', brand = '', contents = [], coverImage = '', variationImages = [] } = req.body;
+    const { title, category = '', brand = '', contents = [], coverImage = '', variationImages = [], position = 0 } = req.body;
     
     if (!title) {
       return res.status(400).json({ message: 'Title is required' });
@@ -78,7 +79,7 @@ const updateProduct = async (req, res) => {
     
     const product = await Product.findByIdAndUpdate(
       req.params.id,
-      { title, category, brand, contents, coverImage, variationImages },
+      { title, category, brand, contents, coverImage, variationImages, position },
       { new: true, runValidators: true }
     );
     
@@ -126,6 +127,52 @@ const getBrands = async (req, res) => {
   }
 };
 
+// Update product positions
+const updateProductPositions = async (req, res) => {
+  try {
+    const { products } = req.body;
+    
+    if (!Array.isArray(products)) {
+      return res.status(400).json({ message: 'Products array is required' });
+    }
+    
+    const updatePromises = products.map(({ id, position }) =>
+      Product.findByIdAndUpdate(id, { position }, { new: true })
+    );
+    
+    await Promise.all(updatePromises);
+    res.json({ message: 'Product positions updated successfully' });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// Bulk delete by category or brand
+const bulkDeleteByType = async (req, res) => {
+  try {
+    const { type, items } = req.body;
+    
+    if (!type || !items || !Array.isArray(items)) {
+      return res.status(400).json({ message: 'Type and items array are required' });
+    }
+    
+    if (type !== 'category' && type !== 'brand') {
+      return res.status(400).json({ message: 'Type must be either category or brand' });
+    }
+    
+    const query = type === 'category' ? { category: { $in: items } } : { brand: { $in: items } };
+    const result = await Product.deleteMany(query);
+    
+    res.json({ 
+      message: `Successfully deleted ${result.deletedCount} products`,
+      deletedCount: result.deletedCount 
+    });
+  } catch (error) {
+    console.error('Error in bulk delete:', error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   getProducts,
   getProductById,
@@ -133,5 +180,7 @@ module.exports = {
   updateProduct,
   deleteProduct,
   getCategories,
-  getBrands
+  getBrands,
+  updateProductPositions,
+  bulkDeleteByType
 };

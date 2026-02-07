@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let allProducts = [];
   let filteredProducts = [];
   let currentFilter = { type: "category", value: "all" };
+  let currentView = "grid"; // Track current view
 
   // Initialize the page
   init();
@@ -19,6 +20,100 @@ document.addEventListener("DOMContentLoaded", function () {
 
     loadProducts(brandParam, categoryParam);
     setupEventListeners();
+    setupViewToggle();
+  }
+
+  // Setup view toggle
+  function setupViewToggle() {
+    const viewToggleBtns = document.querySelectorAll(".view-toggle-btn");
+    viewToggleBtns.forEach((btn) => {
+      btn.addEventListener("click", function () {
+        const view = this.getAttribute("data-view");
+        switchView(view);
+        
+        // Update active state
+        viewToggleBtns.forEach((b) => b.classList.remove("active"));
+        this.classList.add("active");
+      });
+    });
+  }
+
+  // Switch between grid and list view
+  function switchView(view) {
+    currentView = view;
+    const gridView = document.getElementById("products-gallery");
+    const listView = document.getElementById("products-list");
+
+    if (view === "list") {
+      gridView.style.display = "none";
+      listView.style.display = "block";
+      renderProductsList();
+    } else {
+      gridView.style.display = "flex";
+      listView.style.display = "none";
+    }
+  }
+
+  // Render products list view
+  function renderProductsList() {
+    const listBody = document.getElementById("products-list-body");
+
+    if (filteredProducts.length === 0) {
+      const filterMessage =
+        currentFilter.type === "brand"
+          ? `No products available for "${currentFilter.value}" brand`
+          : currentFilter.type === "category"
+            ? `No products available in this category`
+            : "No products found";
+
+      listBody.innerHTML = `
+        <tr>
+          <td colspan="5" class="text-center py-5">
+            <div class="alert alert-info" role="alert">
+              <h4 class="alert-heading"><i class="fas fa-info-circle"></i> ${filterMessage}</h4>
+              <p class="mb-0">Please try selecting a different filter or check back later for new products.</p>
+            </div>
+          </td>
+        </tr>
+      `;
+      return;
+    }
+
+    listBody.innerHTML = filteredProducts
+      .map((product, index) => {
+        const categoryName = product.category
+          ? getCategoryDisplayName(product.category)
+          : "-";
+        const brandName = product.brand || "-";
+        
+        // Extract content text from product.contents
+        let contentText = "";
+        if (product.contents && product.contents.length > 0) {
+          const contentItems = product.contents.filter(c => c.type === "content");
+          if (contentItems.length > 0) {
+            contentText = contentItems
+              .map(c => c.data.replace(/<[^>]*>/g, "")) // Remove HTML tags
+              .join(" ")
+              .trim();
+          }
+        }
+        
+        // Limit content to first 50 characters
+        const displayContent = contentText.length > 50 
+          ? contentText.substring(0, 50) + "..." 
+          : contentText || "-";
+
+        return `
+          <tr onclick="window.location.href='product-details.html?id=${product._id}'">
+            <td>${index + 1}</td>
+            <td><strong>${product.title}</strong></td>
+            <td>${categoryName}</td>
+            <td>${brandName}</td>
+            <td>${displayContent}</td>
+          </tr>
+        `;
+      })
+      .join("");
   }
 
   // Load products from API
@@ -30,10 +125,14 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       allProducts = await response.json();
 
+      // Sort products by position
+      allProducts.sort((a, b) => (a.position || 0) - (b.position || 0));
+
+      
       // If category parameter exists, filter by category
       if (initialCategory) {
         filteredProducts = allProducts.filter(
-          (product) => normalizeText(product.category) === initialCategory
+          (product) => normalizeText(product.category) === initialCategory,
         );
         currentFilter = { type: "category", value: initialCategory };
         // Open categories section if category filter is active
@@ -41,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const categoriesContent =
             document.getElementById("categories-content");
           const categoriesTitle = document.querySelector(
-            '[data-toggle="categories"]'
+            '[data-toggle="categories"]',
           );
           if (categoriesContent && categoriesTitle) {
             categoriesContent.style.display = "block";
@@ -52,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // If brand parameter exists, filter by brand
       else if (initialBrand) {
         filteredProducts = allProducts.filter(
-          (product) => normalizeText(product.brand) === initialBrand
+          (product) => normalizeText(product.brand) === initialBrand,
         );
         currentFilter = { type: "brand", value: initialBrand };
         // Open brands section if brand filter is active
@@ -62,7 +161,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const categoriesContent =
             document.getElementById("categories-content");
           const categoriesTitle = document.querySelector(
-            '[data-toggle="categories"]'
+            '[data-toggle="categories"]',
           );
           if (brandsContent && brandsTitle) {
             brandsContent.style.display = "block";
@@ -101,7 +200,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const categoriesContent = document.getElementById("categories-content");
     const brandsContent = document.getElementById("brands-content");
     const categoriesTitle = document.querySelector(
-      '[data-toggle="categories"]'
+      '[data-toggle="categories"]',
     );
     const brandsTitle = document.querySelector('[data-toggle="brands"]');
 
@@ -132,13 +231,13 @@ document.addEventListener("DOMContentLoaded", function () {
       ...new Set(
         allProducts
           .filter((product) => product.category)
-          .map((product) => product.category)
+          .map((product) => product.category),
       ),
     ];
 
     // Clear existing filters except "All Products"
     const allButton = categoriesContainer.querySelector(
-      '[data-category="all"]'
+      '[data-category="all"]',
     );
     categoriesContainer.innerHTML = "";
     categoriesContainer.appendChild(allButton);
@@ -181,7 +280,7 @@ document.addEventListener("DOMContentLoaded", function () {
       ...new Set(
         allProducts
           .filter((product) => product.brand)
-          .map((product) => product.brand)
+          .map((product) => product.brand),
       ),
     ];
 
@@ -228,7 +327,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Filter by category
   function filterByCategory(category) {
     filteredProducts = allProducts.filter(
-      (product) => normalizeText(product.category) === normalizeText(category)
+      (product) => normalizeText(product.category) === normalizeText(category),
     );
     currentFilter = { type: "category", value: category };
     renderProducts();
@@ -237,7 +336,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Filter by brand
   function filterByBrand(brand) {
     filteredProducts = allProducts.filter(
-      (product) => normalizeText(product.brand) === normalizeText(brand)
+      (product) => normalizeText(product.brand) === normalizeText(brand),
     );
     currentFilter = { type: "brand", value: brand };
     renderProducts();
@@ -263,6 +362,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Render products
   function renderProducts() {
+    if (currentView === "list") {
+      renderProductsList();
+    } else {
+      renderProductsGrid();
+    }
+  }
+
+  // Render products grid view
+  function renderProductsGrid() {
     const productsContainer = document.getElementById("products-gallery");
 
     if (filteredProducts.length === 0) {
@@ -270,8 +378,8 @@ document.addEventListener("DOMContentLoaded", function () {
         currentFilter.type === "brand"
           ? `No products available for "${currentFilter.value}" brand`
           : currentFilter.type === "category"
-          ? `No products available in this category`
-          : "No products found";
+            ? `No products available in this category`
+            : "No products found";
 
       productsContainer.innerHTML = `
                 <div class="col-12">

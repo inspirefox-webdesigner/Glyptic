@@ -28,34 +28,34 @@ const ProductForm = () => {
   const [dynamicBrands, setDynamicBrands] = useState([]);
 
   const predefinedCategories = [
-    { value: "fire-alarm", label: "Fire Alarm System" },
-    { value: "other-products", label: "Other Products" },
-    { value: "fire-suppression", label: "Fire Suppression System" },
-    { value: "digital-pa", label: "Digital PA System" },
-    { value: "flame-smoke-camera", label: "Flame And Smoke Detection Camera" },
-    { value: "dts-fo-lhs", label: "DTS FO LHS System" },
-    { value: "linear-heat-cable", label: "Linear Heat Sensing Cable" },
-    { value: "smoke-detector-tester", label: "Smoke Detector Tester" }
+    // { value: "fire-alarm", label: "Fire Alarm System" },
+    // { value: "other-products", label: "Other Products" },
+    // { value: "fire-suppression", label: "Fire Suppression System" },
+    // { value: "digital-pa", label: "Digital PA System" },
+    // { value: "flame-smoke-camera", label: "Flame And Smoke Detection Camera" },
+    // { value: "dts-fo-lhs", label: "DTS FO LHS System" },
+    // { value: "linear-heat-cable", label: "Linear Heat Sensing Cable" },
+    // { value: "smoke-detector-tester", label: "Smoke Detector Tester" }
   ];
 
   // Predefined brands from the "Authorize Partners" menu
   const predefinedBrands = [
-    { value: "Edwards", label: "Edwards" },
-    { value: "Siemens", label: "Siemens" },
-    { value: "Notifier", label: "Notifier" },
-    { value: "Simplex", label: "Simplex" },
-    { value: "TNA", label: "TNA" },
-    { value: "Farenhyt", label: "Farenhyt" },
-    { value: "ESSER", label: "ESSER" },
-    { value: "Honeywell", label: "Honeywell" },
-    { value: "Apollo", label: "Apollo" },
-    { value: "Ansul", label: "Ansul" },
-    { value: "Kidde", label: "Kidde" },
-    { value: "Blazecut", label: "Blazecut" },
-    { value: "Kentec", label: "Kentec" },
-    { value: "Wagner", label: "Wagner" },
-    { value: "Bandweaver", label: "Bandweaver" },
-    { value: "Securiton", label: "Securiton" },
+    // { value: "Edwards", label: "Edwards" },
+    // { value: "Siemens", label: "Siemens" },
+    // { value: "Notifier", label: "Notifier" },
+    // { value: "Simplex", label: "Simplex" },
+    // { value: "TNA", label: "TNA" },
+    // { value: "Farenhyt", label: "Farenhyt" },
+    // { value: "ESSER", label: "ESSER" },
+    // { value: "Honeywell", label: "Honeywell" },
+    // { value: "Apollo", label: "Apollo" },
+    // { value: "Ansul", label: "Ansul" },
+    // { value: "Kidde", label: "Kidde" },
+    // { value: "Blazecut", label: "Blazecut" },
+    // { value: "Kentec", label: "Kentec" },
+    // { value: "Wagner", label: "Wagner" },
+    // { value: "Bandweaver", label: "Bandweaver" },
+    // { value: "Securiton", label: "Securiton" },
   ];
 
   useEffect(() => {

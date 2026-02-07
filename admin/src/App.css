@@ -168,6 +168,20 @@ body {
   overflow: hidden;
 }
 
+.btn2 {
+  padding: 0.875rem 1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
 .btn:before {
   content: '';
   position: absolute;
@@ -1779,6 +1793,7 @@ body {
   padding: 1.5rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
 }
 
 .form-input {
@@ -1942,4 +1957,102 @@ body {
   transition: all 0.3s ease;
   background-color: white;
   color: #000000;
+}
+
+/* Contact Us Admin Styles */
+.contact-input-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  align-items: center;
+}
+
+.contact-input-group .form-input {
+  flex: 1;
+}
+
+.contact-input-actions {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.contact-input-actions .btn {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+/* Home Page Admin Styles */
+.home-page-preview {
+  background: rgba(248, 249, 250, 0.8);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.home-page-preview h3 {
+  color: #2d3748;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.home-page-preview .preview-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.home-page-preview .preview-image {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.home-page-preview .preview-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.home-page-preview .preview-text h4 {
+  color: #43a409;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.home-page-preview .preview-text p {
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.home-page-preview .preview-features {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.home-page-preview .preview-feature {
+  background: linear-gradient(135deg, #43a409 0%, #43a409 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .contact-input-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .contact-input-actions {
+    justify-content: flex-end;
+  }
+  
+  .home-page-preview .preview-content {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }

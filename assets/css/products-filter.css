@@ -8,6 +8,7 @@
     top: 20px;
     max-height: calc(100vh - 40px);
     overflow-y: auto;
+    margin-top: 65px;
 }
 
 .filter-section {
@@ -79,6 +80,87 @@
     color: #fff;
 }
 
+/* View Toggle Styles */
+.view-toggle-wrapper {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.view-toggle-btn {
+    padding: 10px 20px;
+    border: 2px solid #e9ecef;
+    background: #fff;
+    color: #666;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.view-toggle-btn:hover {
+    border-color: #43a409;
+    color: #43a409;
+}
+
+.view-toggle-btn.active {
+    background: #43a409;
+    color: #fff;
+    border-color: #43a409;
+}
+
+.view-toggle-btn i {
+    margin-right: 5px;
+}
+
+/* List View Table Styles */
+#products-list {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+#products-list .table-responsive {
+    border-radius: 8px;
+}
+
+#products-list table {
+    margin: 0;
+}
+
+#products-list thead th {
+    background: #f8f9fa;
+    color: #333;
+    font-weight: 600;
+    padding: 15px;
+    border-bottom: 2px solid #e9ecef;
+    white-space: nowrap;
+}
+
+#products-list tbody tr {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#products-list tbody tr:hover {
+    background: #f8f9fa;
+}
+
+#products-list tbody td {
+    padding: 15px;
+    vertical-align: middle;
+    color: #333;
+    border-bottom: 1px solid #e9ecef;
+}
+
+#products-list tbody td:first-child {
+    font-weight: 600;
+    color: #666;
+}
+
 /* Product Cards */
 .product-card {
     background: #fff;
@@ -147,5 +229,24 @@
     .filter-btn {
         font-size: 13px;
         padding: 8px 12px;
+    }
+    
+    .view-toggle-wrapper {
+        justify-content: center;
+    }
+    
+    .view-toggle-btn {
+        padding: 8px 15px;
+        font-size: 13px;
+    }
+    
+    #products-list .table-responsive {
+        max-height: 500px !important;
+    }
+    
+    #products-list thead th,
+    #products-list tbody td {
+        padding: 10px;
+        font-size: 13px;
     }
 }

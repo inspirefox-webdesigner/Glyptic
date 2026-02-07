@@ -14,6 +14,10 @@ const productSchema = new mongoose.Schema({
     type: String,
     default: ''
   },
+  position: {
+    type: Number,
+    default: 0
+  },
   coverImage: {
     type: String,
     default: null

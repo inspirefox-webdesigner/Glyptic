@@ -104,7 +104,7 @@ function updateProductImages(product) {
             <img src="${API_BASE_URL.replace("/api", "")}/uploads/${image}" 
                  alt="${product.title} ${index + 1}"
                  class="thumbnail-image"
-                 style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px; cursor: pointer; border: 2px solid transparent; margin-right: 10px;"
+                 style="width: 80px; height: 80px; object-fit: contain; border-radius: 8px; cursor: pointer; border: 2px solid transparent; margin-right: 10px;"
                  onclick="changeMainImage('${API_BASE_URL.replace(
                    "/api",
                    ""

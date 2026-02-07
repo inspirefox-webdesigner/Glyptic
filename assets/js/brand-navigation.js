@@ -2,7 +2,7 @@
 const BRAND_MAPPING = {
     '1.jpg': 'Ansul',
     '2.jpg': 'Ware',
-    '3.jpg': 'Est',
+    '3.jpg': 'Edwards',
     '4.jpg': 'ESSER',
     '5.jpg': 'Farenhyt',
     '6.jpg': 'Fipron',
